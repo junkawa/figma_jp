@@ -766,19 +766,6 @@ const mainMenuMap = [
         "en": "Log Out",
         "jp": "ログアウト"
     },
-    // その他
-    // {
-    //     "en": "Publish Styles & Components",
-    //     "jp": ""
-    // },
-    {
-        "en": "Rename",
-        "jp": "名前を変更"
-    },
-    {
-        "en": "Move to Project…",
-        "jp": "プロジェクトへ移動"
-    },
     // View Settings
     {
         "en": "Zoom in",
@@ -796,7 +783,77 @@ const mainMenuMap = [
         "en": "Zoom to 200%",
         "jp": "200％にズーム"
     },
-
+    // ツールバー中央
+    // {
+    //     "en": "Publish Styles & Components",
+    //     "jp": ""
+    // },
+    {
+        "en": "Rename",
+        "jp": "名前を変更"
+    },
+    {
+        "en": "Move to Project…",
+        "jp": "プロジェクトへ移動"
+    },
+    // 右クリック Canvas
+    {
+        "en": "Search…",
+        "jp": "検索"
+    },
+    {
+        "en": "Select Layer",
+        "jp": "レイヤー選択"
+    },
+    {
+        "en": "Move to Page",
+        "jp": "ページへ移動"
+    },
+    {
+        "en": "Ungroup",
+        "jp": "グループ解除"
+    },
+    {
+        "en": "Flatten",
+        "jp": "複合パスに拡張"
+    },
+    {
+        "en": "Show/Hide",
+        "jp": "表示/非表示"
+    },
+    {
+        "en": "Lock/Unlock",
+        "jp": "ロック/ロック解除"
+    },
+    {
+        "en": "Copy/Paste",
+        "jp": "コピー/ペースト"
+    },
+    {
+        "en": "Copy Link",
+        "jp": "リンクをコピー"
+    },
+    {
+        "en": "More",
+        "jp": "その他"
+    },
+    // 右クリック Pages
+    {
+        "en": "Copy Link to Page",
+        "jp": "ページへのリンクをコピー"
+    },
+    {
+        "en": "Delete Page",
+        "jp": "ページを削除"
+    },
+    {
+        "en": "Rename Page",
+        "jp": "ページ名を変更"
+    },
+    {
+        "en": "Duplicate Page",
+        "jp": "ページを複製"
+    },
 ];
 
 // ツールバー > ツール の翻訳
@@ -882,10 +939,113 @@ const toolsMap = [
         "en": "Flatten Selection",
         "jp": "複合パスに拡張"
     },
+];
 
+// ツールバーのツールチップ の翻訳
+const tooltipMap = [
+    /*
+    //
+    {
+        "en": "Move Tools",
+        "jp": "移動ツール"
+    },
+    {
+        "en": "Region Tools",
+        "jp": "リージョンツール"
+    },
+    {
+        "en": "Shape Tools",
+        "jp": "シェイプツール"
+    },
+    {
+        "en": "Drawing Tools",
+        "jp": "ドローツール"
+    },
+    {
+        "en": "Zoom/View Options",
+        "jp": "ズーム・ビュー操作"
+    },
+    // 
+    {
+        "en": "toggle-menu",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-default",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-frame",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-rectangle",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-pen",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-type",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-hand",
+        "jp": ""
+    },
+    {
+        "en": "set-tool-comments",
+        "jp": ""
+    },
+    {
+        "en": "Present",
+        "jp": ""
+    },
     {
         "en": "",
         "jp": ""
     },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+*/
 
 ];

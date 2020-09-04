@@ -1,5 +1,5 @@
 // メニューのラベル要素の中身を日本語で置き換える
-function translate(selector, map) {
+function translateInnerHTML(selector, map) {
     const labels = document.querySelectorAll(selector);
     // console.log(labels);
     labels.forEach(label => {
@@ -10,32 +10,56 @@ function translate(selector, map) {
     });
 }
 
+// ツールチップ要素を日本語で置き換える
+function translateTooltip(selector, map) {
+    const tooltips = document.querySelectorAll(selector);
+    // console.log(labels);
+    tooltips.forEach(tooltip => {
+        const ret = map.find((m) => m["en"] === tooltip.getAttribute("data-tooltip")); // 先頭一致
+        if (ret) {
+            tooltip.setAttribute("data-tooltip", ret["jp"]);
+        }
+    });
+}
+
 function translateMainMenu() {
     // メインメニューラベル要素の class
-    const selector = '.multilevel_dropdown--name--1abLT';
-    translate(selector, mainMenuMap);
+    const selector = ".multilevel_dropdown--name--1abLT";
+    translateInnerHTML(selector, mainMenuMap);
 }
 
 function translateTools() {
     // ツールラベル要素の class
-    const selector = '.action_option--text--3Rze3';
-    translate(selector, toolsMap);
+    const selector = ".action_option--text--3Rze3";
+    translateInnerHTML(selector, toolsMap);
 }
 
-// 静的に生成されるメニューの翻訳
+// 静的に(読み込み完了時に)生成されるメニューの翻訳
 function translateStaticMenu() {
+    // ページ読み込み完了待ち
+    //if (!page) {
+    //window.setTimeout(observePage, 100);
+    //  return;
+    //}
+
     // Share ボタン
-    //const label = document.querySelector('.toolbar_view--shareButton--Q6fI7');
-    //label.innerHTML = "共有";
+    //const shareLabel = document.querySelector(".toolbar_view--shareButton--Q6fI7");
+    //shareLabel.innerHTML = "共有";
+
     // ツールチップ
+    //const selector1 = ".chevron--chevronContainer--3xT09";
+    //translateTooltip(selector1, tooltipMap);
+
+    //const selector2 = ".action--enabled--16Cku";
+    //translateTooltip(selector2, tooltipMap);
 
 }
 
 // 動的に生成されるメニューの監視
 function observeDynamicMenu() {
     // 動的生成メニュー要素の先祖 class (TODO 要検討)
-    const menuSelector = '.fullscreen_view--page--1QuyL';
-    const menuTarget = document.querySelector(menuSelector);
+    const selector = ".fullscreen_view--page--1QuyL";
+    const menuTarget = document.querySelector(selector);
     const config = {
         attributes: true,
         childList: true,
@@ -67,7 +91,8 @@ function observeDynamicMenu() {
  */
 function observePage() {
     // ページ遷移時に変化する要素の親要素 class (TODO 要検討)
-    const page = document.querySelector(".in_app_page--content--2V_He");
+    const selector = ".in_app_page--content--2V_He";
+    const page = document.querySelector(selector);
 
     // ページ読み込み完了待ち
     if (!page) {
@@ -89,8 +114,8 @@ observePage();
 /* 初回ロード完了時に実行
  * ページ遷移時は実行されない
  */
-document.addEventListener('readystatechange', event => {
-    if (event.target.readyState === 'complete') {
+document.addEventListener("readystatechange", event => {
+    if (event.target.readyState === "complete") {
         translateStaticMenu();
         // ロード完了後にメニューを監視する
         observeDynamicMenu();
