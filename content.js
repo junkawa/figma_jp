@@ -20,16 +20,15 @@ function translateTools() {
     // ツールラベル要素の class
     const selector = '.action_option--text--3Rze3';
     translate(selector, toolsMap);
-
-    // ツールチップ
-
 }
 
 // 静的に生成されるメニューの翻訳
 function translateStaticMenu() {
     // Share ボタン
-    const label = document.querySelector('.toolbar_view--shareButton--Q6fI7');
-    label.innerHTML = "共有";
+    //const label = document.querySelector('.toolbar_view--shareButton--Q6fI7');
+    //label.innerHTML = "共有";
+    // ツールチップ
+
 }
 
 // 動的に生成されるメニューの監視
