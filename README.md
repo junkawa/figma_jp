@@ -9,3 +9,5 @@ Figma のメニューを日本語化する Chrome 拡張機能です。
 <https://forms.gle/bv3CHN2dERS611oZA>
 
 ## インストール方法
+
+<https://note.com/junkawashima/n/neb065fe2e9d2>
