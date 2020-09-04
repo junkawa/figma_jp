@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Figma 日本語化",
+    "version": "0.1",
+    "description": "Figma の表示を日本語化する拡張です。",
+    "homepage_url": "https://github.com/junkawa/figma_jp",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.figma.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": []
+}
