@@ -36,22 +36,28 @@ function translateTools() {
 
 // 静的に(読み込み完了時に)生成されるメニューの翻訳
 function translateStaticMenu() {
-    // ページ読み込み完了待ち
-    //if (!page) {
-    //window.setTimeout(observePage, 100);
-    //  return;
-    //}
+    // ツールバー class
+    const selector = ".toolbar_view--toolbar--2396w";
+    const toolbar = document.querySelector(selector);
+    // ツールバー読み込み完了待ち
+    if (!toolbar) {
+        window.setTimeout(translateStaticMenu, 100);
+        return;
+    }
 
     // Share ボタン
-    //const shareLabel = document.querySelector(".toolbar_view--shareButton--Q6fI7");
-    //shareLabel.innerHTML = "共有";
+    const shareSelector = ".toolbar_view--shareButton--Q6fI7";
+    const shareLabel = document.querySelector(shareSelector);
+    if (shareLabel) {
+        shareLabel.innerHTML = "共有";
+    }
 
     // ツールチップ
-    //const selector1 = ".chevron--chevronContainer--3xT09";
-    //translateTooltip(selector1, tooltipMap);
+    const selector1 = ".chevron--chevronContainer--3xT09";
+    translateTooltip(selector1, tooltipMap);
 
-    //const selector2 = ".action--enabled--16Cku";
-    //translateTooltip(selector2, tooltipMap);
+    const selector2 = ".action--enabled--16Cku";
+    translateTooltip(selector2, tooltipMap);
 
 }
 

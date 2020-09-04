@@ -783,6 +783,10 @@ const mainMenuMap = [
         "en": "Zoom to 200%",
         "jp": "200％にズーム"
     },
+    {
+        "en": "Disabled",
+        "jp": "無効"
+    },
     // ツールバー中央
     // {
     //     "en": "Publish Styles & Components",
@@ -943,7 +947,6 @@ const toolsMap = [
 
 // ツールバーのツールチップ の翻訳
 const tooltipMap = [
-    /*
     //
     {
         "en": "Move Tools",
@@ -965,7 +968,7 @@ const tooltipMap = [
         "en": "Zoom/View Options",
         "jp": "ズーム・ビュー操作"
     },
-    // 
+    /*
     {
         "en": "toggle-menu",
         "jp": ""
@@ -1002,50 +1005,5 @@ const tooltipMap = [
         "en": "Present",
         "jp": ""
     },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
-    {
-        "en": "",
-        "jp": ""
-    },
 */
-
 ];
