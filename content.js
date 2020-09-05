@@ -1,4 +1,4 @@
-// メニューのラベル要素の中身を日本語で置き換える
+// ラベル要素の中身を日本語で置き換える
 function _translateInnerHTML(selector, map) {
     const labels = document.querySelectorAll(selector);
     // console.log(labels);
@@ -10,14 +10,27 @@ function _translateInnerHTML(selector, map) {
     });
 }
 
-// ツールチップ要素を日本語で置き換える
-function _translateTooltip(selector, map) {
+// data-tooltip 属性を日本語で置き換える
+function _translateDataTooltip(selector, map) {
     const tooltips = document.querySelectorAll(selector);
     // console.log(labels);
     tooltips.forEach(tooltip => {
         const ret = map.find((m) => m["en"] === tooltip.getAttribute("data-tooltip")); // 先頭一致
         if (ret) {
             tooltip.setAttribute("data-tooltip", ret["jp"]);
+        }
+    });
+}
+
+// data-label 属性を日本語で置き換える
+function _translateDataLabel(selector, map) {
+    const labels = document.querySelectorAll(selector);
+    // console.log(labels);
+    labels.forEach(label => {
+        const ret = map.find((m) => m["en"] === label.getAttribute("data-label")); // 先頭一致
+        if (ret) {
+            label.setAttribute("data-label", ret["jp"]);
+            label.style.padding = "0 18px"; // TODO 固定で良いか?
         }
     });
 }
@@ -33,15 +46,28 @@ function translateDynamicTools() {
     // ツールラベル要素の class
     const selector = ".action_option--text--3Rze3";
     _translateInnerHTML(selector, toolsMap);
+
+    // Done ボタン TODO map変数を独自に用意してもよいかも(mainMenuMapはおおきすぎるため)
+    const shareSelector = ".toolbar_view--textButton--eiCIw";
+    _translateInnerHTML(shareSelector, mainMenuMap);
 }
 
+// 左(ページ)パネル
+// 右(プロパティ)パネル
 function translateDynamicPanel() {
     // パネルタイトル要素の class
     const selector1 = ".raw_components--panelTitle--7MaOu ";
     _translateInnerHTML(selector1, panelMap);
 
-    const selector2 = ".draggable_list--panelTitleText--1q89R";
+    const selector2 = ".raw_components--panelTitle--7MaOu div";
     _translateInnerHTML(selector2, panelMap);
+
+    const selector3 = ".draggable_list--panelTitleText--1q89R";
+    _translateInnerHTML(selector3, panelMap);
+
+    // Pages
+    const selector4 = ".pages_panel--pagesHeaderText--1GE3u";
+    _translateInnerHTML(selector4, panelTabMap);
 }
 
 function translateDynamicTooltip() {
@@ -87,11 +113,14 @@ function translateStaticMenu() {
 
     // ツールチップ
     const selector1 = ".chevron--chevronContainer--3xT09";
-    _translateTooltip(selector1, tooltipMap);
+    _translateDataTooltip(selector1, tooltipMap);
 
     const selector2 = ".action--enabled--16Cku";
-    _translateTooltip(selector2, tooltipMap);
+    _translateDataTooltip(selector2, tooltipMap);
 
+    // パネル Layers, Assets, design, prototype, code
+    const selector3 = ".pages_panel--tab--3s1Y5";
+    _translateDataLabel(selector3, panelTabMap);
 }
 
 // 動的に生成されるツールチップの監視
@@ -149,7 +178,7 @@ function observeDynamicMenu() {
         // メニュー生成検知時に翻訳する
         translateDynamicMainMenu();
         translateDynamicTools();
-        //translateDynamicPanel();
+        translateDynamicPanel();
 
         menuObserver.observe(menuTarget, config);
 

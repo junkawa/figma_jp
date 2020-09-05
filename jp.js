@@ -805,6 +805,11 @@ const mainMenuMap = [
         "en": "Share",
         "jp": "共有"
     },
+    // ペンツール
+    {
+        "en": "Done",
+        "jp": "終了"
+    },
     // 右クリック Canvas
     {
         "en": "Search…",
@@ -1007,12 +1012,20 @@ const tooltipMap = [
         "jp": "リンクを作成"
     },
     {
-        "en": "",
-        "jp": ""
+        "en": "Align left",
+        "jp": "水平方向左に整列"
     },
     {
-        "en": "",
-        "jp": ""
+        "en": "Bend Tool",
+        "jp": "曲線ツール"
+    },
+    {
+        "en": "Paint Bucket",
+        "jp": "塗りつぶし"
+    },
+    {
+        "en": "Done",
+        "jp": "終了"
     },
     {
         "en": "",
@@ -1032,7 +1045,7 @@ const panelMap = [
     },
     {
         "en": "Auto Layout",
-        "jp": "自動レイアウト"
+        "jp": "オートレイアウト"
     },
     {
         "en": "Layer",
@@ -1048,7 +1061,7 @@ const panelMap = [
     },
     {
         "en": "Selection Colors",
-        "jp": "選択色"
+        "jp": "使用した色"
     },
     {
         "en": "Effects",
@@ -1074,13 +1087,32 @@ const panelMap = [
         "en": "Code",
         "jp": "コード"
     },
+];
+
+const panelTabMap = [
     {
-        "en": "",
-        "jp": ""
+        "en": "Layers",
+        "jp": "レイヤー"
     },
     {
-        "en": "",
-        "jp": ""
+        "en": "Assets",
+        "jp": "アセット"
+    },
+    {
+        "en": "design",
+        "jp": "デザイン"
+    },
+    {
+        "en": "prototype",
+        "jp": "プロトタイプ"
+    },
+    {
+        "en": "code",
+        "jp": "コード"
+    },
+    {
+        "en": "Pages",
+        "jp": "ページ"
     },
     {
         "en": "",
