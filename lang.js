@@ -1190,13 +1190,22 @@ const panelSelectMap = [
         "en": "Luminosity",
         "ja": "輝度"
     },
+    // Effects
     {
-        "en": "",
-        "ja": ""
+        "en": "Inner Shadow",
+        "ja": "シャドウ（内側）"
     },
     {
-        "en": "",
-        "ja": ""
+        "en": "Drop Shadow",
+        "ja": "ドロップシャドウ"
+    },
+    {
+        "en": "Layer Blur",
+        "ja": "ぼかし"
+    },
+    {
+        "en": "Background Blur",
+        "ja": "背景のぼかし"
     },
     {
         "en": "",
