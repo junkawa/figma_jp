@@ -62,6 +62,8 @@ function translateDynamicTooltip() {
     //   div.tooltip--content--3GEna
     //     <span...>Polygon</span>
     const selector2 = "div.tooltip--content--3GEna span";
+    // Edit Object など固定のもの
+    _translateInnerHTML(selector2, tooltipMap);
     // Polygon, Start など選択状況によって変わるもの
     // 選択元のツールバーtoolsMapの翻訳を利用
     _translateInnerHTML(selector2, toolsMap);

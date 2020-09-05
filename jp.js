@@ -986,40 +986,38 @@ const tooltipMap = [
         "en": "Add/Show Comments",
         "jp": "コメントの追加/表示"
     },
-    /*
     {
-        "en": "set-tool-default",
+        "en": "Edit Object",
+        "jp": "オブジェクトの編集"
+    },
+    {
+        "en": "Create Component",
+        "jp": "コンポーネントを作成"
+    },
+    {
+        "en": "Use as Mask",
+        "jp": "マスクを作成"
+    },
+    {
+        "en": "Boolean Groups",
+        "jp": "複合シェイプを作成"
+    },
+    {
+        "en": "Create Link",
+        "jp": "リンクを作成"
+    },
+    {
+        "en": "",
         "jp": ""
     },
     {
-        "en": "set-tool-frame",
+        "en": "",
         "jp": ""
     },
     {
-        "en": "set-tool-rectangle",
+        "en": "",
         "jp": ""
     },
-    {
-        "en": "set-tool-pen",
-        "jp": ""
-    },
-    {
-        "en": "set-tool-type",
-        "jp": ""
-    },
-    {
-        "en": "set-tool-hand",
-        "jp": ""
-    },
-    {
-        "en": "set-tool-comments",
-        "jp": ""
-    },
-    {
-        "en": "Present",
-        "jp": ""
-    },
-*/
 ];
 
 // パネルの翻訳
