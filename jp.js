@@ -800,6 +800,11 @@ const mainMenuMap = [
         "en": "Move to Project…",
         "jp": "プロジェクトへ移動"
     },
+    // 共有
+    {
+        "en": "Share",
+        "jp": "共有"
+    },
     // 右クリック Canvas
     {
         "en": "Search…",
@@ -947,7 +952,7 @@ const toolsMap = [
 
 // ツールバーのツールチップ の翻訳
 const tooltipMap = [
-    //
+    // data-tooltip-type="text"
     {
         "en": "Move Tools",
         "jp": "移動ツール"
@@ -968,11 +973,20 @@ const tooltipMap = [
         "en": "Zoom/View Options",
         "jp": "ズーム・ビュー操作"
     },
-    /*
+    // data-tooltip-type="lookup"
     {
-        "en": "toggle-menu",
-        "jp": ""
+        "en": "Hand Tool",
+        "jp": "手のひらツール"
     },
+    {
+        "en": "Text",
+        "jp": "テキスト"
+    },
+    {
+        "en": "Add/Show Comments",
+        "jp": "コメントの追加/表示"
+    },
+    /*
     {
         "en": "set-tool-default",
         "jp": ""
@@ -1006,4 +1020,72 @@ const tooltipMap = [
         "jp": ""
     },
 */
+];
+
+// パネルの翻訳
+const panelMap = [
+    {
+        "en": "Constraints",
+        "jp": "制約"
+    },
+    {
+        "en": "Background",
+        "jp": "背景"
+    },
+    {
+        "en": "Auto Layout",
+        "jp": "自動レイアウト"
+    },
+    {
+        "en": "Layer",
+        "jp": "レイヤー"
+    },
+    {
+        "en": "Fill",
+        "jp": "塗り"
+    },
+    {
+        "en": "Stroke",
+        "jp": "線"
+    },
+    {
+        "en": "Selection Colors",
+        "jp": "選択色"
+    },
+    {
+        "en": "Effects",
+        "jp": "エフェクト"
+    },
+    {
+        "en": "Export",
+        "jp": "エクスポート"
+    },
+    {
+        "en": "Layout Grid",
+        "jp": "レイアウトグリッド"
+    },
+    {
+        "en": "Design",
+        "jp": "デザイン"
+    },
+    {
+        "en": "Prototype",
+        "jp": "プロトタイプ"
+    },
+    {
+        "en": "Code",
+        "jp": "コード"
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
+    {
+        "en": "",
+        "jp": ""
+    },
 ];

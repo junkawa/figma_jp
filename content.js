@@ -1,5 +1,5 @@
 // メニューのラベル要素の中身を日本語で置き換える
-function translateInnerHTML(selector, map) {
+function _translateInnerHTML(selector, map) {
     const labels = document.querySelectorAll(selector);
     // console.log(labels);
     labels.forEach(label => {
@@ -11,7 +11,7 @@ function translateInnerHTML(selector, map) {
 }
 
 // ツールチップ要素を日本語で置き換える
-function translateTooltip(selector, map) {
+function _translateTooltip(selector, map) {
     const tooltips = document.querySelectorAll(selector);
     // console.log(labels);
     tooltips.forEach(tooltip => {
@@ -22,16 +22,50 @@ function translateTooltip(selector, map) {
     });
 }
 
-function translateMainMenu() {
+function translateDynamicMainMenu() {
     // メインメニューラベル要素の class
+    // TODO 正規表現にして変更に耐性もたせるか? 速度低下する?
     const selector = ".multilevel_dropdown--name--1abLT";
-    translateInnerHTML(selector, mainMenuMap);
+    _translateInnerHTML(selector, mainMenuMap);
 }
 
-function translateTools() {
+function translateDynamicTools() {
     // ツールラベル要素の class
     const selector = ".action_option--text--3Rze3";
-    translateInnerHTML(selector, toolsMap);
+    _translateInnerHTML(selector, toolsMap);
+}
+
+function translateDynamicPanel() {
+    // パネルタイトル要素の class
+    const selector1 = ".raw_components--panelTitle--7MaOu ";
+    _translateInnerHTML(selector1, panelMap);
+
+    const selector2 = ".draggable_list--panelTitleText--1q89R";
+    _translateInnerHTML(selector2, panelMap);
+}
+
+function translateDynamicTooltip() {
+    // ショートカットありのツールチップ
+    // .tooltip--notInteractive--2q4-q  
+    //   div.tooltip--content--3GEna
+    //     span.tooltip--textWithShortcut--2r28_
+    //       <span>Hand Tool</span>
+    const selector1 = "div.tooltip--content--3GEna span span";
+    // Hand Tool, Text など固定のもの
+    _translateInnerHTML(selector1, tooltipMap);
+    // Rectangle, Pen など選択状況によって変わるもの
+    // 選択元のツールバーtoolsMapの翻訳を利用
+    _translateInnerHTML(selector1, toolsMap);
+
+    // ショートカットなしのツールチップ
+    // .tooltip--notInteractive--2q4-q  
+    //   div.tooltip--content--3GEna
+    //     <span...>Polygon</span>
+    const selector2 = "div.tooltip--content--3GEna span";
+    // Polygon, Start など選択状況によって変わるもの
+    // 選択元のツールバーtoolsMapの翻訳を利用
+    _translateInnerHTML(selector2, toolsMap);
+
 }
 
 // 静的に(読み込み完了時に)生成されるメニューの翻訳
@@ -47,18 +81,46 @@ function translateStaticMenu() {
 
     // Share ボタン
     const shareSelector = ".toolbar_view--shareButton--Q6fI7";
-    const shareLabel = document.querySelector(shareSelector);
-    if (shareLabel) {
-        shareLabel.innerHTML = "共有";
-    }
+    _translateInnerHTML(shareSelector, mainMenuMap);
 
     // ツールチップ
     const selector1 = ".chevron--chevronContainer--3xT09";
-    translateTooltip(selector1, tooltipMap);
+    _translateTooltip(selector1, tooltipMap);
 
     const selector2 = ".action--enabled--16Cku";
-    translateTooltip(selector2, tooltipMap);
+    _translateTooltip(selector2, tooltipMap);
 
+}
+
+// 動的に生成されるツールチップの監視
+function observeDynamicTooltip() {
+    // 動的生成ツールチップ要素の先祖 class (TODO 要検討)
+    // fullscreen_view--page--1QuyLの兄弟
+    const selector = ".tooltip--notInteractive--2q4-q";
+    const target = document.querySelector(selector);
+    const config = {
+        attributes: true,
+        childList: true,
+        subtree: true // 子孫の変更を監視
+    };
+
+    // ページ読み込み完了待ち
+    if (!target) {
+        window.setTimeout(observeDynamicTooltip, 100);
+        return;
+    }
+
+    const observer = new MutationObserver(function () {
+        // 変更検知の無限ループ回避
+        observer.disconnect();
+
+        // ツールチップ生成検知時に翻訳する
+        translateDynamicTooltip();
+
+        observer.observe(target, config);
+
+    });
+    observer.observe(target, config);
 }
 
 // 動的に生成されるメニューの監視
@@ -83,8 +145,9 @@ function observeDynamicMenu() {
         menuObserver.disconnect();
 
         // メニュー生成検知時に翻訳する
-        translateMainMenu();
-        translateTools();
+        translateDynamicMainMenu();
+        translateDynamicTools();
+        //translateDynamicPanel();
 
         menuObserver.observe(menuTarget, config);
 
@@ -92,8 +155,14 @@ function observeDynamicMenu() {
     menuObserver.observe(menuTarget, config);
 }
 
+function initialize() {
+    translateStaticMenu();
+    observeDynamicMenu();
+    observeDynamicTooltip();
+}
+
 /* ページ遷移の監視
- * 初回ロード時はタイミングの関係で実行されない
+ * 初回ロード時はタイミングの関係で実行されない(TODO 要検証)
  */
 function observePage() {
     // ページ遷移時に変化する要素の親要素 class (TODO 要検討)
@@ -106,9 +175,8 @@ function observePage() {
         return;
     }
     const pageObserver = new MutationObserver(function () {
-        translateStaticMenu();
         // ページ遷移後、再度メニューを監視する
-        observeDynamicMenu();
+        initialize();
     });
     pageObserver.observe(page, {
         attributes: true,
@@ -122,8 +190,7 @@ observePage();
  */
 document.addEventListener("readystatechange", event => {
     if (event.target.readyState === "complete") {
-        translateStaticMenu();
         // ロード完了後にメニューを監視する
-        observeDynamicMenu();
+        initialize();
     }
 });
