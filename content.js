@@ -58,7 +58,7 @@ function translateDynamicTools() {
 // 右(プロパティ)パネル
 function translateDynamicPanel() {
     // パネルタイトル要素の class
-    const selector1 = ".raw_components--panelTitle--7MaOu ";
+    const selector1 = ".raw_components--panelTitle--7MaOu";
     _translateInnerHTML(selector1, panelMap);
 
     const selector2 = ".raw_components--panelTitle--7MaOu div";
@@ -70,6 +70,13 @@ function translateDynamicPanel() {
     // Pages
     const selector4 = ".pages_panel--pagesHeaderText--1GE3u";
     _translateInnerHTML(selector4, panelTabMap);
+
+    // セレクトボックス(選択済み)
+    const selector5 = ".select--inputText--6fenW";
+    _translateInnerHTML(selector5, panelSelectMap);
+    // セレクトボックス(選択時)
+    const selector6 = ".select--optionText--2C5M1";
+    _translateInnerHTML(selector6, panelSelectMap);
 }
 
 function translateDynamicTooltip() {

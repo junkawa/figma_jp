@@ -1119,3 +1119,88 @@ const panelTabMap = [
         "ja": ""
     },
 ];
+
+const panelSelectMap = [
+    // Layers
+    {
+        "en": "Pass Through",
+        "ja": "パススルー"
+    },
+    {
+        "en": "Normal",
+        "ja": "通常"
+    },
+    {
+        "en": "Darken",
+        "ja": "比較（暗）"
+    },
+    {
+        "en": "Multiply",
+        "ja": "乗算"
+    },
+    {
+        "en": "Color Burn",
+        "ja": "焼き込みカラー"
+    },
+    {
+        "en": "Lighten",
+        "ja": "比較（明）"
+    },
+    {
+        "en": "Screen",
+        "ja": "スクリーン"
+    },
+    {
+        "en": "Color Dodge",
+        "ja": "覆い焼きカラー"
+    },
+    {
+        "en": "Overlay",
+        "ja": "オーバーレイ"
+    },
+    {
+        "en": "Soft Light",
+        "ja": "ソフトライト"
+    },
+    {
+        "en": "Hard Light",
+        "ja": "ハードライト"
+    },
+    {
+        "en": "Difference",
+        "ja": "差の絶対値"
+    },
+    {
+        "en": "Exclusion",
+        "ja": "除外"
+    },
+    {
+        "en": "Hue",
+        "ja": "色相"
+    },
+    {
+        "en": "Saturation",
+        "ja": "彩度"
+    },
+    {
+        "en": "Color",
+        "ja": "カラー"
+    },
+    {
+        "en": "Luminosity",
+        "ja": "輝度"
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+
+];
