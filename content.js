@@ -1,3 +1,5 @@
+const lang = "ja"
+
 // ラベル要素の中身を日本語で置き換える
 function _translateInnerHTML(selector, map) {
     const labels = document.querySelectorAll(selector);
@@ -5,7 +7,7 @@ function _translateInnerHTML(selector, map) {
     labels.forEach(label => {
         const ret = map.find((m) => m["en"] === label.innerHTML); // 先頭一致
         if (ret) {
-            label.innerHTML = ret["jp"];
+            label.innerHTML = ret[lang];
         }
     });
 }
@@ -17,7 +19,7 @@ function _translateDataTooltip(selector, map) {
     tooltips.forEach(tooltip => {
         const ret = map.find((m) => m["en"] === tooltip.getAttribute("data-tooltip")); // 先頭一致
         if (ret) {
-            tooltip.setAttribute("data-tooltip", ret["jp"]);
+            tooltip.setAttribute("data-tooltip", ret[lang]);
         }
     });
 }
@@ -29,7 +31,7 @@ function _translateDataLabel(selector, map) {
     labels.forEach(label => {
         const ret = map.find((m) => m["en"] === label.getAttribute("data-label")); // 先頭一致
         if (ret) {
-            label.setAttribute("data-label", ret["jp"]);
+            label.setAttribute("data-label", ret[lang]);
             label.style.padding = "0 18px"; // TODO 固定で良いか?
         }
     });
