@@ -33,7 +33,8 @@ function _translateDataLabel(selector, map) {
         const ret = map.find((m) => m["en"] === label.getAttribute("data-label")); // 先頭一致
         if (ret) {
             label.setAttribute("data-label", ret[optionLanguage]);
-            label.style.padding = "0 18px"; // TODO 固定で良いか?
+            // 1行表示にするため TODO 固定で良いか?
+            label.style.padding = "0 18px";
         }
     });
 }
@@ -61,6 +62,14 @@ function translateDynamicPanel() {
     // パネルタイトル要素の class
     const selector1 = ".raw_components--panelTitle--7MaOu";
     _translateInnerHTML(selector1, panelMap);
+    {
+        // 1行表示にするため
+        const labels = document.querySelectorAll(selector1);
+        labels.forEach(label => {
+            // 同classで最大の値を指定
+            label.style["grid-column-end"] = "span 12";
+        });
+    }
     const selector2 = ".raw_components--panelTitle--7MaOu div";
     _translateInnerHTML(selector2, panelMap);
     const selector3 = ".draggable_list--panelTitleText--1q89R";
@@ -78,6 +87,22 @@ function translateDynamicPanel() {
     // セレクトボックス(選択時)
     const selector7 = ".select--optionText--2C5M1";
     _translateInnerHTML(selector7, panelSelectMap);
+
+    // label
+    const selector8 = ".raw_components--label--34YmO";
+    _translateInnerHTML(selector8, panelMap);
+    {
+        // 1行表示にするため
+        const labels = document.querySelectorAll(selector8);
+        labels.forEach(label => {
+            // 同classで最大の値を指定
+            label.style["grid-column-end"] = "span 16";
+        });
+    }
+
+    const selector9 = ".constraints_panel--checkboxLabel--3vvz3";
+    _translateInnerHTML(selector9, panelMap);
+
 }
 
 function translateDynamicTooltip() {

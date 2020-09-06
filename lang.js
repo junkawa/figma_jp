@@ -1035,6 +1035,7 @@ const tooltipMap = [
 
 // パネルの翻訳
 const panelMap = [
+    // Title
     {
         "en": "Constraints",
         "ja": "制約"
@@ -1090,6 +1091,39 @@ const panelMap = [
     {
         "en": "Code",
         "ja": "コード"
+    },
+    //
+    {
+        "en": "Clip content",
+        "ja": "フレーム外を非表示"
+    },
+    {
+        "en": "Show in exports",
+        "ja": "エクスポート時に表示"
+    },
+    {
+        "en": "Preview",
+        "ja": "プレビュー"
+    },
+    {
+        "en": "Fix position when scrolling",
+        "ja": "スクロール時に位置を固定"
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+    {
+        "en": "",
+        "ja": ""
+    },
+    {
+        "en": "",
+        "ja": ""
     },
 ];
 
@@ -1346,10 +1380,37 @@ const panelSelectMap = [
         "en": "Vertical",
         "ja": "垂直方向"
     },
+    // Text
+    /*
     {
-        "en": "",
+        "en": "Thin",
         "ja": ""
     },
+    {
+        "en": "DemiLight",
+        "ja": ""
+    },
+    {
+        "en": "Light",
+        "ja": "ライト"
+    },
+    {
+        "en": "Regular",
+        "ja": "レギュラー"
+    },
+    {
+        "en": "Medium",
+        "ja": ""
+    },
+    {
+        "en": "Bold",
+        "ja": "ボールド"
+    },
+    {
+        "en": "Black",
+        "ja": ""
+    },
+    */
     {
         "en": "",
         "ja": ""
