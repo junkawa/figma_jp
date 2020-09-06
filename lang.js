@@ -789,7 +789,7 @@ const mainMenuMap = [
     },
     // ツールバー中央
     // {
-    //     "en": "Publish Styles & Components",
+    //     "en": "Publish Styles &amp; Components",
     //     "ja": ""
     // },
     {
@@ -1206,6 +1206,145 @@ const panelSelectMap = [
     {
         "en": "Background Blur",
         "ja": "背景のぼかし"
+    },
+    // Stroke
+    {
+        "en": "Center",
+        "ja": "中央"
+    },
+    {
+        "en": "Inside",
+        "ja": "内側"
+    },
+    {
+        "en": "Outside",
+        "ja": "外側"
+    },
+    {
+        "en": "None",
+        "ja": "なし"
+    },
+    {
+        "en": "Round",
+        "ja": "丸型線端"
+    },
+    {
+        "en": "Square",
+        "ja": "突出線端"
+    },
+    {
+        "en": "Line Arrow",
+        "ja": "矢印"
+    },
+    {
+        "en": "Triangle Arrow",
+        "ja": "三角矢印"
+    },
+    {
+        "en": "Mixed",
+        "ja": "混合"
+    },
+
+    // Color
+    {
+        "en": "Solid",
+        "ja": "べた塗り"
+    },
+    {
+        "en": "Linear",
+        "ja": "線形"
+    },
+    {
+        "en": "Radial",
+        "ja": "円形"
+    },
+    {
+        "en": "Angular",
+        "ja": "角度"
+    },
+    {
+        "en": "Diamond",
+        "ja": "菱形"
+    },
+    {
+        "en": "Image",
+        "ja": "画像"
+    },
+    // Layout Grid
+    {
+        "en": "Grid",
+        "ja": "グリッド"
+    },
+    {
+        "en": "Columns",
+        "ja": "列"
+    },
+    {
+        "en": "Rows",
+        "ja": "行"
+    },
+    {
+        "en": "Stretch",
+        "ja": "引き伸ばし"
+    },
+    // Color > Image
+    {
+        "en": "Fill",
+        "ja": "外接"
+    },
+    {
+        "en": "Fit",
+        "ja": "内接"
+    },
+    {
+        "en": "Crop",
+        "ja": "切り抜き"
+    },
+    {
+        "en": "Tile",
+        "ja": "タイル状"
+    },
+
+    // その他
+    {
+        "en": "Left",
+        "ja": "左"
+    },
+    {
+        "en": "Right",
+        "ja": "右"
+    },
+    {
+        "en": "Left &amp; Right",
+        "ja": "左右"
+    },
+    {
+        "en": "Top",
+        "ja": "上"
+    },
+    {
+        "en": "Bottom",
+        "ja": "下"
+    },
+    {
+        "en": "Top &amp; Bottom",
+        "ja": "上下"
+    },
+    {
+        "en": "Scale",
+        "ja": "スケール"
+    },
+    {
+        "en": "Horizontal",
+        "ja": "水平方向"
+    },
+    {
+        "en": "Vertical",
+        "ja": "垂直方向"
+    },
+    {
+        "en": "",
+        "ja": ""
     },
     {
         "en": "",

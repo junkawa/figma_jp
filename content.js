@@ -74,9 +74,11 @@ function translateDynamicPanel() {
     // セレクトボックス(選択済み)
     const selector5 = ".select--inputText--6fenW";
     _translateInnerHTML(selector5, panelSelectMap);
-    // セレクトボックス(選択時)
-    const selector6 = ".select--optionText--2C5M1";
+    const selector6 = ".paint_panels--typeContainer--KyReT";
     _translateInnerHTML(selector6, panelSelectMap);
+    // セレクトボックス(選択時)
+    const selector7 = ".select--optionText--2C5M1";
+    _translateInnerHTML(selector7, panelSelectMap);
 }
 
 function translateDynamicTooltip() {
