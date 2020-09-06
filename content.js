@@ -60,49 +60,52 @@ function translateDynamicTools() {
 // 右(プロパティ)パネル
 function translateDynamicPanel() {
     // パネルタイトル要素の class
-    const selector1 = ".raw_components--panelTitle--7MaOu";
-    _translateInnerHTML(selector1, panelMap);
     {
+        const selector = ".raw_components--panelTitle--7MaOu";
+        _translateInnerHTML(selector, panelMap);
         // 1行表示にするため
-        const labels = document.querySelectorAll(selector1);
+        const labels = document.querySelectorAll(selector);
         labels.forEach(label => {
             // 同classで最大の値を指定
             label.style["grid-column-end"] = "span 12";
         });
+        const selector2 = ".raw_components--panelTitle--7MaOu div";
+        _translateInnerHTML(selector2, panelMap);
+        const selector3 = ".draggable_list--panelTitleText--1q89R";
+        _translateInnerHTML(selector3, panelMap);
+        const selector4 = ".pages_panel--pagesHeaderText--1GE3u";
+        _translateInnerHTML(selector4, panelTabMap);
+        const selector5 = ".library_section_header--sectionHeader1_redesign--2tKT4";
+        _translateInnerHTML(selector5, panelTabMap);
     }
-    const selector2 = ".raw_components--panelTitle--7MaOu div";
-    _translateInnerHTML(selector2, panelMap);
-    const selector3 = ".draggable_list--panelTitleText--1q89R";
-    _translateInnerHTML(selector3, panelMap);
 
-    // Pages
-    const selector4 = ".pages_panel--pagesHeaderText--1GE3u";
-    _translateInnerHTML(selector4, panelTabMap);
-
-    // セレクトボックス(選択済み)
-    const selector5 = ".select--inputText--6fenW";
-    _translateInnerHTML(selector5, panelSelectMap);
-    const selector6 = ".paint_panels--typeContainer--KyReT";
-    _translateInnerHTML(selector6, panelSelectMap);
-    // セレクトボックス(選択時)
-    const selector7 = ".select--optionText--2C5M1";
-    _translateInnerHTML(selector7, panelSelectMap);
+    // セレクトボックス
+    {
+        // 選択済み
+        const selector1 = ".select--inputText--6fenW";
+        _translateInnerHTML(selector1, panelSelectMap);
+        const selector2 = ".paint_panels--typeContainer--KyReT";
+        _translateInnerHTML(selector2, panelSelectMap);
+        // 選択メニュー
+        const selector3 = ".select--optionText--2C5M1";
+        _translateInnerHTML(selector3, panelSelectMap);
+    }
 
     // label
-    const selector8 = ".raw_components--label--34YmO";
-    _translateInnerHTML(selector8, panelMap);
     {
+        const selector1 = ".raw_components--label--34YmO";
+        _translateInnerHTML(selector1, panelMap);
         // 1行表示にするため
-        const labels = document.querySelectorAll(selector8);
+        const labels = document.querySelectorAll(selector1);
         labels.forEach(label => {
             // 同classで最大の値を指定
             label.style["grid-column-end"] = "span 16";
         });
+        const selector2 = ".constraints_panel--checkboxLabel--3vvz3";
+        _translateInnerHTML(selector2, panelMap);
+        const selector3 = ".instance_panel__OLD--link--3yIYF";
+        _translateInnerHTML(selector3, panelMap);
     }
-
-    const selector9 = ".constraints_panel--checkboxLabel--3vvz3";
-    _translateInnerHTML(selector9, panelMap);
-
 }
 
 function translateDynamicTooltip() {

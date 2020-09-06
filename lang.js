@@ -832,6 +832,10 @@ const mainMenuMap = [
         "ja": "複合パスに拡張"
     },
     {
+        "en": "Remove Auto Layout",
+        "ja": "オートレイアウトの削除"
+    },
+    {
         "en": "Show/Hide",
         "ja": "表示/非表示"
     },
@@ -867,6 +871,11 @@ const mainMenuMap = [
     {
         "en": "Duplicate Page",
         "ja": "ページを複製"
+    },
+    // その他
+    {
+        "en": "This file",
+        "ja": "このファイル"
     },
 ];
 
@@ -1041,6 +1050,10 @@ const panelMap = [
         "ja": "制約"
     },
     {
+        "en": "Component",
+        "ja": "コンポーネント"
+    },
+    {
         "en": "Background",
         "ja": "背景"
     },
@@ -1092,6 +1105,14 @@ const panelMap = [
         "en": "Code",
         "ja": "コード"
     },
+    {
+        "en": "Instance",
+        "ja": "インスタンス"
+    },
+    {
+        "en": "Vector",
+        "ja": "ベクター"
+    },
     // ラベル
     {
         "en": "Clip content",
@@ -1109,34 +1130,39 @@ const panelMap = [
         "en": "Fix position when scrolling",
         "ja": "スクロール時に位置を固定"
     },
-    // 
+    // Instance
+    {
+        "en": "Go to Main Component",
+        "ja": "メインコンポーネントへ移動"
+    },
+    // Image
     {
         "en": "Exposure",
-        "ja": ""
+        "ja": "Exposure"
     },
     {
         "en": "Contrast",
-        "ja": ""
+        "ja": "Contrast"
     },
     {
         "en": "Saturation",
-        "ja": ""
+        "ja": "Saturation"
     },
     {
         "en": "Temperature",
-        "ja": ""
+        "ja": "Temperature"
     },
     {
         "en": "Tint",
-        "ja": ""
+        "ja": "Tint"
     },
     {
         "en": "Highlights",
-        "ja": ""
+        "ja": "Highlights"
     },
     {
         "en": "Shadows",
-        "ja": ""
+        "ja": "Shadows"
     },
     {
         "en": "",
@@ -1170,8 +1196,8 @@ const panelTabMap = [
         "ja": "ページ"
     },
     {
-        "en": "",
-        "ja": ""
+        "en": "Local components",
+        "ja": "ローカルコンポーネント"
     },
 ];
 
@@ -1359,7 +1385,59 @@ const panelSelectMap = [
         "en": "Tile",
         "ja": "タイル状"
     },
-
+    // フレーム
+    {
+        "en": "Frame",
+        "ja": "フレーム"
+    },
+    {
+        "en": "Group",
+        "ja": "グループ"
+    },
+    // ベクター
+    {
+        "en": "No Mirroring",
+        "ja": "連動しない"
+    },
+    {
+        "en": "Mirror Angle",
+        "ja": "角度を連動"
+    },
+    {
+        "en": "Mirror Angle and Length",
+        "ja": "角度と長さを連動"
+    },
+    // Text
+    /*
+    {
+        "en": "Thin",
+        "ja": ""
+    },
+    {
+        "en": "DemiLight",
+        "ja": ""
+    },
+    {
+        "en": "Light",
+        "ja": "ライト"
+    },
+    {
+        "en": "Regular",
+        "ja": "レギュラー"
+    },
+    {
+        "en": "Medium",
+        "ja": ""
+    },
+    {
+        "en": "Bold",
+        "ja": "ボールド"
+    },
+    {
+        "en": "Black",
+        "ja": ""
+    },
+    */
     // その他
     {
         "en": "Left",
@@ -1397,46 +1475,6 @@ const panelSelectMap = [
         "en": "Vertical",
         "ja": "垂直方向"
     },
-    // フレーム
-    {
-        "en": "Frame",
-        "ja": "フレーム"
-    },
-    {
-        "en": "Group",
-        "ja": "グループ"
-    },
-    // Text
-    /*
-    {
-        "en": "Thin",
-        "ja": ""
-    },
-    {
-        "en": "DemiLight",
-        "ja": ""
-    },
-    {
-        "en": "Light",
-        "ja": "ライト"
-    },
-    {
-        "en": "Regular",
-        "ja": "レギュラー"
-    },
-    {
-        "en": "Medium",
-        "ja": ""
-    },
-    {
-        "en": "Bold",
-        "ja": "ボールド"
-    },
-    {
-        "en": "Black",
-        "ja": ""
-    },
-    */
     {
         "en": "",
         "ja": ""
