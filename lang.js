@@ -1052,6 +1052,10 @@ const panelMap = [
         "ja": "レイヤー"
     },
     {
+        "en": "Text",
+        "ja": "テキスト"
+    },
+    {
         "en": "Fill",
         "ja": "塗り"
     },

@@ -1,4 +1,5 @@
-const lang = "ja"
+// 設定で上書きされる
+var optionLanguage = "en"
 
 // ラベル要素の中身を日本語で置き換える
 function _translateInnerHTML(selector, map) {
@@ -7,7 +8,7 @@ function _translateInnerHTML(selector, map) {
     labels.forEach(label => {
         const ret = map.find((m) => m["en"] === label.innerHTML); // 先頭一致
         if (ret) {
-            label.innerHTML = ret[lang];
+            label.innerHTML = ret[optionLanguage];
         }
     });
 }
@@ -19,7 +20,7 @@ function _translateDataTooltip(selector, map) {
     tooltips.forEach(tooltip => {
         const ret = map.find((m) => m["en"] === tooltip.getAttribute("data-tooltip")); // 先頭一致
         if (ret) {
-            tooltip.setAttribute("data-tooltip", ret[lang]);
+            tooltip.setAttribute("data-tooltip", ret[optionLanguage]);
         }
     });
 }
@@ -31,7 +32,7 @@ function _translateDataLabel(selector, map) {
     labels.forEach(label => {
         const ret = map.find((m) => m["en"] === label.getAttribute("data-label")); // 先頭一致
         if (ret) {
-            label.setAttribute("data-label", ret[lang]);
+            label.setAttribute("data-label", ret[optionLanguage]);
             label.style.padding = "0 18px"; // TODO 固定で良いか?
         }
     });
@@ -60,10 +61,8 @@ function translateDynamicPanel() {
     // パネルタイトル要素の class
     const selector1 = ".raw_components--panelTitle--7MaOu";
     _translateInnerHTML(selector1, panelMap);
-
     const selector2 = ".raw_components--panelTitle--7MaOu div";
     _translateInnerHTML(selector2, panelMap);
-
     const selector3 = ".draggable_list--panelTitleText--1q89R";
     _translateInnerHTML(selector3, panelMap);
 
@@ -227,12 +226,31 @@ function observePage() {
 }
 observePage();
 
+/* TODO
+  chrome.i18n.getAcceptLanguages(function(langs){
+  if (langs.indexOf('ja') >= 0){
+  }
+  });
+*/
+// 言語オプションが未設定の場合
+const defautLanguage = 'ja';
+
+function loadOptionsAndInitialize() {
+    chrome.storage.local.get({
+        language: defautLanguage,
+    }, function (items) {
+        optionLanguage = items.language;
+        // 設定読み出し後、メニュー監視
+        initialize();
+    });
+}
+
 /* 初回ロード完了時に実行
- * ページ遷移時は実行されない
+ * ページ遷移時は実行されない(TODO 検証)
  */
 document.addEventListener("readystatechange", event => {
     if (event.target.readyState === "complete") {
-        // ロード完了後にメニューを監視する
-        initialize();
+        // ロード完了後、言語設定を反映させる
+        loadOptionsAndInitialize();
     }
 });
