@@ -788,10 +788,10 @@ const mainMenuMap = [
         "ja": "無効"
     },
     // ツールバー中央
-    // {
-    //     "en": "Publish Styles &amp; Components",
-    //     "ja": ""
-    // },
+    {
+        "en": "Publish Styles and Components",
+        "ja": "スタイルとコンポーネントを公開"
+    },
     {
         "en": "Rename",
         "ja": "名前を変更"
@@ -1092,7 +1092,7 @@ const panelMap = [
         "en": "Code",
         "ja": "コード"
     },
-    //
+    // ラベル
     {
         "en": "Clip content",
         "ja": "フレーム外を非表示"
@@ -1109,16 +1109,33 @@ const panelMap = [
         "en": "Fix position when scrolling",
         "ja": "スクロール時に位置を固定"
     },
+    // 
     {
-        "en": "",
+        "en": "Exposure",
         "ja": ""
     },
     {
-        "en": "",
+        "en": "Contrast",
         "ja": ""
     },
     {
-        "en": "",
+        "en": "Saturation",
+        "ja": ""
+    },
+    {
+        "en": "Temperature",
+        "ja": ""
+    },
+    {
+        "en": "Tint",
+        "ja": ""
+    },
+    {
+        "en": "Highlights",
+        "ja": ""
+    },
+    {
+        "en": "Shadows",
         "ja": ""
     },
     {
@@ -1379,6 +1396,15 @@ const panelSelectMap = [
     {
         "en": "Vertical",
         "ja": "垂直方向"
+    },
+    // フレーム
+    {
+        "en": "Frame",
+        "ja": "フレーム"
+    },
+    {
+        "en": "Group",
+        "ja": "グループ"
     },
     // Text
     /*
