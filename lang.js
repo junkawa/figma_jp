@@ -1138,31 +1138,31 @@ const panelMap = [
     // Image
     {
         "en": "Exposure",
-        "ja": "Exposure"
+        "ja": "露光量"
     },
     {
         "en": "Contrast",
-        "ja": "Contrast"
+        "ja": "コントラスト"
     },
     {
         "en": "Saturation",
-        "ja": "Saturation"
+        "ja": "彩度"
     },
     {
         "en": "Temperature",
-        "ja": "Temperature"
+        "ja": "色温度"
     },
     {
         "en": "Tint",
-        "ja": "Tint"
+        "ja": "色かぶり補正"
     },
     {
         "en": "Highlights",
-        "ja": "Highlights"
+        "ja": "ハイライト"
     },
     {
         "en": "Shadows",
-        "ja": "Shadows"
+        "ja": "シャドウ"
     },
     {
         "en": "",

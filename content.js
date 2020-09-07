@@ -106,6 +106,17 @@ function translateDynamicPanel() {
         const selector3 = ".instance_panel__OLD--link--3yIYF";
         _translateInnerHTML(selector3, panelMap);
     }
+
+    // Modal
+    {
+        const selector1 = ".image_settings_modal--colorAdjustLabel--2F676";
+        _translateInnerHTML(selector1, panelMap);
+        // 1行表示にするため
+        const labels = document.querySelectorAll(selector1);
+        labels.forEach(label => {
+            label.style["grid-column-end"] = "12";
+        });
+    }
 }
 
 function translateDynamicTooltip() {
