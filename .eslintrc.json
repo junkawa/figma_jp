@@ -1,0 +1,16 @@
+{
+    "env": {
+        "browser": true,
+        "webextensions": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "google"
+    ],
+    "rules": {
+        "require-jsdoc": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2015
+    }
+}
