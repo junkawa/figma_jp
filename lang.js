@@ -1387,6 +1387,87 @@ const panelSelectMap = [
     'en': 'Mirror Angle and Length',
     'ja': '角度と長さを連動',
   },
+  // Text
+  // フォント
+  // https://developer.mozilla.org/ja/docs/Web/CSS/font-weight
+  {
+    'en': 'Thin',
+    'ja': '超極細(Thin)',
+  },
+  {
+    'en': 'Hairline',
+    'ja': '超極細(Hairline)',
+  },
+  {
+    'en': 'UltraLight',
+    'ja': '極細(UltraLight)',
+  },
+  {
+    'en': 'ExtraLight',
+    'ja': '極細(ExtraLight)',
+  },
+  {
+    'en': 'Light',
+    'ja': '細(Light)',
+  },
+  {
+    'en': 'DemiLight',
+    'ja': 'DemiLight',
+  },
+  {
+    'en': 'Regular',
+    'ja': '中細(Regular)',
+  },
+  {
+    'en': 'Normal',
+    'ja': '中細(Normal)',
+  },
+  {
+    'en': 'Medium',
+    'ja': '中(Medium)',
+  },
+  {
+    'en': 'DemiBold',
+    'ja': '中太(DemiBold)',
+  },
+  {
+    'en': 'SemiBold',
+    'ja': '中太(SemiBold)',
+  },
+  {
+    'en': 'Bold',
+    'ja': '太(Bold)',
+  },
+  {
+    'en': 'ExtraBold',
+    'ja': '特太(ExtraBold)',
+  },
+  {
+    'en': 'UltraBold',
+    'ja': '特太(UltraBold)',
+  },
+  {
+    'en': 'Black',
+    'ja': '極太(Black)',
+  },
+  {
+    'en': 'Heavy',
+    'ja': '極太(Heavy)',
+  },
+  {
+    'en': 'ExtraBlack',
+    'ja': '超極太(ExtraBlack)',
+  },
+  {
+    'en': 'UltraBlack',
+    'ja': '超極太(UltraBlack)',
+  },
+  /*
+  {
+    'en': 'Italic',
+    'ja': '',
+  },
+  */
 
   // その他
   {
