@@ -1,6 +1,6 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
-   panelSelectMap
+   panelSelectMap, modalMap
  */
 
 // 設定で上書きされる
@@ -52,6 +52,7 @@ function translateDynamicMainMenu() {
   const selector = '.multilevel_dropdown--name--1abLT';
   _translateInnerHTML(selector, mainMenuMap);
 }
+
 
 function translateDynamicTools() {
   // ツールラベル要素の class
@@ -114,15 +115,35 @@ function translateDynamicPanel() {
     _translateInnerHTML(selector3, panelMap);
   }
 
-  // Modal
+  // 右クリック
+  {
+    const selector1 = '.library_item_tile--contextMenu--N4uYI a';
+    _translateInnerHTML(selector1, panelMap);
+  }
+}
+
+// モーダルウィンドウ
+function translateDynamicModal() {
+  // 画像
   {
     const selector1 = '.image_settings_modal--colorAdjustLabel--2F676';
-    _translateInnerHTML(selector1, panelMap);
+    _translateInnerHTML(selector1, modalMap);
     // 1行表示にするため
     const labels = document.querySelectorAll(selector1);
     labels.forEach((label) => {
       label.style['grid-column-end'] = '12';
     });
+  }
+  // テキスト
+  {
+    const selector1 = '.header_modal--headerModalTitle--8hnpX';
+    _translateInnerHTML(selector1, modalMap);
+    const selector2 = '.type_settings--previewPlaceholder--mjwRc';
+    _translateInnerHTML(selector2, modalMap);
+    const selector3 = '.raw_components--label--34YmO';
+    _translateInnerHTML(selector3, modalMap);
+    const selector4 = '.raw_components--panelTitle--7MaOu';
+    _translateInnerHTML(selector4, modalMap);
   }
 }
 
@@ -233,6 +254,7 @@ function observeDynamicMenu() {
     translateDynamicMainMenu();
     translateDynamicTools();
     translateDynamicPanel();
+    translateDynamicModal();
 
     menuObserver.observe(menuTarget, config);
   });
