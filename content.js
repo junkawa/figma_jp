@@ -97,6 +97,8 @@ function translateDynamicPanel() {
     // 選択メニュー
     const selector3 = '.select--optionText--2C5M1';
     _translateInnerHTML(selector3, panelSelectMap);
+    const selector4 = '.multilevel_dropdown--name--1abLT';
+    _translateInnerHTML(selector4, panelSelectMap);
   }
 
   // label

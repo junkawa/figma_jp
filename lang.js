@@ -1468,6 +1468,11 @@ const panelSelectMap = [
     'ja': '',
   },
   */
+  // Instance
+  {
+    'en': 'Related components',
+    'ja': '関連するコンポーネント',
+  },
 
   // その他
   {
