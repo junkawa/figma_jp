@@ -1,10 +1,8 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
    panelSelectMap, modalMap
+   defaultLanguage
  */
-
-// 設定で上書きされる
-let optionLanguage = 'en';
 
 // ラベル要素の中身を日本語で置き換える
 function _translateInnerHTML(selector, map) {
@@ -13,7 +11,7 @@ function _translateInnerHTML(selector, map) {
   labels.forEach((label) => {
     const ret = map.find((m) => m['en'] === label.innerHTML); // 先頭一致
     if (ret) {
-      label.innerHTML = ret[optionLanguage];
+      label.innerHTML = ret[defaultLanguage];
     }
   });
 }
@@ -26,7 +24,7 @@ function _translateDataTooltip(selector, map) {
     const ret = map.find((m) => m['en'] ===
     tooltip.getAttribute('data-tooltip')); // 先頭一致
     if (ret) {
-      tooltip.setAttribute('data-tooltip', ret[optionLanguage]);
+      tooltip.setAttribute('data-tooltip', ret[defaultLanguage]);
     }
   });
 }
@@ -39,7 +37,7 @@ function _translateDataLabel(selector, map) {
     const ret = map.find((m) => m['en'] ===
     label.getAttribute('data-label')); // 先頭一致
     if (ret) {
-      label.setAttribute('data-label', ret[optionLanguage]);
+      label.setAttribute('data-label', ret[defaultLanguage]);
       // 1行表示にするため TODO 固定で良いか?
       label.style.padding = '0 18px';
     }
@@ -52,7 +50,6 @@ function translateDynamicMainMenu() {
   const selector = '.multilevel_dropdown--name--1abLT';
   _translateInnerHTML(selector, mainMenuMap);
 }
-
 
 function translateDynamicTools() {
   // ツールラベル要素の class
@@ -293,31 +290,12 @@ function observePage() {
 }
 observePage();
 
-/* TODO
-  chrome.i18n.getAcceptLanguages(function(langs){
-  if (langs.indexOf('ja') >= 0){
-  }
-  });
-*/
-// 言語オプションが未設定の場合
-const defautLanguage = 'ja';
-
-function loadOptionsAndInitialize() {
-  chrome.storage.local.get({
-    language: defautLanguage,
-  }, function(items) {
-    optionLanguage = items.language;
-    // 設定読み出し後、メニュー監視
-    initialize();
-  });
-}
-
 /* 初回ロード完了時に実行
  * ページ遷移時は実行されない(TODO 検証)
  */
 document.addEventListener('readystatechange', (event) => {
   if (event.target.readyState === 'complete') {
-    // ロード完了後、言語設定を反映させる
-    loadOptionsAndInitialize();
+    // ロード完了後、メニュー監視
+    initialize();
   }
 });

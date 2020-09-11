@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+const defaultLanguage = 'ja';
+
 // ツールバー > メインメニュー の翻訳
 const mainMenuMap = [
   // Menu
