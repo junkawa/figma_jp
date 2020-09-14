@@ -11,6 +11,12 @@ function _translateInnerHTML(selector, map) {
   labels.forEach((label) => {
     const ret = map.find((m) => m['en'] === label.innerHTML); // 先頭一致
     if (ret) {
+      // 1行表示にするため
+      if (label.innerHTML === 'Auto Layout') {
+        label.parentNode.style['grid-column-end'] = 'span 12';
+      } else if (label.innerHTML === 'Clip content') {
+        label.style['grid-column-end'] = 'span 16';
+      }
       label.innerHTML = ret[defaultLanguage];
     }
   });
@@ -68,12 +74,6 @@ function translateDynamicPanel() {
   {
     const selector = '.raw_components--panelTitle--7MaOu';
     _translateInnerHTML(selector, panelMap);
-    // 1行表示にするため
-    const labels = document.querySelectorAll(selector);
-    labels.forEach((label) => {
-      // 同classで最大の値を指定
-      label.style['grid-column-end'] = 'span 12';
-    });
     const selector2 = '.raw_components--panelTitle--7MaOu div';
     _translateInnerHTML(selector2, panelMap);
     const selector3 = '.draggable_list--panelTitleText--1q89R';
@@ -102,12 +102,6 @@ function translateDynamicPanel() {
   {
     const selector1 = '.raw_components--label--34YmO';
     _translateInnerHTML(selector1, panelMap);
-    // 1行表示にするため
-    const labels = document.querySelectorAll(selector1);
-    labels.forEach((label) => {
-      // 同classで最大の値を指定
-      label.style['grid-column-end'] = 'span 16';
-    });
     const selector2 = '.constraints_panel--checkboxLabel--3vvz3';
     _translateInnerHTML(selector2, panelMap);
     const selector3 = '.instance_panel__OLD--link--3yIYF';
