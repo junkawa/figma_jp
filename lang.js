@@ -881,6 +881,10 @@ const mainMenuMap = [
     'en': 'This file',
     'ja': 'このファイル',
   },
+  {
+    'en': 'Remove Connections',
+    'ja': 'コネクションの削除',
+  },
 ];
 
 // ツールバー > ツール の翻訳
@@ -991,6 +995,14 @@ const tooltipMap = [
     'en': 'Zoom/View Options',
     'ja': 'ズーム・ビュー操作',
   },
+  {
+    'en': 'Present',
+    'ja': 'プレゼンテーション',
+  },
+  {
+    'en': 'Missing Fonts',
+    'ja': '足りないフォント',
+  },
   // data-tooltip-type="lookup"
   {
     'en': 'Hand Tool',
@@ -1039,10 +1051,6 @@ const tooltipMap = [
   {
     'en': 'Done',
     'ja': '終了',
-  },
-  {
-    'en': '',
-    'ja': '',
   },
 ];
 
@@ -1117,6 +1125,67 @@ const panelMap = [
     'en': 'Vector',
     'ja': 'ベクター',
   },
+  {
+    'en': 'Interactions',
+    'ja': 'インタラクション',
+  },
+  {
+    'en': 'Animation',
+    'ja': 'アニメーション',
+  },
+  {
+    'en': 'Preserve scroll position',
+    'ja': 'スクロール位置を保持',
+  },
+  {
+    'en': 'Smart Animate matching layers',
+    'ja': 'Smart Animate matching layers',
+  },
+  {
+    'en': 'Overlay',
+    'ja': 'オーバーレイ',
+  },
+  {
+    'en': 'Close when clicking outside',
+    'ja': '外部クリック時に閉じる',
+  },
+  {
+    'en': 'Add background behind overlay',
+    'ja': 'オーバーレイの後ろに背景を追加',
+  },
+  {
+    'en': 'Overflow Behavior',
+    'ja': 'オーバーフロー時の扱い',
+  },
+  {
+    'en': 'Show Prototype Settings',
+    'ja': 'プロトタイプ設定の表示',
+  },
+  {
+    'en': 'Starting Frame',
+    'ja': '開始フレーム',
+  },
+  {
+    'en': 'Device',
+    'ja': 'デバイス',
+  },
+  {
+    'en': 'Creating a connection',
+    'ja': 'コネクションの作成',
+  },
+  {
+    'en': 'Removing a connection',
+    'ja': 'コネクションの削除',
+  },
+  {
+    'en': 'Running your prototype',
+    'ja': 'プロトタイプの実行',
+  },
+  {
+    'en': 'After Delay',
+    'ja': '遅延',
+  },
+
   // ラベル
   {
     'en': 'Clip content',
@@ -1143,10 +1212,6 @@ const panelMap = [
   {
     'en': 'Remove from library',
     'ja': 'ライブラリから削除',
-  },
-  {
-    'en': '',
-    'ja': '',
   },
 ];
 
@@ -1475,7 +1540,190 @@ const panelSelectMap = [
     'en': 'Related components',
     'ja': '関連するコンポーネント',
   },
-
+  // プロトタイプ > デバイス
+  {
+    'en': 'Custom Size',
+    'ja': 'カスタムサイズ',
+  },
+  {
+    'en': 'Presentation',
+    'ja': 'プレゼンテーション',
+  },
+  // プロトタイプ > Interaction Details
+  {
+    'en': 'On Click',
+    'ja': 'クリック時',
+  },
+  {
+    'en': 'On Drag',
+    'ja': 'ドラッグ時',
+  },
+  {
+    'en': 'While Hovering',
+    'ja': 'オーバー中',
+  },
+  {
+    'en': 'While Pressing',
+    'ja': '押下中',
+  },
+  {
+    'en': 'Key/Gamepad',
+    'ja': 'キー／ゲームパッド',
+  },
+  {
+    'en': 'Mouse Enter',
+    'ja': 'マウスエンター',
+  },
+  {
+    'en': 'Mouse Leave',
+    'ja': 'マウスリーブ',
+  },
+  {
+    'en': 'Mouse Down',
+    'ja': 'マウスダウン',
+  },
+  {
+    'en': 'Mouse Up',
+    'ja': 'マウスアップ',
+  },
+  {
+    'en': 'After Delay',
+    'ja': '遅延',
+  },
+  {
+    'en': 'Navigate To',
+    'ja': '画面遷移',
+  },
+  {
+    'en': 'Open Overlay',
+    'ja': 'オーバーレイを開く',
+  },
+  {
+    'en': 'Swap With',
+    'ja': '入れ替える',
+  },
+  {
+    'en': 'Back',
+    'ja': '戻る',
+  },
+  {
+    'en': 'Close Overlay',
+    'ja': 'オーバーレイを閉じる',
+  },
+  {
+    'en': 'Open Link',
+    'ja': 'リンクを開く',
+  },
+  // プロトタイプ > Animation
+  {
+    'en': 'Instant',
+    'ja': 'インスタント',
+  },
+  {
+    'en': 'Dissolve',
+    'ja': 'ディゾルブ',
+  },
+  {
+    'en': 'Smart Animate',
+    'ja': 'スマートアニメ',
+  },
+  {
+    'en': 'Move In',
+    'ja': 'ムーブイン',
+  },
+  {
+    'en': 'Move Out',
+    'ja': 'ムーブアウト',
+  },
+  {
+    'en': 'Push',
+    'ja': '押し出し',
+  },
+  {
+    'en': 'Slide In',
+    'ja': 'スライドイン',
+  },
+  {
+    'en': 'Slide Out',
+    'ja': 'スライドアウト',
+  },
+  {
+    'en': 'Ease In',
+    'ja': 'イーズイン',
+  },
+  {
+    'en': 'Ease Out',
+    'ja': 'イーズアウト',
+  },
+  {
+    'en': 'Ease In And Out',
+    'ja': 'イーズインアウト',
+  },
+  {
+    'en': 'Ease In Back',
+    'ja': 'イーズインバック',
+  },
+  {
+    'en': 'Ease Out Back',
+    'ja': 'イーズアウトバック',
+  },
+  {
+    'en': 'Ease In And Out Back',
+    'ja': 'イーズインアウトバック',
+  },
+  {
+    'en': 'Custom',
+    'ja': 'カスタム',
+  },
+  {
+    'en': 'Centered',
+    'ja': '中央',
+  },
+  {
+    'en': 'Top Left',
+    'ja': '左上',
+  },
+  {
+    'en': 'Top Center',
+    'ja': '上中央',
+  },
+  {
+    'en': 'Top Right',
+    'ja': '右上',
+  },
+  {
+    'en': 'Bottom Left',
+    'ja': '左下',
+  },
+  {
+    'en': 'Bottom Center',
+    'ja': '下中央',
+  },
+  {
+    'en': 'Bottom Right',
+    'ja': '右下',
+  },
+  {
+    'en': 'Manual',
+    'ja': 'マニュアル',
+  },
+  // プロトタイプ > Overflow Behavior
+  {
+    'en': 'No Scrolling',
+    'ja': 'スクロールなし',
+  },
+  {
+    'en': 'Horizontal Scrolling',
+    'ja': '水平方向のスクロール',
+  },
+  {
+    'en': 'Vertical Scrolling',
+    'ja': '垂直方向のスクロール',
+  },
+  {
+    'en': 'Horizontal &amp; Vertical Scrolling',
+    'ja': '水平・垂直方向のスクロール',
+  },
   // その他
   {
     'en': 'Left',
@@ -1513,11 +1761,6 @@ const panelSelectMap = [
     'en': 'Vertical',
     'ja': '垂直方向',
   },
-  {
-    'en': '',
-    'ja': '',
-  },
-
 ];
 
 // モーダルウィンドウの翻訳
@@ -2219,5 +2462,58 @@ const modalMap = [
   {
     'en': 'Character Variants', // 'cv01' – 'cv99'
     'ja': '異体字',
+  },
+  // Interaction
+  {
+    'en': 'Interaction Details',
+    'ja': 'インタラクションの詳細',
+  },
+  {
+    'en': 'Background',
+    'ja': '背景',
+  },
+];
+
+// インタラクションの翻訳
+const interactionListMap = [
+  {
+    'en': 'Click',
+    'ja': 'クリック時',
+  },
+  {
+    'en': 'Drag',
+    'ja': 'ドラッグ時',
+  },
+  {
+    'en': 'Hover',
+    'ja': 'オーバー中',
+  },
+  {
+    'en': 'Press',
+    'ja': '押下中',
+  },
+  {
+    'en': 'Key',
+    'ja': 'キー',
+  },
+  {
+    'en': 'Mouse Enter',
+    'ja': 'マウスエンター',
+  },
+  {
+    'en': 'Mouse Leave',
+    'ja': 'マウスリーブ',
+  },
+  {
+    'en': 'Mouse Down',
+    'ja': 'マウスダウン',
+  },
+  {
+    'en': 'Mouse Up',
+    'ja': 'マウスアップ',
+  },
+  {
+    'en': 'None',
+    'ja': 'なし',
   },
 ];

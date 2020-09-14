@@ -1,6 +1,6 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
-   panelSelectMap, modalMap
+   panelSelectMap, modalMap, interactionListMap
    defaultLanguage
  */
 
@@ -16,6 +16,8 @@ function _translateInnerHTML(selector, map) {
         label.parentNode.style['grid-column-end'] = 'span 12';
       } else if (label.innerHTML === 'Clip content') {
         label.style['grid-column-end'] = 'span 16';
+      } else if (label.innerHTML === 'Animation') {
+        label.style['grid-column-end'] = 'span 12';
       }
       label.innerHTML = ret[defaultLanguage];
     }
@@ -91,11 +93,14 @@ function translateDynamicPanel() {
     _translateInnerHTML(selector1, panelSelectMap);
     const selector2 = '.paint_panels--typeContainer--KyReT';
     _translateInnerHTML(selector2, panelSelectMap);
+
     // 選択メニュー
     const selector3 = '.select--optionText--2C5M1';
     _translateInnerHTML(selector3, panelSelectMap);
     const selector4 = '.multilevel_dropdown--name--1abLT';
     _translateInnerHTML(selector4, panelSelectMap);
+    const selector5 = '.prototype_device_panel--deviceOption--1zMFr span';
+    _translateInnerHTML(selector5, panelSelectMap);
   }
 
   // label
@@ -106,12 +111,27 @@ function translateDynamicPanel() {
     _translateInnerHTML(selector2, panelMap);
     const selector3 = '.instance_panel__OLD--link--3yIYF';
     _translateInnerHTML(selector3, panelMap);
+    const selector4 = '.basic_form--btn--3A-Ju';
+    _translateInnerHTML(selector4, panelMap);
+    const selector5 = '.raw_components--labelInactive--2GwUQ';
+    _translateInnerHTML(selector5, panelMap);
+    const selector6 = '.basic_form--label--hdhP9';
+    _translateInnerHTML(selector6, panelMap);
   }
 
   // 右クリック
   {
     const selector1 = '.library_item_tile--contextMenu--N4uYI a';
     _translateInnerHTML(selector1, panelMap);
+  }
+
+  // Interaction
+  {
+    const selector1 = '.prototype_interaction_list--interactionName--3052S';
+    _translateInnerHTML(selector1, interactionListMap);
+    // フレーム名が翻訳されるため、削除
+    // const selector2 = '.prototype_interaction_list--targetText--M-vAz';
+    // _translateInnerHTML(selector2, interactionListMap);
   }
 }
 
