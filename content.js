@@ -18,6 +18,8 @@ function _translateInnerHTML(selector, map) {
         label.style['grid-column-end'] = 'span 16';
       } else if (label.innerHTML === 'Animation') {
         label.style['grid-column-end'] = 'span 12';
+      } else if (label.innerHTML === 'Local Styles') {
+        label.style['grid-column-end'] = 'span 12';
       }
       label.innerHTML = ret[defaultLanguage];
     }
@@ -84,6 +86,13 @@ function translateDynamicPanel() {
     _translateInnerHTML(selector4, panelTabMap);
     const selector5 = '.library_section_header--sectionHeader1_redesign--2tKT4';
     _translateInnerHTML(selector5, panelTabMap);
+    const selector6 = '.component_tiles--sectionHeader--10N5o';
+    _translateInnerHTML(selector6, panelMap);
+    // パネル Layers, Assets, design, prototype, code
+    // Text Style編集パネルから戻ると Design, Prototype, Codeがオリジナル表示に戻るため
+    // ここで再度翻訳する
+    const selector7 = '.pages_panel--tab--3s1Y5';
+    _translateDataLabel(selector7, panelTabMap);
   }
 
   // セレクトボックス
@@ -117,6 +126,8 @@ function translateDynamicPanel() {
     _translateInnerHTML(selector5, panelMap);
     const selector6 = '.basic_form--label--hdhP9';
     _translateInnerHTML(selector6, panelMap);
+    const selector7 = 'a.style_preview_panel--addDescriptionLink--26D0-';
+    _translateInnerHTML(selector7, panelMap);
   }
 
   // 右クリック

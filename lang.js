@@ -1102,6 +1102,34 @@ const panelMap = [
     'ja': 'エクスポート',
   },
   {
+    'en': 'Local Styles',
+    'ja': 'ローカルスタイル',
+  },
+  {
+    'en': 'Text Styles',
+    'ja': 'テキストスタイル',
+  },
+  {
+    'en': 'Color Styles',
+    'ja': 'カラースタイル',
+  },
+  {
+    'en': 'Effect Styles',
+    'ja': 'エフェクトスタイル',
+  },
+  {
+    'en': 'Edit Style',
+    'ja': 'スタイルの編集',
+  },
+  {
+    'en': 'Add Description',
+    'ja': '説明を追加',
+  },
+  {
+    'en': 'Properties',
+    'ja': 'プロパティ',
+  },
+  {
     'en': 'Layout Grid',
     'ja': 'レイアウトグリッド',
   },
@@ -1825,6 +1853,10 @@ const modalMap = [
   {
     'en': 'Alignment',
     'ja': '文字揃え',
+  },
+  {
+    'en': 'Resizing',
+    'ja': 'リサイズ',
   },
   {
     'en': 'Decoration',
