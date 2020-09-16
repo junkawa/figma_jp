@@ -1,6 +1,7 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
-   panelSelectMap, modalMap, interactionListMap, shortcutMap
+   panelSelectMap, modalMap, interactionListMap, shortcutMap,
+   shortcutRegexpMap,
    defaultLanguage
  */
 
@@ -22,6 +23,17 @@ function _translateInnerHTML(selector, map) {
         label.style['grid-column-end'] = 'span 12';
       }
       label.innerHTML = ret[defaultLanguage];
+    }
+  });
+}
+
+function _translateInnerHTMLRegexp(selector, map) {
+  const labels = document.querySelectorAll(selector);
+  labels.forEach((label) => {
+    const ret = map.find((m) => label.innerHTML.startsWith(m['en'])); // 先頭一致
+    if (ret) {
+      label.innerHTML =
+      label.innerHTML.replace(ret['en'], ret[defaultLanguage]);
     }
   });
 }
@@ -206,6 +218,7 @@ function translateDynamicShortcut() {
   _translateInnerHTML(selector3, toolsMap);
   _translateInnerHTML(selector3, tooltipMap);
   _translateInnerHTML(selector3, shortcutMap);
+  _translateInnerHTMLRegexp(selector3, shortcutRegexpMap);
   const selector4 = '.keyboard_shortcut_panel--categoryCaption--34arC';
   _translateInnerHTML(selector4, shortcutMap);
 }

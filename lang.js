@@ -2550,6 +2550,7 @@ const interactionListMap = [
   },
 ];
 
+// ショートカットパネルの翻訳
 const shortcutMap = [
   // Essential
   {
@@ -2559,18 +2560,6 @@ const shortcutMap = [
   {
     'en': 'Essential Keyboard Shortcuts',
     'ja': '必須キーボードショートカット',
-  },
-  {
-    'en': '',
-    'ja': '',
-  },
-  {
-    'en': '',
-    'ja': '',
-  },
-  {
-    'en': '',
-    'ja': '',
   },
   // Tools
   {
@@ -2847,17 +2836,20 @@ const shortcutMap = [
     'en': 'Swap Component Instance',
     'ja': 'インスタンスを入れ替える',
   },
+];
 
+// ショートカットパネルで置換する文字列
+const shortcutRegexpMap = [
   {
-    'en': '',
-    'ja': '',
+    'en': 'Show/Hide UI',
+    'ja': 'UIを表示/非表示',
   },
   {
-    'en': '',
-    'ja': '',
+    'en': 'Pick Color',
+    'ja': '色を選択',
   },
   {
-    'en': '',
-    'ja': '',
+    'en': 'Search…',
+    'ja': '検索',
   },
 ];
