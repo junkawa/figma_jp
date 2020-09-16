@@ -297,11 +297,13 @@ function observeDynamicTooltip() {
     subtree: true, // 子孫の変更を監視
   };
 
-  // ページ読み込み完了待ち
+  // ツールチップ表示完了待ち
   if (!target) {
-    window.setTimeout(observeDynamicTooltip, 100);
+    // ツールチップが初めて表示されるまでループし続ける
+    window.setTimeout(observeDynamicTooltip, 300);
     return;
   }
+  translateDynamicTooltip();
 
   const observer = new MutationObserver(function() {
     // 変更検知の無限ループ回避
