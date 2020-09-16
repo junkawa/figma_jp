@@ -1052,6 +1052,10 @@ const tooltipMap = [
     'en': 'Done',
     'ja': '終了',
   },
+  {
+    'en': 'Crop Image',
+    'ja': '画像の切り抜き',
+  },
 ];
 
 // パネルの翻訳
