@@ -2549,3 +2549,315 @@ const interactionListMap = [
     'ja': 'なし',
   },
 ];
+
+const shortcutMap = [
+  // Essential
+  {
+    'en': 'Essential',
+    'ja': '必須',
+  },
+  {
+    'en': 'Essential Keyboard Shortcuts',
+    'ja': '必須キーボードショートカット',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+  // Tools
+  {
+    'en': 'Tools',
+    'ja': 'ツール',
+  },
+  {
+    'en': 'Move Tool',
+    'ja': '移動',
+  },
+  {
+    'en': 'Frame Tool',
+    'ja': 'フレーム',
+  },
+  {
+    'en': 'Pen Tool',
+    'ja': 'ペン',
+  },
+  {
+    'en': 'Pencil Tool',
+    'ja': '鉛筆',
+  },
+  {
+    'en': 'Text Tool',
+    'ja': 'テキスト',
+  },
+  {
+    'en': 'Rectangle Tool',
+    'ja': '長方形',
+  },
+  {
+    'en': 'Ellipse Tool',
+    'ja': '楕円',
+  },
+  {
+    'en': 'Line Tool',
+    'ja': '直線',
+  },
+  {
+    'en': 'Arrow Tool',
+    'ja': '矢印',
+  },
+  {
+    'en': 'Slice Tool',
+    'ja': 'スライス',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+  // View
+  {
+    'en': 'View',
+    'ja': '表示',
+  },
+  // Zoom
+  {
+    'en': 'Zoom',
+    'ja': 'ズーム',
+  },
+  {
+    'en': 'Pan',
+    'ja': 'パン',
+  },
+  // Text
+  {
+    'en': 'Text',
+    'ja': 'テキスト',
+  },
+  {
+    'en': 'Paste and Match Style',
+    'ja': 'ペーストしてスタイルを合わせる',
+  },
+  {
+    'en': 'Adjust Font Size',
+    'ja': 'フォトサイズを調整',
+  },
+  {
+    'en': 'Adjust Font Weight',
+    'ja': 'フォントウェイトを調整',
+  },
+  {
+    'en': 'Adjust Letter Spacing',
+    'ja': '文字の間隔を調整',
+  },
+  {
+    'en': 'Adjust Line Height',
+    'ja': '行送りを調整',
+  },
+  // Shape
+  {
+    'en': 'Shape',
+    'ja': 'シェイプ',
+  },
+  {
+    'en': 'While editing a shape…',
+    'ja': 'シェイプの編集中',
+  },
+  {
+    'en': 'After selecting points…',
+    'ja': 'アンカーポイント選択後',
+  },
+  // Selection
+  {
+    'en': 'Selection',
+    'ja': '選択',
+  },
+  {
+    'en': 'Deep Select',
+    'ja': '子孫レイヤーを選択',
+  },
+  {
+    'en': 'Select Layer Menu',
+    'ja': '先祖レイヤーを選択',
+  },
+  {
+    'en': 'Select Child',
+    'ja': '子レイヤーを選択',
+  },
+  {
+    'en': 'Select Parents',
+    'ja': '親レイヤーを選択',
+  },
+  {
+    'en': 'Select Next Sibling',
+    'ja': '次の兄弟レイヤーを選択',
+  },
+  {
+    'en': 'Select Previous Sibling',
+    'ja': '前の兄弟レイヤーを選択',
+  },
+  // Cursor
+  {
+    'en': 'Cursor',
+    'ja': 'カーソル',
+  },
+  {
+    'en': 'While pointing…',
+    'ja': 'ポイント中',
+  },
+  {
+    'en': 'Measure to Selection',
+    'ja': '選択対象の位置を計測',
+  },
+  {
+    'en': 'While moving…',
+    'ja': '移動中',
+  },
+  {
+    'en': 'Duplicate Selection',
+    'ja': '選択対象を複製',
+  },
+  {
+    'en': 'While clicking…',
+    'ja': 'クリック中',
+  },
+  {
+    'en': 'While dragging to select…',
+    'ja': 'ドラッグ中',
+  },
+  {
+    'en': 'Deep Select Within Rectangle',
+    'ja': '長方形内のレイヤを選択',
+  },
+  {
+    'en': 'While resizing…',
+    'ja': 'リサイズ中',
+  },
+  {
+    'en': 'Resize from Center',
+    'ja': '中央に配置してリサイズ',
+  },
+  {
+    'en': 'Resize Proportionally',
+    'ja': '比率を保ちながらリサイズ',
+  },
+  {
+    'en': 'Move While Resizing',
+    'ja': 'リサイズ中に移動',
+  },
+  {
+    'en': 'Ignore Constraints (Frames Only)',
+    'ja': '制約を無視（フレームのみ）',
+  },
+  // Edit
+  {
+    'en': 'Edit',
+    'ja': '編集',
+  },
+  {
+    'en': 'Copy',
+    'ja': 'コピー',
+  },
+  {
+    'en': 'Cut',
+    'ja': 'カット',
+  },
+  {
+    'en': 'Paste',
+    'ja': 'ペースト',
+  },
+  {
+    'en': 'Rename Selection',
+    'ja': '名前を変更',
+  },
+  {
+    'en': 'Export',
+    'ja': 'エキスポート',
+  },
+  // Transform
+  {
+    'en': 'Transform',
+    'ja': '変形',
+  },
+  {
+    'en': 'Edit Shape or Image',
+    'ja': 'シェイプや画像を編集',
+  },
+  {
+    'en': 'Crop Image',
+    'ja': '画像の切り抜き',
+  },
+  {
+    'en': 'Set Opacity to 10%',
+    'ja': '不透明度を10％にセット',
+  },
+  {
+    'en': 'Set Opacity to 50%',
+    'ja': '不透明度を50％にセット',
+  },
+  {
+    'en': 'Set Opacity to 100%',
+    'ja': '不透明度を100％にセット',
+  },
+  // Arrange
+  {
+    'en': 'Arrange',
+    'ja': '整列',
+  },
+  {
+    'en': 'Align Left/Right',
+    'ja': '左／右に整列',
+  },
+  {
+    'en': 'Align Top/Bottom',
+    'ja': '上／下に整列',
+  },
+  {
+    'en': 'Align Centers',
+    'ja': '中央に整列',
+  },
+  {
+    'en': 'Distribute Spacing',
+    'ja': '等間隔に分布',
+  },
+  // Components
+  {
+    'en': 'Components',
+    'ja': 'コンポーネント',
+  },
+  {
+    'en': 'Show Assets',
+    'ja': 'アセットを表示',
+  },
+  {
+    'en': 'Team Library',
+    'ja': 'チームライブラリ',
+  },
+  {
+    'en': 'While dragging from Assets…',
+    'ja': 'アセットからのドラッグ中',
+  },
+  {
+    'en': 'Swap Component Instance',
+    'ja': 'インスタンスを入れ替える',
+  },
+
+  {
+    'en': '',
+    'ja': '',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+  {
+    'en': '',
+    'ja': '',
+  },
+];

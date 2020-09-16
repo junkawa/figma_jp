@@ -1,6 +1,6 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
-   panelSelectMap, modalMap, interactionListMap
+   panelSelectMap, modalMap, interactionListMap, shortcutMap
    defaultLanguage
  */
 
@@ -196,6 +196,20 @@ function translateDynamicTooltip() {
   _translateInnerHTML(selector2, toolsMap);
 }
 
+function translateDynamicShortcut() {
+  const selector1 = '.keyboard_shortcut_panel--tab--DuCac';
+  _translateInnerHTML(selector1, shortcutMap);
+  const selector2 = '.keyboard_shortcut_panel--caption--GQtJO';
+  _translateInnerHTML(selector2, shortcutMap);
+  const selector3 = '.keyboard_shortcut_panel--shortcutName--1cktE';
+  _translateInnerHTML(selector3, mainMenuMap);
+  _translateInnerHTML(selector3, toolsMap);
+  _translateInnerHTML(selector3, tooltipMap);
+  _translateInnerHTML(selector3, shortcutMap);
+  const selector4 = '.keyboard_shortcut_panel--categoryCaption--34arC';
+  _translateInnerHTML(selector4, shortcutMap);
+}
+
 // 静的に(読み込み完了時に)生成されるメニューの翻訳
 function translateStaticMenu() {
   // ツールバー class
@@ -221,6 +235,41 @@ function translateStaticMenu() {
   // パネル Layers, Assets, design, prototype, code
   const selector3 = '.pages_panel--tab--3s1Y5';
   _translateDataLabel(selector3, panelTabMap);
+}
+
+// 動的に生成されるキーボードショートカットパネルの監視
+function observeDynamicShortcut() {
+  // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
+  const selector = 'div.fullscreen_view--flexContainer--3cbGo';
+  const target = document.querySelector(selector);
+  const config = {
+    attributes: true,
+    childList: true,
+    subtree: true, // 子孫の変更を監視
+  };
+
+  // ページロード待ち
+  if (!target) {
+    window.setTimeout(observeDynamicShortcut, 100);
+    return;
+  }
+
+  const observer = new MutationObserver(function() {
+    // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
+    const selector =
+        'div.keyboard_shortcut_panel--keyboardShortcutPanel--2UT6R';
+    const targetShortcut = document.querySelector(selector);
+    if (targetShortcut) {
+      // 変更検知の無限ループ回避
+      observer.disconnect();
+
+      // キーボードショートカットパネル生成検知時に翻訳する
+      translateDynamicShortcut();
+
+      observer.observe(target, config);
+    }
+  });
+  observer.observe(target, config);
 }
 
 // 動的に生成されるツールチップの監視
@@ -289,6 +338,7 @@ function initialize() {
   translateStaticMenu();
   observeDynamicMenu();
   observeDynamicTooltip();
+  observeDynamicShortcut();
 }
 
 /* ページ遷移の監視
