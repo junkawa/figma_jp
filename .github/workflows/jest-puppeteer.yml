@@ -19,11 +19,11 @@ jobs:
       - name: npm install
         run: npm install
       - name: Install xvfb
-        run: apt-get install -y xvfb --no-install-recommends
+        run: sudo apt-get install -y xvfb --no-install-recommends
       - name: Run Jest
         env:
           FIGMA_EMAIL: ${{ secrets.FIGMA_EMAIL }}
           FIGMA_PASSWORD: ${{ secrets.FIGMA_PASSWORD }}
           FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
           DISPLAY: ':99.0'
-        run: Xvfb -ac :99 -screen 0 1280x1024x16 > /dev/null 2>&1 & npm test
+        run: Xvfb -ac :99 -screen 0 1280x1024x16 > /dev/null 2>&1 & sleep 2 && npm test
