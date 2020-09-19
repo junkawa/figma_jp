@@ -14,7 +14,8 @@
     "testEnvironment": "./tests/puppeteer_environment.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint figma_jp tests"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
