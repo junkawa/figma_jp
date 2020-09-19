@@ -1,4 +1,4 @@
-name: "Functioanl Test with puppeteer"
+name: "E2E Test"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     # The branches below must be a subset of the branches above
     branches: [master]
   schedule:
-    # JST 8:00
+    # JST 9:00
     - cron: '0 0 * * *'
 
 jobs:
