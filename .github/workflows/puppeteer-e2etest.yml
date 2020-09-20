@@ -25,8 +25,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install -y xvfb --no-install-recommends
       - name: Run xvfb
-        #run: Xvfb -ac :99 -screen 0 1280x1024x16 > /dev/null 2>&1 &
-        run: Xvfb -ac :99 -screen 0 1280x1024x16 &
+        run: Xvfb -ac :99 -screen 0 1920x1080x16 &
       - name: Run Jest
         env:
           FIGMA_EMAIL: ${{ secrets.FIGMA_EMAIL }}
