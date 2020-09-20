@@ -852,7 +852,7 @@ describe('Figma File', () => {
     require('dotenv').config({path: ENV_PATH});
 
     page = await global.__BROWSER__.newPage();
-    await page.setViewport({width: 1440, height: 900});
+    // await page.setViewport({width: 1440, height: 900});
 
     await page.goto(process.env.FIGMA_FILE_URL);
 
