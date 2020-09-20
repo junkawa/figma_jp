@@ -14,6 +14,7 @@ module.exports = async function() {
   const pathToExtension = require('path').join(__dirname, '../');
   const browser = await puppeteer.launch({
     headless: false,
+    defaultViewport: {width: 1440, height: 900},
     args: [
       `--disable-extensions-except=${pathToExtension}`,
       `--load-extension=${pathToExtension}`,
