@@ -874,6 +874,7 @@ describe('Figma File', () => {
   beforeEach(async () => {
     // メニュー表示の初期化
     [...Array(5)].map( async () => await page.keyboard.press('Escape'));
+    await page.waitForTimeout(100); // ミリ秒
   });
 
   // async function printLabels(selector) {
@@ -892,98 +893,104 @@ describe('Figma File', () => {
     expect(labels.length).toBe(map.length);
   }
 
+  // Jestでpuppeteer.launch({slowMo: 100}) が効かないので
+  // 手動で対応
+  async function click(selector) {
+    await page.click(selector);
+    await page.waitForTimeout(100); // ミリ秒
+  }
+
   describe('Toolbar > Menu', () => {
     it('トップレベルが翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
+      await click(toolbarClickSelector['Menu']);
       await compareLabels(mainMenuTopLabelSelector, mainMenuMap['Top']);
     });
 
     it('File が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['File']);
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['File']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['File']);
     });
 
     it('Edit が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Edit']);
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Edit']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Edit']);
     });
 
     it('Edit > Copy as が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Edit']);
-      await page.click(mainMenuClickSelector['Edit > Copy as']);
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Edit']);
+      await click(mainMenuClickSelector['Edit > Copy as']);
       await compareLabels(mainMenu3rdLabelSelector,
           mainMenuMap['Edit > Copy as']);
     });
 
     it('View が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['View']);
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['View']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['View']);
     });
 
-    it.skip('View > Panels が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['View']);
-      await page.click(mainMenuClickSelector['View > Panels']);
+    it('View > Panels が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['View']);
+      await click(mainMenuClickSelector['View > Panels']);
       await compareLabels(mainMenu3rdLabelSelector,
           mainMenuMap['View > Panels']);
     });
 
-    it.skip('Object が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Object']);
+    it('Object が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Object']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Object']);
-    // await printLabels(mainMenu2ndLabelSelector);
     });
 
-    it.skip('Object > Main Component が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Object']);
-      await page.click(mainMenuClickSelector['Object > Main Component']);
+    it('Object > Main Component が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Object']);
+      await click(mainMenuClickSelector['Object > Main Component']);
       await compareLabels(mainMenu3rdLabelSelector,
           mainMenuMap['Object > Main Component']);
     });
 
-    it.skip('Object > Boolean Groups が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Object']);
-      await page.click(mainMenuClickSelector['Object > Boolean Groups']);
+    it('Object > Boolean Groups が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Object']);
+      await click(mainMenuClickSelector['Object > Boolean Groups']);
       await compareLabels(mainMenu3rdLabelSelector,
           mainMenuMap['Object > Boolean Groups']);
     });
 
-    it.skip('Vector が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Vector']);
+    it('Vector が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Vector']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Vector']);
     });
 
-    it.skip('Text が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Text']);
+    it('Text が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Text']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Text']);
     });
 
-    it.skip('Text > Align が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Text']);
-      await page.click(mainMenuClickSelector['Text > Align']);
+    it('Text > Align が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Text']);
+      await click(mainMenuClickSelector['Text > Align']);
       await compareLabels(mainMenu3rdLabelSelector,
           mainMenuMap['Text > Align']);
     });
 
-    it.skip('Arrange が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Arrange']);
+    it('Arrange が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Arrange']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Arrange']);
     });
 
-    it.skip('Plugins が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Plugins']);
+    it('Plugins が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Plugins']);
 
       const map = mainMenuMap['Plugins'];
       const labels = await page.$$eval(mainMenu2ndLabelSelector,
@@ -996,23 +1003,23 @@ describe('Figma File', () => {
       });
     });
 
-    it.skip('Integrations が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Integrations']);
+    it('Integrations が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Integrations']);
       await compareLabels(mainMenu2ndLabelSelector,
           mainMenuMap['Integrations']);
     });
 
-    it.skip('Preferences が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Preferences']);
+    it('Preferences が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Preferences']);
       await compareLabels(mainMenu2ndLabelSelector,
           mainMenuMap['Preferences']);
     });
 
-    it.skip('Help and Account が翻訳されている', async () => {
-      await page.click(toolbarClickSelector['Menu']);
-      await page.click(mainMenuClickSelector['Help and Account']);
+    it('Help and Account が翻訳されている', async () => {
+      await click(toolbarClickSelector['Menu']);
+      await click(mainMenuClickSelector['Help and Account']);
       await compareLabels(mainMenu2ndLabelSelector,
           mainMenuMap['Help and Account']);
     });
