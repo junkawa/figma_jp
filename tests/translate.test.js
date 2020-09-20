@@ -863,7 +863,7 @@ describe('Figma File', () => {
     await page.waitForNavigation(
         {waitUntil: ['load', 'networkidle2'], timeout: 60000});
     await page.waitForSelector('.toolbar_view--toolbar--2396w');
-    await page.waitForTimeout(10000); // ミリ秒
+    await page.waitForTimeout(5000); // ミリ秒
     // console.log('finish waitForTimeout');
     // await page.screenshot({path: 'screenshot.png'});
   }, timeout);
@@ -873,10 +873,7 @@ describe('Figma File', () => {
 
   beforeEach(async () => {
     // メニュー表示の初期化
-    [...Array(5)].map( async () => {
-      await page.keyboard.press('Escape');
-      await page.waitForTimeout(50); // ミリ秒
-    });
+    [...Array(5)].map( async () => await page.keyboard.press('Escape'));
   });
 
   // async function printLabels(selector) {
@@ -907,13 +904,13 @@ describe('Figma File', () => {
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['File']);
     });
 
-    it.skip('Edit が翻訳されている', async () => {
+    it('Edit が翻訳されている', async () => {
       await page.click(toolbarClickSelector['Menu']);
       await page.click(mainMenuClickSelector['Edit']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Edit']);
     });
 
-    it.skip('Edit > Copy as が翻訳されている', async () => {
+    it('Edit > Copy as が翻訳されている', async () => {
       await page.click(toolbarClickSelector['Menu']);
       await page.click(mainMenuClickSelector['Edit']);
       await page.click(mainMenuClickSelector['Edit > Copy as']);
@@ -921,7 +918,7 @@ describe('Figma File', () => {
           mainMenuMap['Edit > Copy as']);
     });
 
-    it.skip('View が翻訳されている', async () => {
+    it('View が翻訳されている', async () => {
       await page.click(toolbarClickSelector['Menu']);
       await page.click(mainMenuClickSelector['View']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['View']);
