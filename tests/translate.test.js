@@ -901,7 +901,7 @@ describe('Figma File', () => {
       await compareLabels(mainMenuTopLabelSelector, mainMenuMap['Top']);
     });
 
-    it.skip('File が翻訳されている', async () => {
+    it('File が翻訳されている', async () => {
       await page.click(toolbarClickSelector['Menu']);
       await page.click(mainMenuClickSelector['File']);
       await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['File']);
