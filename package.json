@@ -16,6 +16,7 @@
     "testEnvironment": "./tests/puppeteer_environment.js"
   },
   "scripts": {
+    "build": "./tools/build.sh",
     "test": "jest",
     "lint": "eslint figma_jp tests"
   },

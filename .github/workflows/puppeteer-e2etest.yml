@@ -22,6 +22,8 @@ jobs:
           node-version: '14.x'
       - name: npm install
         run: npm install
+      - name: Build chrome extension package
+        run: npm run build
       - name: Install xvfb
         run: sudo apt-get install -y xvfb --no-install-recommends
       - name: Run xvfb
@@ -33,3 +35,10 @@ jobs:
           FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
           DISPLAY: ':99.0'
         run: npm test
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        if: !failure() # Only when the test was succeeded
+        with:
+          name: figma_jp_chrome_extension
+          path: dist
+          
