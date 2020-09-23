@@ -37,8 +37,6 @@ jobs:
         run: npm test
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
-        if: !failure() # Only when the test was succeeded
         with:
           name: figma_jp_chrome_extension
           path: dist
-          
