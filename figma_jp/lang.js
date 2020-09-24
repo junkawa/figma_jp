@@ -970,6 +970,16 @@ const toolsMap = [
     'en': 'Flatten Selection',
     'ja': '複合パスに拡張',
   },
+
+  // Component
+  {
+    'en': 'Create Component',
+    'ja': 'コンポーネントを作成',
+  },
+  {
+    'en': 'Create Multiple Components',
+    'ja': 'フレーム/レイヤ毎にコンポーネントを作成',
+  },
 ];
 
 // ツールバーのツールチップ の翻訳
@@ -1264,6 +1274,10 @@ const panelTabMap = [
   {
     'en': 'prototype',
     'ja': 'プロトタイプ',
+  },
+  {
+    'en': 'inspect',
+    'ja': '検査',
   },
   {
     'en': 'code',
