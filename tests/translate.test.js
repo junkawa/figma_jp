@@ -1,7 +1,8 @@
 const defaultLanguage = 'ja';
 
 // Label
-const mainMenuLabelSelector = '.multilevel_dropdown--name--1abLT';
+const dropdownLabel = '.multilevel_dropdown--name--1abLT';
+const mainMenuLabelSelector = dropdownLabel;
 const mainMenuTopLabelSelector = mainMenuLabelSelector;
 const mainMenu2ndLabelSelector =
   'div[name="mainMenu"] div[name="mainMenu"] '+
@@ -9,42 +10,105 @@ const mainMenu2ndLabelSelector =
 const mainMenu3rdLabelSelector =
   'div[name="mainMenu"] div[name="mainMenu"] div[name="mainMenu"] '+
   mainMenuLabelSelector;
+const toolsLabelSelector =
+  'div.pointing_dropdown--root--28JAG .action_option--text--3Rze3';
+const viewLabelSelector = (() => {
+  const base = 'div[name="toolbarView.zoomMenu.dropdown"] ';
+  return {
+    'Top': base + dropdownLabel,
+    '2nd': base + base + dropdownLabel,
+  };
+})();
+const contextualToolsLabelSelector = {
+  'File-level actions': 'div[name="toolbarView.filenameView"] ' +
+    dropdownLabel,
+  'Boolean Groups':
+    'div.dropdown--dropdown--35dH4 div.action_option--text--3Rze3',
+  'Components':
+    'div.dropdown--dropdown--35dH4 div.action_option--text--3Rze3',
+};
+const tooltipSelector = {
+  'Shortcut':
+    'div.tooltip--content--3GEna > span > span:nth-of-type(1)',
+  'No shortcut':
+    'div.tooltip--content--3GEna > span:nth-of-type(1)',
+};
 
 // Toolbar
-const toolbarSelector = 'div.toolbar_view--toolbar--2396w';
-const toolbarClickSelector = {
-  'Menu': toolbarSelector+' > div:nth-child(1)',
-};
+const toolbarSelector = (() => {
+  const base = 'div.toolbar_view--toolbar--2396w';
+  const toolsBase = base + ' > div:nth-child(2)';
+  const contextualToolsBase= base + ' > div:nth-child(4)';
+  const shareViewBase = base + ' > div:nth-child(5)';
+  return {
+    // Menu
+    'Menu': base + ' > div:nth-child(1)',
+    // Tools
+    'Selected Move Tool': toolsBase + ' > div:nth-child(1) > div',
+    'Move Tools': toolsBase + ' > div:nth-child(1) > div > div',
+    'Selected Region Tool': toolsBase + ' > div:nth-child(2) > div',
+    'Region Tools': toolsBase + ' > div:nth-child(2) > div > div',
+    'Shape Tools': toolsBase + ' > div:nth-child(3) > div > div',
+    'Drawing Tools': toolsBase + ' > div:nth-child(4) > div > div',
+    'Text Tool': toolsBase + ' > div:nth-child(5) > span',
+    'Hand Tool': toolsBase + ' > div:nth-child(6) > span',
+    'Comment Tool': toolsBase + ' > div:nth-child(7) > span',
+    // Contextual Tools
+    'File-level actions': contextualToolsBase +
+      ' > div > div > div > div:nth-of-type(2)',
+    'Boolean Groups': contextualToolsBase +
+      ' > div:nth-child(6) > div > div > div:nth-of-type(1)',
+    'Components': contextualToolsBase +
+      ' > div:nth-child(4) > div > div > div:nth-of-type(1)',
+    // Views
+    'View Settings': shareViewBase + ' > div:nth-child(3)',
+    'View Settings > Pixel Preview':
+      'div[name="toolbarView.zoomMenu.dropdown"]'+
+      ' > div > div> div:nth-child(2) > div > div:nth-child(9)',
+  };
+})();
 
 // Toolbar > Menu
-const menuBase =
-  'div[name="mainMenu"] > div > div > div:nth-child(2) > div';
-const menu2ndBase =
-  'div[name="mainMenu"] div[name="mainMenu"] > div > div';
-const mainMenuClickSelector = {
-  'File': menuBase + ' > div:nth-child(2)',
-  'Edit': menuBase + ' > div:nth-child(3)',
-  'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
-  'View': menuBase + ' > div:nth-child(4)',
-  'View > Panels': menu2ndBase + ' > div:nth-child(12)',
-  'Object': menuBase + ' > div:nth-child(5)',
-  'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
-  'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
-  'Vector': menuBase + ' > div:nth-child(6)',
-  'Text': menuBase + ' > div:nth-child(7)',
-  'Text > Align': menu2ndBase + ' > div:nth-child(19)',
-  'Arrange': menuBase + ' > div:nth-child(8)',
-  // '---'
-  'Plugins': menuBase + ' > div:nth-child(10)',
-  'Integrations': menuBase + ' > div:nth-child(11)',
-  'Preferences': menuBase + ' > div:nth-child(12)',
-  // 'Libraries'
-  // '---'
-  'Help and Account': menuBase + ' > div:nth-child(15)',
-};
+const mainMenuSelector = (() => {
+  const menuBase =
+    'div[name="mainMenu"] > div > div > div:nth-child(2) > div';
+  const menu2ndBase =
+    'div[name="mainMenu"] div[name="mainMenu"] > div > div';
+  return {
+    'File': menuBase + ' > div:nth-child(2)',
+    'Edit': menuBase + ' > div:nth-child(3)',
+    'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
+    'View': menuBase + ' > div:nth-child(4)',
+    'View > Panels': menu2ndBase + ' > div:nth-child(12)',
+    'Object': menuBase + ' > div:nth-child(5)',
+    'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
+    'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
+    'Vector': menuBase + ' > div:nth-child(6)',
+    'Text': menuBase + ' > div:nth-child(7)',
+    'Text > Align': menu2ndBase + ' > div:nth-child(19)',
+    'Arrange': menuBase + ' > div:nth-child(8)',
+    // '---'
+    'Plugins': menuBase + ' > div:nth-child(10)',
+    'Integrations': menuBase + ' > div:nth-child(11)',
+    'Preferences': menuBase + ' > div:nth-child(12)',
+    // 'Libraries'
+    // '---'
+    'Help and Account': menuBase + ' > div:nth-child(15)',
+  };
+})();
+
+// Left Panel
+// object_row--frame--Q78_7
+// const leftPanelSelector = (() => {
+//   const base = 'div.left_panel--panelContainer--1OR1n';
+//   // 'TestXXX' is a creating layer on canvas.
+//   return {
+//     'TestFrame': base +
+//       ' div.object_row--topLevel--1ThUW',
+//   };
+// })();
 
 const mainMenuMap = {};
-
 mainMenuMap['Top'] = [
   {
     'en': 'Back to Files',
@@ -842,6 +906,301 @@ mainMenuMap['Help and Account'] = [
   },
 ];
 
+const toolsMap = {};
+toolsMap['Move Tools'] = [
+  {
+    'en': 'Move',
+    'ja': '移動',
+  },
+  {
+    'en': 'Scale',
+    'ja': '拡大・縮小',
+  },
+];
+toolsMap['Region Tools'] = [
+  {
+    'en': 'Frame',
+    'ja': 'フレーム',
+  },
+  {
+    'en': 'Slice',
+    'ja': 'スライス',
+  },
+];
+toolsMap['Shape Tools'] = [
+  {
+    'en': 'Rectangle',
+    'ja': '長方形',
+  },
+  {
+    'en': 'Line',
+    'ja': '直線',
+  },
+  {
+    'en': 'Arrow',
+    'ja': '矢印',
+  },
+  {
+    'en': 'Ellipse',
+    'ja': '楕円',
+  },
+  {
+    'en': 'Polygon',
+    'ja': '多角形',
+  },
+  {
+    'en': 'Star',
+    'ja': 'スター',
+  },
+  {
+    'en': 'Place Image',
+    'ja': '画像を配置',
+  },
+];
+toolsMap['Drawing Tools'] = [
+  {
+    'en': 'Pen',
+    'ja': 'ペン',
+  },
+  {
+    'en': 'Pencil',
+    'ja': '鉛筆',
+  },
+];
+// Toolbar > Contextual Tools
+const contextualToolsMap = {};
+contextualToolsMap['File-level actions'] = [
+  {
+    'en': 'Publish Styles and Components',
+    'ja': 'スタイルとコンポーネントを公開',
+  },
+  {
+    'en': 'Show Version History',
+    'ja': 'バージョン履歴を表示',
+  },
+  {
+    'en': 'Export…',
+    'ja': '書き出し',
+  },
+  {
+    'en': 'Duplicate',
+    'ja': '複製',
+  },
+  {
+    'en': 'Rename',
+    'ja': '名前を変更',
+  },
+  {
+    'en': 'Delete',
+    'ja': '削除',
+  },
+  {
+    'en': 'Move to Project…',
+    'ja': 'プロジェクトへ移動',
+  },
+];
+contextualToolsMap['Boolean Groups'] = [
+  {
+    'en': 'Union Selection',
+    'ja': '合体',
+  },
+  {
+    'en': 'Subtract Selection',
+    'ja': '前面オブジェクトで型抜き',
+  },
+  {
+    'en': 'Intersect Selection',
+    'ja': '交差',
+  },
+  {
+    'en': 'Exclude Selection',
+    'ja': '中マド',
+  },
+  {
+    'en': 'Flatten Selection',
+    'ja': '複合パスに拡張',
+  },
+];
+// TODO 翻訳反映
+contextualToolsMap['Components'] = [
+  {
+    'en': 'Create Component',
+    'ja': 'コンポーネントを作成',
+  },
+  {
+    'en': 'Create Multiple Components',
+    'ja': 'レイヤ毎にコンポーネントを作成',
+  },
+];
+
+// Toolbar > View Settings
+const viewMap = {};
+viewMap['Top'] = [
+  {
+    'en': 'Zoom in',
+    'ja': 'ズームイン',
+  },
+  {
+    'en': 'Zoom out',
+    'ja': 'ズームアウト',
+  },
+  {
+    'en': 'Zoom to Fit',
+    'ja': '画面に合わせてすべてをズーム',
+  },
+  {
+    'en': 'Zoom to 50%',
+    'ja': '50％にズーム',
+  },
+  {
+    'en': 'Zoom to 100%',
+    'ja': '100％にズーム',
+  },
+  {
+    'en': 'Zoom to 200%',
+    'ja': '200％にズーム',
+  },
+  {
+    'en': 'Pixel Preview',
+    'ja': 'ピクセルでプレビュー',
+  },
+  {
+    'en': 'Pixel Grid',
+    'ja': 'ピクセルグリッドを表示',
+  },
+  {
+    'en': 'Snap to Pixel Grid',
+    'ja': 'ピクセルグリッドにスナップ',
+  },
+  {
+    'en': 'Layout Grids',
+    'ja': 'レイアウトグリッドを表示',
+  },
+  {
+    'en': 'Rulers',
+    'ja': '定規を表示',
+  },
+  {
+    'en': 'Outlines',
+    'ja': 'アウトラインを表示',
+  },
+  {
+    'en': 'Multiplayer Cursors',
+    'ja': '共同作業者のカーソルを表示',
+  },
+];
+viewMap['Pixel Grid'] = [
+  {
+    'en': 'Disabled',
+    'ja': '無効',
+  },
+  {
+    'en': '1x',
+    'ja': '1x',
+  },
+  {
+    'en': '2x',
+    'ja': '2x',
+  },
+];
+const tooltipMap = {};
+tooltipMap['Toolbar'] = [
+  // data-tooltip-type="text"
+  {
+    'en': 'Move Tools',
+    'ja': '移動ツール',
+  },
+  {
+    'en': 'Region Tools',
+    'ja': 'リージョンツール',
+  },
+  {
+    'en': 'Shape Tools',
+    'ja': 'シェイプツール',
+  },
+  {
+    'en': 'Drawing Tools',
+    'ja': 'ドローツール',
+  },
+  {
+    'en': 'Zoom/View Options',
+    'ja': 'ズーム・ビュー操作',
+  },
+  {
+    'en': 'Present',
+    'ja': 'プレゼンテーション',
+  },
+  {
+    'en': 'Missing Fonts',
+    'ja': '足りないフォント',
+  },
+  // data-tooltip-type="lookup"
+  {
+    'en': 'Hand Tool',
+    'ja': '手のひらツール',
+  },
+  {
+    'en': 'Text',
+    'ja': 'テキスト',
+  },
+  {
+    'en': 'Add/Show Comments',
+    'ja': 'コメントの追加/表示',
+  },
+  {
+    'en': 'Edit Object',
+    'ja': 'オブジェクトの編集',
+  },
+  {
+    'en': 'Create Component',
+    'ja': 'コンポーネントを作成',
+  },
+  {
+    'en': 'Use as Mask',
+    'ja': 'マスクを作成',
+  },
+  {
+    'en': 'Boolean Groups',
+    'ja': '複合シェイプを作成',
+  },
+  {
+    'en': 'Create Link',
+    'ja': 'リンクを作成',
+  },
+  {
+    'en': 'Align left',
+    'ja': '水平方向左に整列',
+  },
+  {
+    'en': 'Bend Tool',
+    'ja': '曲線ツール',
+  },
+  {
+    'en': 'Paint Bucket',
+    'ja': '塗りつぶし',
+  },
+  {
+    'en': 'Done',
+    'ja': '終了',
+  },
+  {
+    'en': 'Crop Image',
+    'ja': '画像の切り抜き',
+  },
+];
+const layersPanelMap = {};
+
+layersPanelMap['Tab'] = [
+  {
+    'en': 'Layers',
+    'ja': 'レイヤー',
+  },
+  {
+    'en': 'Assets',
+    'ja': 'アセット',
+  },
+];
+
 const timeout = 90000; // ミリ秒
 
 describe('Figma File', () => {
@@ -877,15 +1236,41 @@ describe('Figma File', () => {
     await page.waitForTimeout(100); // ミリ秒
   });
 
-  // async function printLabels(selector) {
-  //   const labels = await page.$$eval(selector,
-  //       (divs) => divs.map((div) => div.innerHTML));
-  //   console.log(labels);
-  // }
-
-  async function compareLabels(selector, map) {
+  // eslint-disable-next-line no-unused-vars
+  async function printInnerHTMLs(selector) {
     const labels = await page.$$eval(selector,
         (divs) => divs.map((div) => div.innerHTML));
+    console.log(labels);
+  }
+  // eslint-disable-next-line no-unused-vars
+  async function printDataLabels(selector) {
+    const labels = await page.$$eval(selector,
+        (divs) => divs.map((div) => div.getAttribute('data-label')));
+    console.log(labels);
+  }
+
+  function searchWord(map, enWord) {
+    const ret = map.find((m) => m['en'] === enWord); // 先頭一致
+    return ret[defaultLanguage];
+  }
+  async function compareInnerHTML(selector, word) {
+    const tooltips = await page.$$eval(selector,
+        (divs) => divs.map((div) => div.innerHTML));
+
+    expect(tooltips[0]).toMatch(word);
+  }
+  async function compareInnerHTMLs(selector, map) {
+    const labels = await page.$$eval(selector,
+        (divs) => divs.map((div) => div.innerHTML));
+
+    labels.forEach((label, index) => {
+      expect(label).toMatch(map[index][defaultLanguage]);
+    });
+    expect(labels.length).toBe(map.length);
+  }
+  async function compareDataLabels(selector, map) {
+    const labels = await page.$$eval(selector,
+        (divs) => divs.map((div) => div.getAttribute('data-label')));
 
     labels.forEach((label, index) => {
       expect(label).toMatch(map[index][defaultLanguage]);
@@ -899,129 +1284,202 @@ describe('Figma File', () => {
     await page.click(selector);
     await page.waitForTimeout(100); // ミリ秒
   }
+  async function hover(selector) {
+    await page.hover(selector);
+    // ツールチップがポップアップするまで待つ
+    await page.waitForTimeout(1500); // ミリ秒
+  }
 
-  describe('Toolbar > Menu', () => {
-    it('トップレベルが翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await compareLabels(mainMenuTopLabelSelector, mainMenuMap['Top']);
-    });
+  // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar
+  describe('Toolbar', () => {
+    // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar#Menu
+    describe('Menu', () => {
+      it('トップレベルが翻訳されている', async () => {
+        await click(toolbarSelector['Menu']);
+        await compareInnerHTMLs(mainMenuTopLabelSelector, mainMenuMap['Top']);
+      });
 
-    it('File が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['File']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['File']);
-    });
+      it.each([
+        'File',
+        'Edit',
+        'View',
+        'Object',
+        'Vector',
+        'Text',
+        'Arrange',
+        'Integrations',
+        'Preferences',
+        'Help and Account',
+      ])('%s が翻訳されている', async (name) => {
+        await click(toolbarSelector['Menu']);
+        await click(mainMenuSelector[name]);
+        await compareInnerHTMLs(mainMenu2ndLabelSelector, mainMenuMap[name]);
+      });
 
-    it('Edit が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Edit']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Edit']);
-    });
+      it.each([
+        ['Edit', 'Copy as'],
+        ['View', 'Panels'],
+        ['Object', 'Main Component'],
+        ['Object', 'Boolean Groups'],
+        ['Text', 'Align'],
+      ])('%s > %s が翻訳されている', async (name1, name2) => {
+        await click(toolbarSelector['Menu']);
+        await click(mainMenuSelector[name1]);
+        await click(mainMenuSelector[name1+' > '+name2]);
+        await compareInnerHTMLs(mainMenu3rdLabelSelector,
+            mainMenuMap[name1+' > '+name2]);
+      });
 
-    it('Edit > Copy as が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Edit']);
-      await click(mainMenuClickSelector['Edit > Copy as']);
-      await compareLabels(mainMenu3rdLabelSelector,
-          mainMenuMap['Edit > Copy as']);
-    });
+      it('Plugins が翻訳されている', async () => {
+        await click(toolbarSelector['Menu']);
+        await click(mainMenuSelector['Plugins']);
 
-    it('View が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['View']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['View']);
-    });
-
-    it('View > Panels が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['View']);
-      await click(mainMenuClickSelector['View > Panels']);
-      await compareLabels(mainMenu3rdLabelSelector,
-          mainMenuMap['View > Panels']);
-    });
-
-    it('Object が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Object']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Object']);
-    });
-
-    it('Object > Main Component が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Object']);
-      await click(mainMenuClickSelector['Object > Main Component']);
-      await compareLabels(mainMenu3rdLabelSelector,
-          mainMenuMap['Object > Main Component']);
-    });
-
-    it('Object > Boolean Groups が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Object']);
-      await click(mainMenuClickSelector['Object > Boolean Groups']);
-      await compareLabels(mainMenu3rdLabelSelector,
-          mainMenuMap['Object > Boolean Groups']);
-    });
-
-    it('Vector が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Vector']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Vector']);
-    });
-
-    it('Text が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Text']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Text']);
-    });
-
-    it('Text > Align が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Text']);
-      await click(mainMenuClickSelector['Text > Align']);
-      await compareLabels(mainMenu3rdLabelSelector,
-          mainMenuMap['Text > Align']);
-    });
-
-    it('Arrange が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Arrange']);
-      await compareLabels(mainMenu2ndLabelSelector, mainMenuMap['Arrange']);
-    });
-
-    it('Plugins が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Plugins']);
-
-      const map = mainMenuMap['Plugins'];
-      const labels = await page.$$eval(mainMenu2ndLabelSelector,
-          (divs) => divs.map((div) => div.innerHTML));
-      // 前方はプラグインインストール状況によって異なる
-      // 後方のみ一致確認する
-      map.reverse().forEach((m, index) => {
-        expect(labels[labels.length-1-index])
-            .toMatch(m[defaultLanguage]);
+        const map = mainMenuMap['Plugins'];
+        const labels = await page.$$eval(mainMenu2ndLabelSelector,
+            (divs) => divs.map((div) => div.innerHTML));
+        // 前方はプラグインインストール状況によって異なる
+        // 後方のみ一致確認する
+        map.reverse().forEach((m, index) => {
+          expect(labels[labels.length-1-index])
+              .toMatch(m[defaultLanguage]);
+        });
       });
     });
 
-    it('Integrations が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Integrations']);
-      await compareLabels(mainMenu2ndLabelSelector,
-          mainMenuMap['Integrations']);
+    // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar#Tools
+    describe('Tools', () => {
+      it.each([
+        'Move Tools',
+        'Region Tools',
+        'Shape Tools',
+        'Drawing Tools',
+      ])('%s が翻訳されている', async (name) => {
+        await click(toolbarSelector[name]);
+        await compareInnerHTMLs(toolsLabelSelector,
+            toolsMap[name]);
+      });
     });
 
-    it('Preferences が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Preferences']);
-      await compareLabels(mainMenu2ndLabelSelector,
-          mainMenuMap['Preferences']);
+    // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar#Contextual_tools
+    describe('Contextual tools', () => {
+      describe('No layers selected', () => {
+        it('File-level actions が翻訳されている', async () => {
+          await click(toolbarSelector['File-level actions']);
+          await compareInnerHTMLs(
+              contextualToolsLabelSelector['File-level actions'],
+              contextualToolsMap['File-level actions']);
+        });
+      });
+      describe('Select layers', () => {
+        it.each([
+          'Boolean Groups',
+          'Components',
+        ])('%s が翻訳されている', async (name) => {
+          // 複数レイヤーを選択
+          await page.keyboard.down('ControlLeft');
+          await page.keyboard.press('KeyA');
+          await page.keyboard.up('ControlLeft');
+          await page.waitForTimeout(100); // ミリ秒
+
+          await click(toolbarSelector[name]);
+          await compareInnerHTMLs(contextualToolsLabelSelector[name],
+              contextualToolsMap[name]);
+        });
+      });
+      describe.skip('Select a single vector path', () => {
+      });
     });
 
-    it('Help and Account が翻訳されている', async () => {
-      await click(toolbarClickSelector['Menu']);
-      await click(mainMenuClickSelector['Help and Account']);
-      await compareLabels(mainMenu2ndLabelSelector,
-          mainMenuMap['Help and Account']);
+    // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar#Share_and_view_settings
+    describe('Share and view settings', () => {
+      it('View Settings が翻訳されている', async () => {
+        await click(toolbarSelector['View Settings']);
+        await compareInnerHTMLs(viewLabelSelector['Top'], viewMap['Top']);
+      });
+
+      it('View Settings > Pixel Preview が翻訳されている', async () => {
+        await click(toolbarSelector['View Settings']);
+        await click(toolbarSelector['View Settings > Pixel Preview']);
+        await compareInnerHTMLs(viewLabelSelector['2nd'],
+            viewMap['Pixel Grid']);
+      });
+      it.skip('Share が翻訳されている', async () => {
+      });
+    });
+
+    describe('Tooltip', () => {
+      it.each([
+        // ['Menu', 'Shortcut'], // TODO
+        ['Move Tools', 'No shortcut', 'Move Tools'],
+        ['Region Tools', 'No shortcut', 'Region Tools'],
+        ['Shape Tools', 'No shortcut', 'Shape Tools'],
+        ['Drawing Tools', 'No shortcut', 'Drawing Tools'],
+        ['Text Tool', 'Shortcut', 'Text'],
+        ['Hand Tool', 'Shortcut', 'Hand Tool'],
+        ['Comment Tool', 'Shortcut', 'Add/Show Comments'],
+      ])('%s が翻訳されている', async (name, selector, enWord) => {
+        await hover(toolbarSelector[name]);
+        // await page.screenshot({path: 'screenshot_'+name+'.png'});
+        // await printLabels(tooltipSelector[selector]);
+        await compareInnerHTML(tooltipSelector[selector],
+            searchWord(tooltipMap['Toolbar'], enWord));
+      });
+      it.skip.each([
+        ['Selected Move Tool', 'Shortcut', 'KeyV'],
+        ['Selected Move Tool', 'Shortcut', 'KeyK'],
+        ['Selected Region Tool', 'Shortcut', 'KeyF'],
+        ['Selected Region Tool', 'Shortcut', 'KeyS'],
+      ])('%s が翻訳されている', async (name, selector, enWord) => {
+        await click();
+        await hover(toolbarSelector[name]);
+        await compareInnerHTML(tooltipSelector[selector],
+            searchWord(tooltipMap['Toolbar'], enWord));
+      });
+    });
+  });
+
+  // https://help.figma.com/hc/en-us/articles/360039831974-View-layers-and-assets-in-the-Layers-Panel
+  describe('Layers Panel', () => {
+    it('タブが翻訳されている', async () => {
+      const selector =
+        'div.left_panel--content--35qKc div.pages_panel--tab--3s1Y5';
+      // await printDataLabels(selector);
+      await compareDataLabels(selector, layersPanelMap['Tab']);
+    });
+    describe.skip('Layers', () => {
+      // await click('div.pages_panel--tab--3s1Y5');
+    });
+    describe.skip('Assets panel', () => {
+      it('Local components が翻訳されている', async () => {
+        // Assetsタブクリック
+        await click('div.pages_panel--assetsTab--2Db-N');
+
+        const selector =
+          'div.library_section_header--sectionHeader1_redesign--2tKT4';
+        await printInnerHTMLs(selector);
+        // await compareDataLabels(selector, layersPanelMap['Tab']);
+      });
+    });
+    describe.skip('Team Library', () => {
+    });
+    describe.skip('Pages', () => {
+      // Right Click Menu
+      it('右クリックメニューが翻訳されている', async () => {
+        // const selector =
+        // 'div.left_panel--content--35qKc div.pages_panel--tab--3s1Y5';
+        // await printDataLabels(selector);
+        // await compareDataLabels(selector, layersPanelMap['Tab']);
+      });
+    });
+  });
+
+  // https://help.figma.com/hc/en-us/articles/360039832014
+  describe('Properties panel', () => {
+    describe('Design tab', () => {
+    });
+    describe('Prototype tab', () => {
+    });
+    describe('Inspect tab', () => {
     });
   });
 });
