@@ -1518,7 +1518,7 @@ describe('Figma File', () => {
     });
   });
 
-  describe.only('Help Widget', () => {
+  describe('Help Widget', () => {
     it('メニューが翻訳されている', async () => {
       await click('div.help_widget--helpWidget--22IIi');
       await printInnerHTMLs('a.dropdown--option--20q--');
@@ -1527,5 +1527,3 @@ describe('Figma File', () => {
     });
   });
 });
-
-
