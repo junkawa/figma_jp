@@ -1521,8 +1521,11 @@ describe('Figma File', () => {
   describe('Help Widget', () => {
     it('メニューが翻訳されている', async () => {
       await click('div.help_widget--helpWidget--22IIi');
-      await printInnerHTMLs('a.dropdown--option--20q--');
-      await compareInnerHTMLs('a.dropdown--option--20q--', helpMap);
+      await printInnerHTMLs(
+          'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--');
+      await compareInnerHTMLs(
+          'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--',
+          helpMap);
       // await page.screenshot({path: 'screenshot.png'});
     });
   });
