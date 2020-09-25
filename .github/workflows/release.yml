@@ -1,0 +1,88 @@
+name: "Create Release"
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+#on:
+#  workflow_dispatch
+#    inputs:
+#      version:
+#        description: 'version'
+#    　  required: true
+#        default: 'v0.0.0'
+
+jobs:
+  build:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      #- name: Change Manifest.json
+      #  ${{ github.event.inputs.version }}
+      #- name: Commit
+      #- name: Tag
+
+      #- name: Get tag version
+      #  run: |
+      #    cat ./manifest.json | grep \"version\" | sed -e "s/^.*\"version\":.*\"\(.*\)\",.*/\1/g" | xargs -I{} echo "::set-env name=TAG_VERSION::v{}"
+      #    echo $TAG_VERSION
+
+      #- name: Tagging
+      #  run: |
+      #  git tag ${{ github.event.inputs.version }}
+      #  PUSHURL="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
+      #  git push ${PUSHURL} ${{ github.event.inputs.version }}
+
+      - name: Build chrome extension package
+        run: |
+          npm run build
+          mv dist figma_jp_chrome_extension
+          zip -r figma_jp_chrome_extension.zip figma_jp_chrome_extension
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./figma_jp_chrome_extension.zip
+          asset_name: figma_jp_chrome_extension.zip
+          asset_content_type: application/zip
+
+      - name: Get Access Token for Chrome web store API
+        # https://developers.google.com/identity/protocols/oauth2/web-server#httprest_7
+        env:
+          CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          sudo apt install jq
+          curl --data "refresh_token=$REFRESH_TOKEN" --data "client_id=$CLIENT_ID" --data "client_secret=$CLIENT_SECRET" --data "grant_type=refresh_token" https://oauth2.googleapis.com/token | | jq -r '.access_token' | xargs -I{} echo "::set-env name=ACCESS_TOKEN::{}"
+
+      - name: Uploading a package and Publishing an item to the public
+        # https://developer.chrome.com/webstore/using_webstore_api
+        env:
+          APP_ID: 'ekodckpnalonppfcddgnkoapajahbahc'
+          FILE_NAME: './figma_jp_chrome_extension.zip'
+        run: |
+          curl -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -X PUT -T $FILE_NAME -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$APP_ID
+          curl -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -H "Content-Length: 0" -X POST -v https://www.googleapis.com/chromewebstore/v1.1/items/$APP_ID/publish
