@@ -20,5 +20,5 @@ ACCESS_TOKEN=$(curl -s --data "refresh_token=$REFRESH_TOKEN" --data "client_id=$
 
 # Uploading a package and Publishing an item to the public
 # https://developer.chrome.com/webstore/using_webstore_api
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -X PUT -T $FILE_NAME -v https://www.googleapis.com/upload/chromewebstore/v1.1/items/$APP_ID
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -H "Content-Length: 0" -X POST -v https://www.googleapis.com/chromewebstore/v1.1/items/$APP_ID/publish
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -X PUT -T $FILE_NAME https://www.googleapis.com/upload/chromewebstore/v1.1/items/$APP_ID
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "x-goog-api-version: 2" -H "Content-Length: 0" -X POST https://www.googleapis.com/chromewebstore/v1.1/items/$APP_ID/publish
