@@ -75,7 +75,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
         run: |
-          sudo apt install jq
+          sudo apt-get install -y jq
           curl --data "refresh_token=$REFRESH_TOKEN" --data "client_id=$CLIENT_ID" --data "client_secret=$CLIENT_SECRET" --data "grant_type=refresh_token" https://oauth2.googleapis.com/token | | jq -r '.access_token' | xargs -I{} echo "::set-env name=ACCESS_TOKEN::{}"
 
       - name: Uploading a package and Publishing an item to the public
