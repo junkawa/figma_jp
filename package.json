@@ -17,6 +17,8 @@
   },
   "scripts": {
     "build": "./tools/build.sh",
+    "release": "./tools/release.sh",
+    "publish": "./tools/publish.sh",
     "test": "jest",
     "lint": "eslint figma_jp tests"
   },
