@@ -76,7 +76,7 @@ jobs:
           REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
         run: |
           sudo apt-get install -y jq
-          curl --data "refresh_token=$REFRESH_TOKEN" --data "client_id=$CLIENT_ID" --data "client_secret=$CLIENT_SECRET" --data "grant_type=refresh_token" https://oauth2.googleapis.com/token | | jq -r '.access_token' | xargs -I{} echo "::set-env name=ACCESS_TOKEN::{}"
+          curl --data "refresh_token=$REFRESH_TOKEN" --data "client_id=$CLIENT_ID" --data "client_secret=$CLIENT_SECRET" --data "grant_type=refresh_token" https://oauth2.googleapis.com/token | jq -r '.access_token' | xargs -I{} echo "::set-env name=ACCESS_TOKEN::{}"
 
       - name: Uploading a package and Publishing an item to the public
         # https://developer.chrome.com/webstore/using_webstore_api
