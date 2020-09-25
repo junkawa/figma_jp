@@ -1188,8 +1188,8 @@ tooltipMap['Toolbar'] = [
     'ja': '画像の切り抜き',
   },
 ];
-const layersPanelMap = {};
 
+const layersPanelMap = {};
 layersPanelMap['Tab'] = [
   {
     'en': 'Layers',
@@ -1198,6 +1198,41 @@ layersPanelMap['Tab'] = [
   {
     'en': 'Assets',
     'ja': 'アセット',
+  },
+];
+
+const helpMap = [
+  {
+    'en': 'Help Center',
+    'ja': 'ヘルプセンター',
+  },
+  {
+    'en': 'Keyboard Shortcuts',
+    'ja': 'キーボードショートカット',
+  },
+  {
+    'en': 'Community Forum',
+    'ja': 'コミュニティフォーラム',
+  },
+  {
+    'en': 'Video Tutorials',
+    'ja': 'ビデオチュートリアル',
+  },
+  {
+    'en': 'Reset Onboarding',
+    'ja': 'オンボーディング',
+  },
+  {
+    'en': 'Release Notes',
+    'ja': 'リリースノート',
+  },
+  {
+    'en': 'Legal Summary',
+    'ja': '利用規約',
+  },
+  {
+    'en': 'Get Help',
+    'ja': 'サポートに問い合わせる',
   },
 ];
 
@@ -1482,4 +1517,15 @@ describe('Figma File', () => {
     describe('Inspect tab', () => {
     });
   });
+
+  describe.only('Help Widget', () => {
+    it('メニューが翻訳されている', async () => {
+      await click('div.help_widget--helpWidget--22IIi');
+      await printInnerHTMLs('a.dropdown--option--20q--');
+      await compareInnerHTMLs('a.dropdown--option--20q--', helpMap);
+      // await page.screenshot({path: 'screenshot.png'});
+    });
+  });
 });
+
+

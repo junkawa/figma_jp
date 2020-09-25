@@ -2871,3 +2871,45 @@ const shortcutRegexpMap = [
     'ja': '検索',
   },
 ];
+
+const helpMap = [
+  {
+    'en': 'Help Center',
+    'ja': 'ヘルプセンター',
+  },
+  {
+    'en': 'Keyboard Shortcuts',
+    'ja': 'キーボードショートカット',
+  },
+  {
+    'en': 'Community Forum',
+    'ja': 'コミュニティフォーラム',
+  },
+  {
+    'en': 'Video Tutorials',
+    'ja': 'ビデオチュートリアル',
+  },
+  {
+    'en': 'Reset Onboarding',
+    'ja': 'オンボーディング',
+  },
+  {
+    'en': 'Release Notes',
+    'ja': 'リリースノート',
+  },
+  {
+    'en': 'Legal Summary',
+    'ja': '利用規約',
+  },
+  {
+    'en': 'Get Help',
+    'ja': 'サポートに問い合わせる',
+  },
+];
+
+const helpTooltipMap = [
+  {
+    'en': 'Help &amp; Resources',
+    'ja': 'ヘルプ',
+  },
+];

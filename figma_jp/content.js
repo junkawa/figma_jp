@@ -1,7 +1,7 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
    panelSelectMap, modalMap, interactionListMap, shortcutMap,
-   shortcutRegexpMap,
+   shortcutRegexpMap, helpMap, helpTooltipMap
    defaultLanguage
  */
 
@@ -187,6 +187,44 @@ function translateShortcut() {
   _translateInnerHTMLRegexp(selector, shortcutRegexpMap);
 }
 
+function translateHelp() {
+  const selector =
+    'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--';
+  _translateInnerHTML(selector, helpMap);
+  _translateInnerHTMLRegexp(selector, helpMap);
+  _translateInnerHTML('div.help_widget--tooltip--jXoVZ', helpTooltipMap);
+}
+
+// 動的に生成されるヘルプウィジェットの監視
+function observeHelpChange() {
+  // 動的生成ヘルプウィジェット要素の先祖 class (TODO 要検討)
+  const target = document.querySelector('div.help_widget--helpWidget--22IIi');
+  const config = {
+    attributes: true,
+    childList: true,
+    subtree: true, // 子孫の変更を監視
+  };
+
+  // 表示完了待ち
+  if (!target) {
+    // ツールチップが初めて表示されるまでループし続ける
+    window.setTimeout(observeTooltipChange, 100);
+    return;
+  }
+  translateHelp();
+
+  const observer = new MutationObserver(function() {
+    // 変更検知の無限ループ回避
+    observer.disconnect();
+
+    // ツールチップ生成検知時に翻訳する
+    translateHelp();
+
+    observer.observe(target, config);
+  });
+  observer.observe(target, config);
+}
+
 // 動的に生成されるキーボードショートカットパネルの監視
 function observeShortcutChange() {
   // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
@@ -291,6 +329,7 @@ function initialize() {
   observePageChange();
   observeTooltipChange();
   observeShortcutChange();
+  observeHelpChange();
 }
 
 /* ページ遷移の監視
