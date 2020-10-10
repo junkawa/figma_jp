@@ -1,24 +1,19 @@
 {
-    "manifest_version": 2,
-    "name": "Figma 日本語化",
-    "version": "0.3.5",
-    "description": "Figma の表示を日本語化する拡張です。",
-    "homepage_url": "https://github.com/junkawa/figma_jp",
-    "content_scripts": [
-        {
-            "matches": [
-                "https://www.figma.com/*"
-            ],
-            "js": [
-                "figma_jp/lang.js",
-                "figma_jp/content.js"
-            ]
-        }
-    ],
-    "icons": {
-        "16": "figma_jp/icons/icon16.png",
-        "48": "figma_jp/icons/icon48.png",
-        "128": "figma_jp/icons/icon128.png"
-    },
-    "permissions": []
+  "manifest_version": 2,
+  "name": "Figma 日本語化",
+  "version": "0.3.5",
+  "description": "Figma の表示を日本語化する拡張です。",
+  "homepage_url": "https://github.com/junkawa/figma_jp",
+  "content_scripts": [
+    {
+      "matches": ["https://www.figma.com/*"],
+      "js": ["figma_jp/lang.js", "figma_jp/content.js"]
+    }
+  ],
+  "icons": {
+    "16": "figma_jp/icons/icon16.png",
+    "48": "figma_jp/icons/icon48.png",
+    "128": "figma_jp/icons/icon128.png"
+  },
+  "permissions": []
 }

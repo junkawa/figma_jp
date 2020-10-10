@@ -7,7 +7,7 @@ const path = require('path');
 
 const DIR = path.join(os.tmpdir(), 'jest_puppeteer_global_setup');
 
-module.exports = async function() {
+module.exports = async function () {
   console.log(chalk.green('Setup Puppeteer'));
 
   // https://pptr.dev/#?product=Puppeteer&version=v5.3.0&show=api-working-with-chrome-extensions

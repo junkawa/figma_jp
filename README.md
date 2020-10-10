@@ -16,4 +16,4 @@ Figma のメニューを日本語化する Chrome 拡張機能です。
 
 ## 翻訳対象外(暫定)
 
--   [コマンド検索時の検索結果に対しての翻訳](https://github.com/junkawa/figma_jp/issues/1)
+- [コマンド検索時の検索結果に対しての翻訳](https://github.com/junkawa/figma_jp/issues/1)

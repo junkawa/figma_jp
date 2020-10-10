@@ -32,8 +32,10 @@ function _translateInnerHTMLRegexp(selector, map) {
   labels.forEach((label) => {
     const ret = map.find((m) => label.innerHTML.startsWith(m['en'])); // 先頭一致
     if (ret) {
-      label.innerHTML =
-      label.innerHTML.replace(ret['en'], ret[defaultLanguage]);
+      label.innerHTML = label.innerHTML.replace(
+        ret['en'],
+        ret[defaultLanguage]
+      );
     }
   });
 }
@@ -43,8 +45,7 @@ function _translateDataLabel(selector, map) {
   const labels = document.querySelectorAll(selector);
   // console.log(labels);
   labels.forEach((label) => {
-    const ret = map.find((m) => m['en'] ===
-    label.getAttribute('data-label')); // 先頭一致
+    const ret = map.find((m) => m['en'] === label.getAttribute('data-label')); // 先頭一致
     if (ret) {
       label.setAttribute('data-label', ret[defaultLanguage]);
       // 1行表示にするため TODO 固定で良いか?
@@ -56,16 +57,13 @@ function _translateDataLabel(selector, map) {
 function translateToolbar() {
   // メインメニューラベル要素の class
   // TODO 正規表現にして変更に耐性もたせるか? 速度低下する?
-  _translateInnerHTML('.multilevel_dropdown--name--1abLT',
-      mainMenuMap);
+  _translateInnerHTML('.multilevel_dropdown--name--1abLT', mainMenuMap);
 
   // ツールラベル要素の class
-  _translateInnerHTML('.action_option--text--3Rze3',
-      toolsMap);
+  _translateInnerHTML('.action_option--text--3Rze3', toolsMap);
 
   // Done, Share ボタン TODO map変数を独自に用意してもよいかも(mainMenuMapはおおきすぎるため)
-  _translateInnerHTML('.toolbar_view--textButton--eiCIw',
-      mainMenuMap);
+  _translateInnerHTML('.toolbar_view--textButton--eiCIw', mainMenuMap);
 }
 
 // 左(ページ)パネル
@@ -73,56 +71,57 @@ function translateToolbar() {
 function translatePanel() {
   // パネルタイトル要素の class
   const panelTitleSelector =
-      '.raw_components--panelTitle--7MaOu,'+
-      '.raw_components--panelTitle--7MaOu div,'+
-      '.draggable_list--panelTitleText--1q89R,'+
-      '.component_tiles--sectionHeader--10N5o';
+    '.raw_components--panelTitle--7MaOu,' +
+    '.raw_components--panelTitle--7MaOu div,' +
+    '.draggable_list--panelTitleText--1q89R,' +
+    '.component_tiles--sectionHeader--10N5o';
   // label
   const labelSelector =
-      '.raw_components--label--34YmO,'+
-      '.constraints_panel--checkboxLabel--3vvz3,'+
-      '.instance_panel__OLD--link--3yIYF,'+
-      '.basic_form--btn--3A-Ju,'+
-      '.raw_components--labelInactive--2GwUQ,'+
-      '.basic_form--label--hdhP9,'+
-      'a.style_preview_panel--addDescriptionLink--26D0-';
+    '.raw_components--label--34YmO,' +
+    '.constraints_panel--checkboxLabel--3vvz3,' +
+    '.instance_panel__OLD--link--3yIYF,' +
+    '.basic_form--btn--3A-Ju,' +
+    '.raw_components--labelInactive--2GwUQ,' +
+    '.basic_form--label--hdhP9,' +
+    'a.style_preview_panel--addDescriptionLink--26D0-';
   // 右クリック
   const rightClickSelector = '.library_item_tile--contextMenu--N4uYI a';
   _translateInnerHTML(
-      panelTitleSelector+','+labelSelector+','+rightClickSelector,
-      panelMap);
+    panelTitleSelector + ',' + labelSelector + ',' + rightClickSelector,
+    panelMap
+  );
 
   // パネルタイトル要素の class
   _translateInnerHTML(
-      '.pages_panel--pagesHeaderText--1GE3u,'+
-        '.library_section_header--sectionHeader1_redesign--2tKT4',
-      panelTabMap);
+    '.pages_panel--pagesHeaderText--1GE3u,' +
+      '.library_section_header--sectionHeader1_redesign--2tKT4',
+    panelTabMap
+  );
 
   // パネル Layers, Assets, design, prototype, code
   // Text Style編集パネルから戻ると Design, Prototype, Codeがオリジナル表示に戻るため
   // ここで再度翻訳する
-  _translateDataLabel(
-      '.pages_panel--tab--3s1Y5',
-      panelTabMap);
+  _translateDataLabel('.pages_panel--tab--3s1Y5', panelTabMap);
 
   // セレクトボックス
   // 選択済み
   const selectedSelector =
-  '.select--inputText--6fenW,'+
-  '.paint_panels--typeContainer--KyReT';
+    '.select--inputText--6fenW,' + '.paint_panels--typeContainer--KyReT';
   // 選択メニュー
   const selectMenuSelector =
-  '.select--optionText--2C5M1,'+
-  '.multilevel_dropdown--name--1abLT,'+
-  '.prototype_device_panel--deviceOption--1zMFr span';
+    '.select--optionText--2C5M1,' +
+    '.multilevel_dropdown--name--1abLT,' +
+    '.prototype_device_panel--deviceOption--1zMFr span';
   _translateInnerHTML(
-      selectedSelector+','+selectMenuSelector,
-      panelSelectMap);
+    selectedSelector + ',' + selectMenuSelector,
+    panelSelectMap
+  );
 
   // Interaction
   _translateInnerHTML(
-      '.prototype_interaction_list--interactionName--3052S',
-      interactionListMap);
+    '.prototype_interaction_list--interactionName--3052S',
+    interactionListMap
+  );
   // フレーム名が翻訳されるため、削除
   // _translateInnerHTML('.prototype_interaction_list--targetText--M-vAz',
   //    interactionListMap);
@@ -134,13 +133,11 @@ function translateModal() {
   const imageSelector = '.image_settings_modal--colorAdjustLabel--2F676';
   // テキスト
   const textSelector =
-        '.header_modal--headerModalTitle--8hnpX,'+
-        '.type_settings--previewPlaceholder--mjwRc,'+
-        '.raw_components--label--34YmO,'+
-        '.raw_components--panelTitle--7MaOu';
-  _translateInnerHTML(
-      imageSelector+','+textSelector,
-      modalMap);
+    '.header_modal--headerModalTitle--8hnpX,' +
+    '.type_settings--previewPlaceholder--mjwRc,' +
+    '.raw_components--label--34YmO,' +
+    '.raw_components--panelTitle--7MaOu';
+  _translateInnerHTML(imageSelector + ',' + textSelector, modalMap);
 
   // 1行表示にするため
   const labels = document.querySelectorAll(imageSelector);
@@ -170,20 +167,24 @@ function translateTooltip() {
   const noshortcutTooltip = 'div.tooltip--content--3GEna span';
 
   _translateInnerHTML(
-      shortcutTooltip+','+noshortcutTooltip,
-      tooltipMap.concat(toolsMap));
+    shortcutTooltip + ',' + noshortcutTooltip,
+    tooltipMap.concat(toolsMap)
+  );
 }
 
 function translateShortcut() {
   _translateInnerHTML(
-      '.keyboard_shortcut_panel--tab--DuCac,'+
-      '.keyboard_shortcut_panel--caption--GQtJO,'+
+    '.keyboard_shortcut_panel--tab--DuCac,' +
+      '.keyboard_shortcut_panel--caption--GQtJO,' +
       '.keyboard_shortcut_panel--categoryCaption--34arC',
-      shortcutMap);
+    shortcutMap
+  );
 
   const selector = '.keyboard_shortcut_panel--shortcutName--1cktE';
-  _translateInnerHTML(selector,
-      mainMenuMap.concat(toolsMap, tooltipMap, shortcutMap));
+  _translateInnerHTML(
+    selector,
+    mainMenuMap.concat(toolsMap, tooltipMap, shortcutMap)
+  );
   _translateInnerHTMLRegexp(selector, shortcutRegexpMap);
 }
 
@@ -213,7 +214,7 @@ function observeHelpChange() {
   }
   translateHelp();
 
-  const observer = new MutationObserver(function() {
+  const observer = new MutationObserver(function () {
     // 変更検知の無限ループ回避
     observer.disconnect();
 
@@ -229,7 +230,8 @@ function observeHelpChange() {
 function observeShortcutChange() {
   // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
   const target = document.querySelector(
-      'div.fullscreen_view--flexContainer--3cbGo');
+    'div.fullscreen_view--flexContainer--3cbGo'
+  );
   const config = {
     attributes: true,
     childList: true,
@@ -242,10 +244,11 @@ function observeShortcutChange() {
     return;
   }
 
-  const observer = new MutationObserver(function() {
+  const observer = new MutationObserver(function () {
     // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
     const targetShortcut = document.querySelector(
-        'div.keyboard_shortcut_panel--keyboardShortcutPanel--2UT6R');
+      'div.keyboard_shortcut_panel--keyboardShortcutPanel--2UT6R'
+    );
     if (targetShortcut) {
       // 変更検知の無限ループ回避
       observer.disconnect();
@@ -278,7 +281,7 @@ function observeTooltipChange() {
   }
   translateTooltip();
 
-  const observer = new MutationObserver(function() {
+  const observer = new MutationObserver(function () {
     // 変更検知の無限ループ回避
     observer.disconnect();
 
@@ -313,7 +316,7 @@ function observePageChange() {
   }
   translatePage();
 
-  const menuObserver = new MutationObserver(function() {
+  const menuObserver = new MutationObserver(function () {
     // 変更検知の無限ループ回避
     menuObserver.disconnect();
 
@@ -344,7 +347,7 @@ function observePageTransition() {
     window.setTimeout(observePageTransition, 100);
     return;
   }
-  const pageObserver = new MutationObserver(function() {
+  const pageObserver = new MutationObserver(function () {
     // ページ遷移後、再度ページを監視する
     initialize();
   });
