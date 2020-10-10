@@ -965,12 +965,12 @@ toolsMap['Drawing Tools'] = [
 const contextualToolsMap = {};
 contextualToolsMap['File-level actions'] = [
   {
-    en: 'Publish Styles and Components',
-    ja: 'スタイルとコンポーネントを公開',
-  },
-  {
     en: 'Show Version History',
     ja: 'バージョン履歴を表示',
+  },
+  {
+    en: 'Publish Styles and Components',
+    ja: 'スタイルとコンポーネントを公開',
   },
   {
     en: 'Export…',
