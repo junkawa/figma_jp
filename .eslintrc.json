@@ -1,22 +1,16 @@
 {
-    "env": {
-        "node": true,
-        "browser": true,
-        "webextensions": true,
-        "jest/globals": true
-    },
-    "plugins": [
-        "jest"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "google",
-        "prettier"
-    ],
-    "rules": {
-        "require-jsdoc": "off"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2017
-    }
+  "env": {
+    "node": true,
+    "browser": true,
+    "webextensions": true,
+    "jest/globals": true
+  },
+  "plugins": ["jest"],
+  "extends": ["eslint:recommended", "google", "prettier"],
+  "rules": {
+    "require-jsdoc": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  }
 }
