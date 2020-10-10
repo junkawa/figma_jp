@@ -20,7 +20,8 @@
     "release": "./tools/release.sh",
     "publish": "./tools/publish.sh",
     "test": "jest",
-    "lint": "eslint figma_jp tests"
+    "lint": "eslint --fix figma_jp tests",
+    "fmt": "prettier --write **/*.{js,json,md}"
   },
   "scriptsComments": {
     "build": "dist/ に Chrome拡張機能を用意します。",
@@ -32,6 +33,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.8.1",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-jest": "^24.0.1",
     "jest": "^26.4.2",
     "prettier": "^2.1.2",

@@ -10,7 +10,8 @@
     ],
     "extends": [
         "eslint:recommended",
-        "google"
+        "google",
+        "prettier"
     ],
     "rules": {
         "require-jsdoc": "off"
