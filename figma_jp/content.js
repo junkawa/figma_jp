@@ -1,7 +1,7 @@
 /* globals
    mainMenuMap, toolsMap, tooltipMap, panelMap, panelTabMap,
    panelSelectMap, modalMap, interactionListMap, shortcutMap,
-   shortcutRegexpMap, helpMap, helpTooltipMap
+   shortcutRegexpMap, helpMap, helpTooltipMap, missingFontsMap
    defaultLanguage
  */
 
@@ -138,6 +138,16 @@ function translateModal() {
     '.raw_components--label--34YmO,' +
     '.raw_components--panelTitle--7MaOu';
   _translateInnerHTML(imageSelector + ',' + textSelector, modalMap);
+
+  // Missing Fonts
+  const missingSelector =
+    'div.missing_fonts_modal--title--1wSnP,' +
+    'div.missing_fonts_modal--message--YgBr5,' +
+    'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(1),' +
+    'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(2),' +
+    'div.missing_fonts_modal--buttonRow--1UfFc > button:nth-child(1),' +
+    'div.missing_fonts_modal--buttonRow--1UfFc > button:nth-child(2)';
+  _translateInnerHTML(missingSelector, missingFontsMap);
 
   // 1行表示にするため
   const labels = document.querySelectorAll(imageSelector);

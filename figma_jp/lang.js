@@ -2912,3 +2912,33 @@ const helpTooltipMap = [
     ja: 'ヘルプ',
   },
 ];
+
+// Toolbar > Missing Fonts
+const missingFontsMap = [
+  {
+    en: 'Missing Fonts',
+    ja: '足りないフォント',
+  },
+  {
+    en:
+      'The following fonts are not available, and need to be replaced in order to edit text.',
+    ja:
+      '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
+  },
+  {
+    en: 'Missing Font',
+    ja: '足りないフォント',
+  },
+  {
+    en: 'Replacement',
+    ja: '置換するフォント',
+  },
+  {
+    en: 'Cancel',
+    ja: 'キャンセル',
+  },
+  {
+    en: 'Replace Fonts',
+    ja: 'フォント置換',
+  },
+];

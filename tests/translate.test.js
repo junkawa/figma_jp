@@ -57,8 +57,10 @@ const toolbarSelector = (() => {
     Components:
       contextualToolsBase +
       ' > div:nth-child(4) > div > div > div:nth-of-type(1)',
+    // Missing Fonts
+    'Missing Fonts': shareViewBase + ' > div:nth-child(3)',
     // Views
-    'View Settings': shareViewBase + ' > div:nth-child(3)',
+    'View Settings': shareViewBase + ' > div:nth-child(4)',
     'View Settings > Pixel Preview':
       'div[name="toolbarView.zoomMenu.dropdown"]' +
       ' > div > div> div:nth-child(2) > div > div:nth-child(9)',
@@ -1097,6 +1099,36 @@ viewMap['Pixel Grid'] = [
     ja: '2x',
   },
 ];
+// Toolbar > Missing Fonts
+const missingFontsMap = [
+  {
+    en: 'Missing Fonts',
+    ja: '足りないフォント',
+  },
+  {
+    en:
+      'The following fonts are not available, and need to be replaced in order to edit text.',
+    ja:
+      '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
+  },
+  {
+    en: 'Missing Font',
+    ja: '足りないフォント',
+  },
+  {
+    en: 'Replacement',
+    ja: '置換するフォント',
+  },
+  {
+    en: 'Cancel',
+    ja: 'キャンセル',
+  },
+  {
+    en: 'Replace Fonts',
+    ja: 'フォント置換',
+  },
+];
+
 const tooltipMap = {};
 tooltipMap['Toolbar'] = [
   // data-tooltip-type="text"
@@ -1442,6 +1474,39 @@ describe('Figma File', () => {
         );
       });
       it.skip('Share が翻訳されている', async () => {});
+    });
+
+    describe('Missing Fonts', () => {
+      it('モーダルが翻訳されている', async () => {
+        await click(toolbarSelector['Missing Fonts']);
+        await compareInnerHTML(
+          'div.missing_fonts_modal--title--1wSnP',
+          searchWord(missingFontsMap, 'Missing Fonts')
+        );
+        await compareInnerHTML(
+          'div.missing_fonts_modal--message--YgBr5',
+          searchWord(
+            missingFontsMap,
+            'The following fonts are not available, and need to be replaced in order to edit text.'
+          )
+        );
+        await compareInnerHTML(
+          'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(1)',
+          searchWord(missingFontsMap, 'Missing Font')
+        );
+        await compareInnerHTML(
+          'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(2)',
+          searchWord(missingFontsMap, 'Replacement')
+        );
+        await compareInnerHTML(
+          'div.missing_fonts_modal--buttonRow--1UfFc > button:nth-child(1)',
+          searchWord(missingFontsMap, 'Cancel')
+        );
+        await compareInnerHTML(
+          'div.missing_fonts_modal--buttonRow--1UfFc > button:nth-child(2)',
+          searchWord(missingFontsMap, 'Replace Fonts')
+        );
+      });
     });
 
     describe('Tooltip', () => {
