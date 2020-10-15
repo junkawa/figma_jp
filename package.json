@@ -25,7 +25,7 @@
   },
   "scriptsComments": {
     "build": "dist/ に Chrome拡張機能を用意します。",
-    "release": "manifest.jsonのversionsを更新後、npm run release を実行すると、CIによりリリース、Chrome Webストア公開されます。",
+    "release": "manifest.jsonのversionを更新・コミット後、npm run release を実行すると、CIによりリリース、Chrome Webストア公開されます。",
     "publish": "CIから呼ばれることを期待します。ストア公開を行います。"
   },
   "devDependencies": {
