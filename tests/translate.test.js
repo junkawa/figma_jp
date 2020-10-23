@@ -1227,6 +1227,29 @@ layersPanelMap['Tab'] = [
   },
 ];
 
+const exportModalMap = [
+  {
+    en: 'Export',
+    ja: 'エクスポート',
+  },
+  {
+    en: 'Contents Only',
+    ja: 'レイヤ内のみエクスポート',
+  },
+  {
+    en: 'Include "id" Attribute',
+    ja: '"id"属性を含める',
+  },
+  {
+    en: 'Outline Text',
+    ja: 'フォントのアウトライン化',
+  },
+  {
+    en: 'Simplify Stroke',
+    ja: '線の簡略化',
+  },
+];
+
 const helpMap = [
   {
     en: 'Help Center',
@@ -1580,17 +1603,61 @@ describe('Figma File', () => {
 
   // https://help.figma.com/hc/en-us/articles/360039832014
   describe('Properties panel', () => {
-    describe('Design tab', () => {});
+    describe('Design tab', () => {
+      // https://help.figma.com/hc/en-us/articles/360040028114
+      describe('Export', () => {
+        it('モーダルが翻訳されている', async () => {
+          // TestFrame選択
+          await click(
+            'div.objects_panel--rowContainer--A7Umr > div:nth-child(2)'
+          );
+          // Export設定ボタン
+          await click('span.export_panel--exportSettings--24TCT');
+
+          await compareInnerHTML(
+            'div.header_modal--headerModalTitle--8hnpX',
+            searchWord(exportModalMap, 'Export')
+          );
+
+          await compareInnerHTML(
+            'div.draggable_modal--contentContainer--PfnuK > div > div > div > label:nth-child(2)',
+            searchWord(exportModalMap, 'Contents Only')
+          );
+
+          await compareInnerHTML(
+            'div.draggable_modal--contentContainer--PfnuK > div > div > div > div:nth-child(1) > label:nth-child(2)',
+            searchWord(exportModalMap, 'Include "id" Attribute')
+          );
+
+          await compareInnerHTML(
+            'div.draggable_modal--contentContainer--PfnuK > div > div > div > div:nth-child(2) > label:nth-child(2)',
+            searchWord(exportModalMap, 'Outline Text')
+          );
+
+          await compareInnerHTML(
+            'div.draggable_modal--contentContainer--PfnuK > div > div > div > div:nth-child(3) > label:nth-child(2)',
+            searchWord(exportModalMap, 'Simplify Stroke')
+          );
+        });
+      });
+    });
     describe('Prototype tab', () => {});
     describe('Inspect tab', () => {});
+  });
+
+  describe('Canvas', () => {
+    describe('右クリックメニューが翻訳されている', () => {
+      describe('Object1', () => {});
+      describe('Object2', () => {});
+    });
   });
 
   describe('Help Widget', () => {
     it('メニューが翻訳されている', async () => {
       await click('div.help_widget--helpWidget--22IIi');
-      await printInnerHTMLs(
-        'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--'
-      );
+      // await printInnerHTMLs(
+      //   'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--'
+      // );
       await compareInnerHTMLs(
         'div.help_widget--helpWidget--22IIi a.dropdown--option--20q--',
         helpMap

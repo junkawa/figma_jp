@@ -131,7 +131,7 @@ function translatePanel() {
 function translateModal() {
   // 画像
   const imageSelector = '.image_settings_modal--colorAdjustLabel--2F676';
-  // テキスト
+  // テキスト、Export
   const textSelector =
     '.header_modal--headerModalTitle--8hnpX,' +
     '.type_settings--previewPlaceholder--mjwRc,' +
@@ -150,9 +150,15 @@ function translateModal() {
   _translateInnerHTML(missingSelector, missingFontsMap);
 
   // 1行表示にするため
-  const labels = document.querySelectorAll(imageSelector);
-  labels.forEach((label) => {
+  const imageLabels = document.querySelectorAll(imageSelector);
+  imageLabels.forEach((label) => {
     label.style['grid-column-end'] = '12';
+  });
+  const exportLabels = document.querySelectorAll(
+    'label.export_settings--label--2T2GR'
+  );
+  exportLabels.forEach((label) => {
+    label.style['grid-column-end'] = 'span 18';
   });
 }
 

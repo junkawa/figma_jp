@@ -2521,6 +2521,27 @@ const modalMap = [
     en: 'Background',
     ja: '背景',
   },
+  // Export
+  {
+    en: 'Export',
+    ja: 'エクスポート',
+  },
+  {
+    en: 'Contents Only',
+    ja: 'レイヤ内のみエクスポート',
+  },
+  {
+    en: 'Include "id" Attribute',
+    ja: '"id"属性を含める',
+  },
+  {
+    en: 'Outline Text',
+    ja: 'フォントのアウトライン化',
+  },
+  {
+    en: 'Simplify Stroke',
+    ja: '線の簡略化',
+  },
 ];
 
 // インタラクションの翻訳
