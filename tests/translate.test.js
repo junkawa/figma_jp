@@ -436,8 +436,8 @@ mainMenuMap['Object'] = [
     ja: 'コンポーネントを作成',
   },
   {
-    en: 'Reset Instance',
-    ja: 'インスタンスをリセット',
+    en: 'Reset All Overrides',
+    ja: 'オーバーライドをリセット',
   },
   {
     en: 'Detach Instance',
