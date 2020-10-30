@@ -1112,12 +1112,8 @@ const missingFontsMap = [
       '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
   },
   {
-    en: 'Missing Font',
-    ja: '足りないフォント',
-  },
-  {
-    en: 'Replacement',
-    ja: '置換するフォント',
+    en: 'Family',
+    ja: 'ファミリ',
   },
   {
     en: 'Cancel',
@@ -1515,11 +1511,7 @@ describe('Figma File', () => {
         );
         await compareInnerHTML(
           'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(1)',
-          searchWord(missingFontsMap, 'Missing Font')
-        );
-        await compareInnerHTML(
-          'div.missing_fonts_modal--fontRow--1zEr2 > label:nth-child(2)',
-          searchWord(missingFontsMap, 'Replacement')
+          searchWord(missingFontsMap, 'Family')
         );
         await compareInnerHTML(
           'div.missing_fonts_modal--buttonRow--1UfFc > button:nth-child(1)',

@@ -2947,12 +2947,8 @@ const missingFontsMap = [
       '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
   },
   {
-    en: 'Missing Font',
-    ja: '足りないフォント',
-  },
-  {
-    en: 'Replacement',
-    ja: '置換するフォント',
+    en: 'Family',
+    ja: 'ファミリ',
   },
   {
     en: 'Cancel',
