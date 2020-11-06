@@ -58,9 +58,9 @@ const toolbarSelector = (() => {
       contextualToolsBase +
       ' > div:nth-child(4) > div > div > div:nth-of-type(1)',
     // Missing Fonts
-    'Missing Fonts': shareViewBase + ' > div:nth-child(3)',
+    // 'Missing Fonts': shareViewBase + ' > div:nth-child(3)',
     // Views
-    'View Settings': shareViewBase + ' > div:nth-child(4)',
+    'View Settings': shareViewBase + ' > div:nth-child(3)',
     'View Settings > Pixel Preview':
       'div[name="toolbarView.zoomMenu.dropdown"]' +
       ' > div > div> div:nth-child(2) > div > div:nth-child(9)',
@@ -1495,7 +1495,7 @@ describe('Figma File', () => {
       it.skip('Share が翻訳されている', async () => {});
     });
 
-    describe('Missing Fonts', () => {
+    describe.skip('Missing Fonts', () => {
       it('モーダルが翻訳されている', async () => {
         await click(toolbarSelector['Missing Fonts']);
         await compareInnerHTML(
