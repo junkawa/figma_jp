@@ -1,4 +1,4 @@
-name: "Create Release"
+name: 'Create Release'
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
 
       #- name: Get tag version
       #  run: |
-      #    cat ./manifest.json | grep \"version\" | sed -e "s/^.*\"version\":.*\"\(.*\)\",.*/\1/g" | xargs -I{} echo "::set-env name=TAG_VERSION::v{}"
+      #    cat ./figma_jp/manifest.json | grep \"version\" | sed -e "s/^.*\"version\":.*\"\(.*\)\",.*/\1/g" | xargs -I{} echo "::set-env name=TAG_VERSION::v{}"
       #    echo $TAG_VERSION
 
       #- name: Tagging

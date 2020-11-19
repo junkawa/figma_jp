@@ -7,13 +7,13 @@
   "content_scripts": [
     {
       "matches": ["https://www.figma.com/*"],
-      "js": ["figma_jp/lang.js", "figma_jp/content.js"]
+      "js": ["lang.js", "content.js"]
     }
   ],
   "icons": {
-    "16": "figma_jp/icons/icon16.png",
-    "48": "figma_jp/icons/icon48.png",
-    "128": "figma_jp/icons/icon128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "permissions": []
 }
