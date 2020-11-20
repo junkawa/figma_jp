@@ -11,7 +11,7 @@ module.exports = async function () {
   console.log(chalk.green('Setup Puppeteer'));
 
   // https://pptr.dev/#?product=Puppeteer&version=v5.3.0&show=api-working-with-chrome-extensions
-  const pathToExtension = require('path').join(__dirname, '../');
+  const pathToExtension = require('path').join(__dirname, '../figma_jp/');
   const browser = await puppeteer.launch({
     headless: false,
     args: [
