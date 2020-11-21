@@ -76,7 +76,7 @@ const mainMenuSelector = (() => {
     Edit: menuBase + ' > div:nth-child(3)',
     'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
     View: menuBase + ' > div:nth-child(4)',
-    'View > Panels': menu2ndBase + ' > div:nth-child(12)',
+    'View > Panels': menu2ndBase + ' > div:nth-child(13)',
     Object: menuBase + ' > div:nth-child(5)',
     'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
     'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
@@ -174,8 +174,8 @@ mainMenuMap['File'] = [
     ja: '画像を配置',
   },
   {
-    en: 'Save as .fig…',
-    ja: '.figで保存',
+    en: 'Save local copy…',
+    ja: 'ローカルに保存',
   },
   {
     en: 'Save to Version History…',
@@ -302,6 +302,10 @@ mainMenuMap['View'] = [
   {
     en: 'Rulers',
     ja: '定規を表示',
+  },
+  {
+    en: 'Show Slices',
+    ja: 'スライスを表示',
   },
   {
     en: 'Outlines',

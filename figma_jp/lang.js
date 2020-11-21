@@ -27,8 +27,8 @@ const mainMenuMap = [
     ja: '画像を配置',
   },
   {
-    en: 'Save as .fig…',
-    ja: '.figで保存',
+    en: 'Save local copy…',
+    ja: 'ローカルに保存',
   },
   {
     en: 'Save to Version History…',
@@ -176,6 +176,10 @@ const mainMenuMap = [
   {
     en: 'Rulers',
     ja: '定規を表示',
+  },
+  {
+    en: 'Show Slices',
+    ja: 'スライスを表示',
   },
   {
     en: 'Outlines',
