@@ -79,6 +79,7 @@ function translatePanel() {
   const labelSelector =
     '.raw_components--label--34YmO,' +
     '.constraints_panel--checkboxLabel--3vvz3,' +
+    '.checkbox--_checkboxLabel--1418z,' +
     '.instance_panel__OLD--link--3yIYF,' +
     '.basic_form--btn--3A-Ju,' +
     '.raw_components--labelInactive--2GwUQ,' +
