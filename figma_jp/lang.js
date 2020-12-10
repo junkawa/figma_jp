@@ -2883,11 +2883,11 @@ const shortcutMap = [
 // ショートカットパネルで置換する文字列
 const shortcutRegexpMap = [
   {
-    en: 'Show/Hide UI',
+    en: 'Show/hide UI',
     ja: 'UIを表示/非表示',
   },
   {
-    en: 'Pick Color',
+    en: 'Pick color',
     ja: '色を選択',
   },
   {
@@ -2933,7 +2933,7 @@ const helpMap = [
 
 const helpTooltipMap = [
   {
-    en: 'Help &amp; Resources',
+    en: 'Help and resources',
     ja: 'ヘルプ',
   },
 ];
