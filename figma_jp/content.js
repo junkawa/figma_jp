@@ -10,16 +10,21 @@ function _translateInnerHTML(selector, map) {
   const labels = document.querySelectorAll(selector);
   // console.log(labels);
   labels.forEach((label) => {
-    const ret = map.find((m) => m['en'] === label.innerHTML); // 先頭一致
+    const ret = map.find(
+      // 文言変更(大文字小文字のみ変更)に対応するため小文字で判定する
+      // 表示する日本語には関係ない
+      (m) => m['en'].toLowerCase() === label.innerHTML.toLowerCase()
+    ); // 先頭一致
     if (ret) {
+      const lowerLabel = label.innerHTML.toLowerCase();
       // 1行表示にするため
-      if (label.innerHTML === 'Auto Layout') {
+      if (lowerLabel === 'auto layout') {
         label.parentNode.style['grid-column-end'] = 'span 12';
-      } else if (label.innerHTML === 'Clip content') {
+      } else if (lowerLabel === 'clip content') {
         label.style['grid-column-end'] = 'span 16';
-      } else if (label.innerHTML === 'Animation') {
+      } else if (lowerLabel === 'animation') {
         label.style['grid-column-end'] = 'span 12';
-      } else if (label.innerHTML === 'Local Styles') {
+      } else if (lowerLabel === 'local styles') {
         label.style['grid-column-end'] = 'span 12';
       }
       label.innerHTML = ret[defaultLanguage];
@@ -30,7 +35,9 @@ function _translateInnerHTML(selector, map) {
 function _translateInnerHTMLRegexp(selector, map) {
   const labels = document.querySelectorAll(selector);
   labels.forEach((label) => {
-    const ret = map.find((m) => label.innerHTML.startsWith(m['en'])); // 先頭一致
+    const ret = map.find((m) =>
+      label.innerHTML.toLowerCase().startsWith(m['en'].toLowerCase())
+    ); // 先頭一致
     if (ret) {
       label.innerHTML = label.innerHTML.replace(
         ret['en'],
@@ -45,7 +52,10 @@ function _translateDataLabel(selector, map) {
   const labels = document.querySelectorAll(selector);
   // console.log(labels);
   labels.forEach((label) => {
-    const ret = map.find((m) => m['en'] === label.getAttribute('data-label')); // 先頭一致
+    const ret = map.find(
+      (m) =>
+        m['en'].toLowerCase() === label.getAttribute('data-label').toLowerCase()
+    ); // 先頭一致
     if (ret) {
       label.setAttribute('data-label', ret[defaultLanguage]);
       // 1行表示にするため TODO 固定で良いか?

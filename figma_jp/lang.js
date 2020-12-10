@@ -2902,7 +2902,7 @@ const helpMap = [
     ja: 'ヘルプセンター',
   },
   {
-    en: 'Keyboard Shortcuts',
+    en: 'Keyboard shortcuts',
     ja: 'キーボードショートカット',
   },
   {
