@@ -1770,7 +1770,7 @@ const panelSelectMap = [
     ja: '垂直方向のスクロール',
   },
   {
-    en: 'Horizontal &amp; Vertical Scrolling',
+    en: 'Horizontal and Vertical Scrolling',
     ja: '水平・垂直方向のスクロール',
   },
   // その他
@@ -1783,7 +1783,7 @@ const panelSelectMap = [
     ja: '右',
   },
   {
-    en: 'Left &amp; Right',
+    en: 'Left and Right',
     ja: '左右',
   },
   {
@@ -1795,7 +1795,7 @@ const panelSelectMap = [
     ja: '下',
   },
   {
-    en: 'Top &amp; Bottom',
+    en: 'Top and Bottom',
     ja: '上下',
   },
   {
