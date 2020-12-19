@@ -23,7 +23,7 @@ const mainMenuMap = [
     ja: 'Sketchファイルを開く',
   },
   {
-    en: 'Place Image',
+    en: 'Place Image…',
     ja: '画像を配置',
   },
   {
@@ -83,6 +83,10 @@ const mainMenuMap = [
   {
     en: 'Paste Over Selection',
     ja: '選択したものの上にペースト',
+  },
+  {
+    en: 'Paste to replace',
+    ja: '置換してペースト',
   },
   {
     en: 'Duplicate',
@@ -938,7 +942,7 @@ const toolsMap = [
     ja: 'スター',
   },
   {
-    en: 'Place Image',
+    en: 'Place Image…',
     ja: '画像を配置',
   },
 

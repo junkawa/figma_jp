@@ -212,6 +212,10 @@ mainMenuMap['Edit'] = [
     ja: '選択したものの上にペースト',
   },
   {
+    en: 'Paste to replace',
+    ja: '置換してペースト',
+  },
+  {
     en: 'Duplicate',
     ja: '複製',
   },
