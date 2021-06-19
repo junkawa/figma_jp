@@ -750,8 +750,8 @@ const mainMenuMap = [
     ja: 'キーボードショートカット',
   },
   {
-    en: 'Community Forum',
-    ja: 'コミュニティフォーラム',
+    en: 'Support Forum',
+    ja: 'サポートフォーラム',
   },
   {
     en: 'Video Tutorials',
@@ -2910,11 +2910,11 @@ const helpMap = [
     ja: 'キーボードショートカット',
   },
   {
-    en: 'Community Forum',
-    ja: 'コミュニティフォーラム',
+    en: 'Support Forum',
+    ja: 'サポートフォーラム',
   },
   {
-    en: 'Video Tutorials',
+    en: 'YouTube videos',
     ja: 'ビデオチュートリアル',
   },
   {
@@ -2930,7 +2930,15 @@ const helpMap = [
     ja: '利用規約',
   },
   {
-    en: 'Get Help',
+    en: 'Submit feedback',
+    ja: 'フィードバックを送信する',
+  },
+  {
+    en: 'Ask the community',
+    ja: 'コミュニティで質問する',
+  },
+  {
+    en: 'Contact support',
     ja: 'サポートに問い合わせる',
   },
 ];

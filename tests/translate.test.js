@@ -881,8 +881,8 @@ mainMenuMap['Help and Account'] = [
     ja: 'キーボードショートカット',
   },
   {
-    en: 'Community Forum',
-    ja: 'コミュニティフォーラム',
+    en: 'Support Forum',
+    ja: 'サポートフォーラム',
   },
   {
     en: 'Video Tutorials',
@@ -1260,36 +1260,44 @@ const helpMap = [
     ja: 'ヘルプセンター',
   },
   {
-    en: 'Keyboard Shortcuts',
-    ja: 'キーボードショートカット',
+    en: 'Support Forum',
+    ja: 'サポートフォーラム',
   },
   {
-    en: 'Community Forum',
-    ja: 'コミュニティフォーラム',
-  },
-  {
-    en: 'Video Tutorials',
+    en: 'YouTube videos',
     ja: 'ビデオチュートリアル',
-  },
-  {
-    en: 'Reset Onboarding',
-    ja: 'オンボーディング',
   },
   {
     en: 'Release Notes',
     ja: 'リリースノート',
   },
   {
+    en: 'Keyboard Shortcuts',
+    ja: 'キーボードショートカット',
+  },
+  {
+    en: 'Reset Onboarding',
+    ja: 'オンボーディング',
+  },
+  {
     en: 'Legal Summary',
     ja: '利用規約',
   },
   {
-    en: 'Get Help',
+    en: 'Submit feedback',
+    ja: 'フィードバックを送信する',
+  },
+  {
+    en: 'Ask the community',
+    ja: 'コミュニティで質問する',
+  },
+  {
+    en: 'Contact support',
     ja: 'サポートに問い合わせる',
   },
 ];
 
-const timeout = 90000; // ミリ秒
+const timeout = 120000; // ミリ秒
 
 describe('Figma File', () => {
   let page;
@@ -1308,12 +1316,13 @@ describe('Figma File', () => {
     await page.waitForTimeout(5000); // ミリ秒
 
     await page.goto(process.env.FIGMA_FILE_URL);
-    await page.waitForNavigation({
-      waitUntil: ['load', 'networkidle2'],
-      timeout: 60000,
-    });
+    console.log('after got FIGMA_FILE_URL');
+    // await page.waitForNavigation({
+    //   waitUntil: ['load', 'networkidle2'],
+    //   timeout: 120000, // ミリ秒
+    // });
     await page.waitForSelector('.toolbar_view--toolbar--2396w');
-    await page.waitForTimeout(5000); // ミリ秒
+    await page.waitForTimeout(15000); // ミリ秒
     // console.log('finish waitForTimeout');
     // await page.screenshot({path: 'screenshot.png'});
   }, timeout);
