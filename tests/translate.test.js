@@ -1174,8 +1174,8 @@ tooltipMap['Toolbar'] = [
     ja: 'テキスト',
   },
   {
-    en: 'Add/Show Comments',
-    ja: 'コメントの追加/表示',
+    en: 'Add Comment',
+    ja: 'コメントの追加',
   },
   {
     en: 'Edit Object',
@@ -1551,7 +1551,7 @@ describe('Figma File', () => {
         ['Drawing Tools', 'No shortcut', 'Drawing Tools'],
         ['Text Tool', 'Shortcut', 'Text'],
         ['Hand Tool', 'Shortcut', 'Hand Tool'],
-        ['Comment Tool', 'Shortcut', 'Add/Show Comments'],
+        ['Comment Tool', 'Shortcut', 'Add Comment'],
       ])('%s が翻訳されている', async (name, selector, enWord) => {
         await hover(toolbarSelector[name]);
         // await page.screenshot({path: 'screenshot_'+name+'.png'});

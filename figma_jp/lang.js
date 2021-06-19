@@ -1030,8 +1030,8 @@ const tooltipMap = [
     ja: 'テキスト',
   },
   {
-    en: 'Add/Show Comments',
-    ja: 'コメントの追加/表示',
+    en: 'Add Comment',
+    ja: 'コメントの追加',
   },
   {
     en: 'Edit Object',
