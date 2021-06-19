@@ -299,6 +299,10 @@ mainMenuMap['Edit > Copy as'] = [
     en: 'Copy as SVG',
     ja: 'SVGとしてコピー',
   },
+  {
+    en: 'Copy as PNG',
+    ja: 'PNGとしてコピー',
+  },
 ];
 mainMenuMap['View'] = [
   {
