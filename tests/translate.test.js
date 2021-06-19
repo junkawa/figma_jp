@@ -1615,7 +1615,7 @@ describe('Figma File', () => {
   describe('Properties panel', () => {
     describe('Design tab', () => {
       // https://help.figma.com/hc/en-us/articles/360040028114
-      describe('Export', () => {
+      describe.skip('Export', () => {
         it('モーダルが翻訳されている', async () => {
           // TestFrame選択
           await click(
