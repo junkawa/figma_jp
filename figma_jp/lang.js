@@ -473,16 +473,48 @@ const mainMenuMap = [
     ja: '打ち消し線',
   },
   {
+    en: 'Create link',
+    ja: 'リンクを生成',
+  },
+  {
+    en: 'Bulleted list',
+    ja: '箇条書き',
+  },
+  {
+    en: 'Numbered list',
+    ja: '番号付リスト',
+  },
+  {
+    en: 'Alignment',
+    ja: '文字揃え',
+  },
+  {
+    en: 'Adjust',
+    ja: '調整',
+  },
+  {
+    en: 'Case',
+    ja: '大文字小文字',
+  },
+  {
     en: 'Original Case',
     ja: '大文字小文字の変換なし',
   },
   {
-    en: 'Upper Case',
+    en: 'Uppercase',
     ja: 'すべて大文字',
   },
   {
-    en: 'Lower Case',
+    en: 'Lowercase',
     ja: 'すべて小文字',
+  },
+  {
+    en: 'Increase indentation',
+    ja: 'インデントを増やす',
+  },
+  {
+    en: 'Decrease indentation',
+    ja: 'インデントを減らす',
   },
   {
     en: 'Increase Font Size',

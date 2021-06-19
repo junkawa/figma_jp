@@ -70,7 +70,7 @@ const toolbarSelector = (() => {
 // Toolbar > Menu
 const mainMenuSelector = (() => {
   const menuBase = 'div[name="mainMenu"] > div > div > div:nth-child(2) > div > div > div > div';
-  const menu2ndBase = 'div[name="mainMenu"] div[name="mainMenu"] > div > div';
+  const menu2ndBase = 'div[name="mainMenu"] div[name="mainMenu"] > div > div > div > div > div';
   return {
     File: menuBase + ' > div:nth-child(4)',
     Edit: menuBase + ' > div:nth-child(5)',
@@ -82,7 +82,9 @@ const mainMenuSelector = (() => {
     'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
     Vector: menuBase + ' > div:nth-child(8)',
     Text: menuBase + ' > div:nth-child(9)',
-    'Text > Align': menu2ndBase + ' > div:nth-child(19)',
+    'Text > Alignment': menu2ndBase + ' > div:nth-child(10)',
+    'Text > Adjust': menu2ndBase + ' > div:nth-child(11)',
+    'Text > Case': menu2ndBase + ' > div:nth-child(12)',
     Arrange: menuBase + ' > div:nth-child(10)',
     // '---'
     Plugins: menuBase + ' > div:nth-child(12)',
@@ -620,16 +622,72 @@ mainMenuMap['Text'] = [
     ja: '打ち消し線',
   },
   {
-    en: 'Original Case',
-    ja: '大文字小文字の変換なし',
+    en: 'Create link',
+    ja: 'リンクを生成',
   },
   {
-    en: 'Upper Case',
-    ja: 'すべて大文字',
+    en: 'Bulleted list',
+    ja: '箇条書き',
   },
   {
-    en: 'Lower Case',
-    ja: 'すべて小文字',
+    en: 'Numbered list',
+    ja: '番号付リスト',
+  },
+  {
+    en: 'Alignment',
+    ja: '文字揃え',
+  },
+  {
+    en: 'Adjust',
+    ja: '調整',
+  },
+  {
+    en: 'Case',
+    ja: '大文字小文字',
+  },
+  // {
+  //   en: 'Align',
+  //   ja: '文字揃え',
+  // },
+];
+mainMenuMap['Text > Alignment'] = [
+  {
+    en: 'Text Align Left',
+    ja: '左揃え',
+  },
+  {
+    en: 'Text Align Center',
+    ja: '中央揃え',
+  },
+  {
+    en: 'Text Align Right',
+    ja: '右揃え',
+  },
+  {
+    en: 'Text Align Justified',
+    ja: '均等揃え',
+  },
+  {
+    en: 'Text Align Top',
+    ja: 'ボックスの上揃え',
+  },
+  {
+    en: 'Text Align Middle',
+    ja: 'ボックスの垂直方向中央揃え',
+  },
+  {
+    en: 'Text Align Bottom',
+    ja: 'ボックスの下揃え',
+  },
+];
+mainMenuMap['Text > Adjust'] = [
+  {
+    en: 'Increase indentation',
+    ja: 'インデントを増やす',
+  },
+  {
+    en: 'Decrease indentation',
+    ja: 'インデントを減らす',
   },
   {
     en: 'Increase Font Size',
@@ -663,39 +721,19 @@ mainMenuMap['Text'] = [
     en: 'Decrease Letter Spacing',
     ja: '文字の間隔を詰める',
   },
-  {
-    en: 'Align',
-    ja: '文字揃え',
-  },
 ];
-mainMenuMap['Text > Align'] = [
+mainMenuMap['Text > Case'] = [
   {
-    en: 'Text Align Left',
-    ja: '左揃え',
+    en: 'Original Case',
+    ja: '大文字小文字の変換なし',
   },
   {
-    en: 'Text Align Center',
-    ja: '中央揃え',
+    en: 'Uppercase',
+    ja: 'すべて大文字',
   },
   {
-    en: 'Text Align Right',
-    ja: '右揃え',
-  },
-  {
-    en: 'Text Align Justified',
-    ja: '均等揃え',
-  },
-  {
-    en: 'Text Align Top',
-    ja: 'ボックスの上揃え',
-  },
-  {
-    en: 'Text Align Middle',
-    ja: 'ボックスの垂直方向中央揃え',
-  },
-  {
-    en: 'Text Align Bottom',
-    ja: 'ボックスの下揃え',
+    en: 'Lowercase',
+    ja: 'すべて小文字',
   },
 ];
 mainMenuMap['Arrange'] = [
@@ -1433,7 +1471,9 @@ describe('Figma File', () => {
         ['View', 'Panels'],
         ['Object', 'Main Component'],
         ['Object', 'Boolean Groups'],
-        ['Text', 'Align'],
+        ['Text', 'Alignment'],
+        ['Text', 'Adjust'],
+        ['Text', 'Case'],
       ])('%s > %s が翻訳されている', async (name1, name2) => {
         await click(toolbarSelector['Menu']);
         await click(mainMenuSelector[name1]);
