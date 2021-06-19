@@ -1496,7 +1496,7 @@ describe('Figma File', () => {
     });
 
     // https://help.figma.com/hc/en-us/articles/360041064174-Access-tools-in-the-Editor-with-the-toolbar#Share_and_view_settings
-    describe('Share and view settings', () => {
+    describe.skip('Share and view settings', () => {
       it('View Settings が翻訳されている', async () => {
         await click(toolbarSelector['View Settings']);
         await compareInnerHTMLs(viewLabelSelector['Top'], viewMap['Top']);
