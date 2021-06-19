@@ -112,6 +112,10 @@ mainMenuMap['Top'] = [
     ja: 'プロジェクトに戻る',
   },
   {
+    en: 'Quick actions…',
+    ja: 'Quick actions…',
+  },
+  {
     en: 'File',
     ja: 'ファイル',
   },
