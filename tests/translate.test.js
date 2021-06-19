@@ -1301,12 +1301,13 @@ describe('Figma File', () => {
     page = await global.__BROWSER__.newPage();
     await page.setViewport({ width: 1440, height: 900 });
 
-    await page.goto(process.env.FIGMA_FILE_URL);
-
+    await page.goto("https://www.figma.com/login");
     await page.type("input[name='email']", process.env.FIGMA_EMAIL);
     await page.type("input[name='password']", process.env.FIGMA_PASSWORD);
     await page.click("button[type='submit']");
+    await page.waitForTimeout(5000); // ミリ秒
 
+    await page.goto(process.env.FIGMA_FILE_URL);
     await page.waitForNavigation({
       waitUntil: ['load', 'networkidle2'],
       timeout: 60000,
