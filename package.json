@@ -29,15 +29,15 @@
     "publish": "CIから呼ばれることを期待します。ストア公開を行います。"
   },
   "devDependencies": {
-    "chalk": "^4.1.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.8.1",
+    "chalk": "^4.1.1",
+    "dotenv": "^8.6.0",
+    "eslint": "^7.29.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-jest": "^24.0.1",
-    "jest": "^26.4.2",
-    "prettier": "^2.1.2",
-    "puppeteer": "^5.3.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^26.6.3",
+    "prettier": "^2.3.1",
+    "puppeteer": "^5.5.0",
     "rimraf": "^3.0.2"
   }
 }
