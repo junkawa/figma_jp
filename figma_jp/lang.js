@@ -186,6 +186,10 @@ const mainMenuMap = [
     ja: 'スライスを表示',
   },
   {
+    en: 'Comments',
+    ja: 'コメントを表示',
+  },
+  {
     en: 'Outlines',
     ja: 'アウトラインを表示',
   },
