@@ -819,6 +819,10 @@ mainMenuMap['Plugins'] = [
     en: 'Manage Plugins…',
     ja: 'プラグインを管理',
   },
+  {
+    en: 'Browse plugins in Community',
+    ja: 'プラグインを探す',
+  },
   /*
   // desktop app only
   {
