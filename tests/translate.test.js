@@ -69,28 +69,28 @@ const toolbarSelector = (() => {
 
 // Toolbar > Menu
 const mainMenuSelector = (() => {
-  const menuBase = 'div[name="mainMenu"] > div > div > div:nth-child(2) > div';
+  const menuBase = 'div[name="mainMenu"] > div > div > div:nth-child(2) > div > div > div > div';
   const menu2ndBase = 'div[name="mainMenu"] div[name="mainMenu"] > div > div';
   return {
-    File: menuBase + ' > div:nth-child(2)',
-    Edit: menuBase + ' > div:nth-child(3)',
+    File: menuBase + ' > div:nth-child(4)',
+    Edit: menuBase + ' > div:nth-child(5)',
     'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
-    View: menuBase + ' > div:nth-child(4)',
+    View: menuBase + ' > div:nth-child(6)',
     'View > Panels': menu2ndBase + ' > div:nth-child(13)',
-    Object: menuBase + ' > div:nth-child(5)',
+    Object: menuBase + ' > div:nth-child(7)',
     'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
     'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
-    Vector: menuBase + ' > div:nth-child(6)',
-    Text: menuBase + ' > div:nth-child(7)',
+    Vector: menuBase + ' > div:nth-child(8)',
+    Text: menuBase + ' > div:nth-child(9)',
     'Text > Align': menu2ndBase + ' > div:nth-child(19)',
-    Arrange: menuBase + ' > div:nth-child(8)',
+    Arrange: menuBase + ' > div:nth-child(10)',
     // '---'
-    Plugins: menuBase + ' > div:nth-child(10)',
-    Integrations: menuBase + ' > div:nth-child(11)',
-    Preferences: menuBase + ' > div:nth-child(12)',
+    Plugins: menuBase + ' > div:nth-child(12)',
+    Integrations: menuBase + ' > div:nth-child(13)',
+    Preferences: menuBase + ' > div:nth-child(14)',
     // 'Libraries'
     // '---'
-    'Help and Account': menuBase + ' > div:nth-child(15)',
+    'Help and Account': menuBase + ' > div:nth-child(17)',
   };
 })();
 
