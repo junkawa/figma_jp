@@ -222,8 +222,8 @@ const mainMenuMap = [
     ja: 'プロトタイプパネルを表示',
   },
   {
-    en: 'Open Code Panel',
-    ja: 'コードパネルを表示',
+    en: 'Open inspect Panel',
+    ja: '検査パネルを表示',
   },
   {
     en: 'Show Left Sidebar',

@@ -76,7 +76,7 @@ const mainMenuSelector = (() => {
     Edit: menuBase + ' > div:nth-child(5)',
     'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
     View: menuBase + ' > div:nth-child(6)',
-    'View > Panels': menu2ndBase + ' > div:nth-child(13)',
+    'View > Panels': menu2ndBase + ' > div:nth-child(14)',
     Object: menuBase + ' > div:nth-child(7)',
     'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
     'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
@@ -416,8 +416,8 @@ mainMenuMap['View > Panels'] = [
     ja: 'プロトタイプパネルを表示',
   },
   {
-    en: 'Open Code Panel',
-    ja: 'コードパネルを表示',
+    en: 'Open inspect Panel',
+    ja: '検査パネルを表示',
   },
   {
     en: 'Show Left Sidebar',
