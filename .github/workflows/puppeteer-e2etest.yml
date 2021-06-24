@@ -1,4 +1,4 @@
-name: "E2E Test"
+name: 'E2E Test'
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     # The branches below must be a subset of the branches above
     branches: [master]
   schedule:
-    # JST 6:00
-    - cron: '0 21 * * *'
+    # JST 6:00 Thu
+    - cron: '0 21 * * 3' # UTC 21:00 Wed
 
 jobs:
   build:
