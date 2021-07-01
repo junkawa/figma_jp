@@ -76,7 +76,7 @@ const mainMenuSelector = (() => {
     Edit: menuBase + ' > div:nth-child(5)',
     'Edit > Copy as': menu2ndBase + ' > div:nth-child(4)',
     View: menuBase + ' > div:nth-child(6)',
-    'View > Panels': menu2ndBase + ' > div:nth-child(12)',
+    'View > Panels': menu2ndBase + ' > div:nth-child(13)',
     Object: menuBase + ' > div:nth-child(7)',
     'Object > Main Component': menu2ndBase + ' > div:nth-child(11)',
     'Object > Boolean Groups': menu2ndBase + ' > div:nth-child(27)',
@@ -317,11 +317,11 @@ mainMenuMap['View'] = [
     en: 'Rulers',
     ja: '定規を表示',
   },
-  /*
   {
     en: 'Show Slices',
     ja: 'スライスを表示',
   },
+  /*
   {
     en: 'Comments',
     ja: 'コメントを表示',
