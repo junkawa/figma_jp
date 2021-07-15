@@ -50,7 +50,7 @@ const toolbarSelector = (() => {
     'Comment Tool': toolsBase + ' > div:nth-child(7) > span',
     // Contextual Tools
     'File-level actions':
-      contextualToolsBase + ' > div > div > div > div:nth-of-type(2)',
+      contextualToolsBase + ' > div > div > div > div:nth-of-type(3)',
     'Boolean Groups':
       contextualToolsBase +
       ' > div:nth-child(6) > div > div > div:nth-of-type(1)',
