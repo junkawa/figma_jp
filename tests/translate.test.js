@@ -168,8 +168,12 @@ mainMenuMap['Top'] = [
 ];
 mainMenuMap['File'] = [
   {
-    en: 'New',
+    en: 'New design file',
     ja: '新規作成',
+  },
+  {
+    en: 'New FigJam file',
+    ja: 'FigJam新規作成',
   },
   {
     en: 'New from Sketch File…',

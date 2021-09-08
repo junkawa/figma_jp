@@ -19,6 +19,14 @@ const mainMenuMap = [
     ja: '新規作成',
   },
   {
+    en: 'New design file',
+    ja: '新規作成',
+  },
+  {
+    en: 'New FigJam file',
+    ja: 'FigJam新規作成',
+  },
+  {
     en: 'New from Sketch File…',
     ja: 'Sketchファイルを開く',
   },
