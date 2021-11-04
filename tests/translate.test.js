@@ -33,7 +33,7 @@ const tooltipSelector = {
 const toolbarSelector = (() => {
   const base = 'div.toolbar_view--toolbar--2396w';
   const toolsBase = base + ' > div:nth-child(2)';
-  const contextualToolsBase = base + ' > div:nth-child(4)';
+  const contextualToolsBase = base + ' > div:nth-child(3)';
   const shareViewBase = base + ' > div:nth-child(5)';
   return {
     // Menu
@@ -69,8 +69,10 @@ const toolbarSelector = (() => {
 
 // Toolbar > Menu
 const mainMenuSelector = (() => {
-  const menuBase = 'div[name="mainMenu"] > div > div > div:nth-child(2) > div > div > div > div';
-  const menu2ndBase = 'div[name="mainMenu"] div[name="mainMenu"] > div > div > div > div > div';
+  const menuBase =
+    'div[name="mainMenu"] > div > div > div:nth-child(2) > div > div > div > div';
+  const menu2ndBase =
+    'div[name="mainMenu"] div[name="mainMenu"] > div > div > div > div > div';
   return {
     File: menuBase + ' > div:nth-child(4)',
     Edit: menuBase + ' > div:nth-child(5)',
@@ -180,8 +182,8 @@ mainMenuMap['File'] = [
     ja: 'Sketchファイルを開く',
   },
   {
-    en: 'Place Image',
-    ja: '画像を配置',
+    en: 'Images',
+    ja: '画像',
   },
   {
     en: 'Save local copy…',
@@ -221,10 +223,10 @@ mainMenuMap['Edit'] = [
     en: 'Paste Over Selection',
     ja: '選択したものの上にペースト',
   },
-  // {
-  //   en: 'Paste to replace',
-  //   ja: '置換してペースト',
-  // },
+  {
+    en: 'Paste to replace',
+    ja: '置換してペースト',
+  },
   {
     en: 'Duplicate',
     ja: '複製',
@@ -414,9 +416,13 @@ mainMenuMap['View > Panels'] = [
     ja: 'レイヤーパネルを表示',
   },
   {
-    en: 'Open Assets Panel',
-    ja: 'アセットパネルを表示',
+    en: 'Libraries',
+    ja: 'ライブラリ',
   },
+  // {
+  //  en: 'Open Assets Panel',
+  //  ja: 'アセットパネルを表示',
+  // },
   {
     en: 'Open Design Panel',
     ja: 'デザインパネルを表示',
@@ -1017,8 +1023,8 @@ toolsMap['Shape Tools'] = [
     ja: 'スター',
   },
   {
-    en: 'Place Image',
-    ja: '画像を配置',
+    en: 'Images',
+    ja: '画像',
   },
 ];
 toolsMap['Drawing Tools'] = [
@@ -1055,12 +1061,12 @@ contextualToolsMap['File-level actions'] = [
     ja: '名前を変更',
   },
   {
-    en: 'Delete',
-    ja: '削除',
-  },
-  {
     en: 'Move to Project…',
     ja: 'プロジェクトへ移動',
+  },
+  {
+    en: 'Delete',
+    ja: '削除',
   },
 ];
 contextualToolsMap['Boolean Groups'] = [
@@ -1094,6 +1100,10 @@ contextualToolsMap['Components'] = [
   {
     en: 'Create Multiple Components',
     ja: 'レイヤ毎にコンポーネントを作成',
+  },
+  {
+    en: 'Create Component Set',
+    ja: 'コンポーネントセットを作成',
   },
 ];
 
@@ -1174,10 +1184,8 @@ const missingFontsMap = [
     ja: '足りないフォント',
   },
   {
-    en:
-      'The following fonts are not available, and need to be replaced in order to edit text.',
-    ja:
-      '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
+    en: 'The following fonts are not available, and need to be replaced in order to edit text.',
+    ja: '下記のフォントは利用不可です。テキスト編集のために置換する必要があります。',
   },
   {
     en: 'Family',
@@ -1369,7 +1377,7 @@ describe('Figma File', () => {
     page = await global.__BROWSER__.newPage();
     await page.setViewport({ width: 1440, height: 900 });
 
-    await page.goto("https://www.figma.com/login");
+    await page.goto('https://www.figma.com/login');
     await page.type("input[name='email']", process.env.FIGMA_EMAIL);
     await page.type("input[name='password']", process.env.FIGMA_PASSWORD);
     await page.click("button[type='submit']");

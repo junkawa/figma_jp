@@ -31,8 +31,8 @@ const mainMenuMap = [
     ja: 'Sketchファイルを開く',
   },
   {
-    en: 'Place Image…',
-    ja: '画像を配置',
+    en: 'Images',
+    ja: '画像',
   },
   {
     en: 'Save local copy…',
@@ -990,8 +990,8 @@ const toolsMap = [
     ja: 'スター',
   },
   {
-    en: 'Place Image…',
-    ja: '画像を配置',
+    en: 'Images',
+    ja: '画像',
   },
 
   // Drawing Tools
@@ -1034,6 +1034,10 @@ const toolsMap = [
   {
     en: 'Create Multiple Components',
     ja: 'フレーム/レイヤ毎にコンポーネントを作成',
+  },
+  {
+    en: 'Create Component Set',
+    ja: 'コンポーネントセットを作成',
   },
 ];
 
