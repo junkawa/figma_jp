@@ -3,11 +3,13 @@ const defaultLanguage = 'ja';
 // Label
 const dropdownLabel = '.multilevel_dropdown--name--1abLT';
 const mainMenuLabelSelector = dropdownLabel;
-const mainMenuTopLabelSelector = mainMenuLabelSelector;
+const mainMenuTopLabelSelector =
+  'div[data-keyboard-receiver] ' + mainMenuLabelSelector;
 const mainMenu2ndLabelSelector =
-  'div[name="mainMenu"] div[name="mainMenu"] ' + mainMenuLabelSelector;
+  'div[data-keyboard-receiver] div[data-keyboard-receiver] div.multilevel_dropdown--submenu--2IXt7 ' +
+  mainMenuLabelSelector;
 const mainMenu3rdLabelSelector =
-  'div[name="mainMenu"] div[name="mainMenu"] div[name="mainMenu"] ' +
+  'div[data-keyboard-receiver] div[data-keyboard-receiver] div[data-keyboard-receiver] div.multilevel_dropdown--submenu--2IXt7 ' +
   mainMenuLabelSelector;
 const toolsLabelSelector =
   'div.pointing_dropdown--root--28JAG .action_option--text--3Rze3';
@@ -19,7 +21,7 @@ const viewLabelSelector = (() => {
   };
 })();
 const contextualToolsLabelSelector = {
-  'File-level actions': 'div[name="toolbarView.filenameView"] ' + dropdownLabel,
+  'File-level actions': 'div.pointing_dropdown--root--28JAG ' + dropdownLabel,
   'Boolean Groups':
     'div.dropdown--dropdown--35dH4 div.action_option--text--3Rze3',
   Components: 'div.dropdown--dropdown--35dH4 div.action_option--text--3Rze3',
@@ -70,9 +72,9 @@ const toolbarSelector = (() => {
 // Toolbar > Menu
 const mainMenuSelector = (() => {
   const menuBase =
-    'div[name="mainMenu"] > div > div > div:nth-child(2) > div > div > div > div';
+    'div.toolbar_view--menuButton--1U17F > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(1)';
   const menu2ndBase =
-    'div[name="mainMenu"] div[name="mainMenu"] > div > div > div > div > div';
+    'div.multilevel_dropdown--submenu--2IXt7 > div:nth-child(1) > div > div';
   return {
     File: menuBase + ' > div:nth-child(4)',
     Edit: menuBase + ' > div:nth-child(5)',
@@ -182,8 +184,8 @@ mainMenuMap['File'] = [
     ja: 'Sketchファイルを開く',
   },
   {
-    en: 'Images',
-    ja: '画像',
+    en: 'Place image…',
+    ja: '画像を配置',
   },
   {
     en: 'Save local copy…',
@@ -1023,8 +1025,8 @@ toolsMap['Shape Tools'] = [
     ja: 'スター',
   },
   {
-    en: 'Images',
-    ja: '画像',
+    en: 'Place image…',
+    ja: '画像を配置',
   },
 ];
 toolsMap['Drawing Tools'] = [
@@ -1065,7 +1067,7 @@ contextualToolsMap['File-level actions'] = [
     ja: 'プロジェクトへ移動',
   },
   {
-    en: 'Delete',
+    en: 'Delete...',
     ja: '削除',
   },
 ];
@@ -1384,13 +1386,13 @@ describe('Figma File', () => {
     await page.waitForTimeout(5000); // ミリ秒
 
     await page.goto(process.env.FIGMA_FILE_URL);
-    console.log('after got FIGMA_FILE_URL');
+    // console.log('after got FIGMA_FILE_URL');
     // await page.waitForNavigation({
     //   waitUntil: ['load', 'networkidle2'],
     //   timeout: 120000, // ミリ秒
     // });
     await page.waitForSelector('.toolbar_view--toolbar--2396w');
-    await page.waitForTimeout(15000); // ミリ秒
+    await page.waitForTimeout(30000); // ミリ秒
     // console.log('finish waitForTimeout');
     // await page.screenshot({path: 'screenshot.png'});
   }, timeout);

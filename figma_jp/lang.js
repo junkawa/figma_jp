@@ -31,8 +31,8 @@ const mainMenuMap = [
     ja: 'Sketchファイルを開く',
   },
   {
-    en: 'Images',
-    ja: '画像',
+    en: 'Place image...',
+    ja: '画像を配置',
   },
   {
     en: 'Save local copy…',
@@ -859,6 +859,10 @@ const mainMenuMap = [
     en: 'Move to Project…',
     ja: 'プロジェクトへ移動',
   },
+  {
+    en: 'Delete...',
+    ja: '削除',
+  },
   // 共有
   {
     en: 'Share',
@@ -990,8 +994,8 @@ const toolsMap = [
     ja: 'スター',
   },
   {
-    en: 'Images',
-    ja: '画像',
+    en: 'Place image...',
+    ja: '画像を配置',
   },
 
   // Drawing Tools
