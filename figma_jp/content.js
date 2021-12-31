@@ -272,19 +272,17 @@ function observeShortcutChange() {
   }
 
   const observer = new MutationObserver(function () {
+    // 変更検知の無限ループ回避
+    observer.disconnect();
     // 動的生成キーボードショートカットパネル要素の先祖 class (TODO 要検討)
     const targetShortcut = document.querySelector(
       'div.keyboard_shortcut_panel--keyboardShortcutPanel--2UT6R'
     );
     if (targetShortcut) {
-      // 変更検知の無限ループ回避
-      observer.disconnect();
-
       // キーボードショートカットパネル生成検知時に翻訳する
       translateShortcut();
-
-      observer.observe(target, config);
     }
+    observer.observe(target, config);
   });
   observer.observe(target, config);
 }
