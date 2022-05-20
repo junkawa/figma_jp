@@ -6,9 +6,9 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [master]
-  schedule:
+  # schedule:
     # JST 6:00 Thu
-    - cron: '0 21 * * 3' # UTC 21:00 Wed
+    # - cron: '0 21 * * 3' # UTC 21:00 Wed
 
 jobs:
   build:
